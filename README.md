@@ -1,8 +1,8 @@
 # Babysitter Finder ![Status badge](https://img.shields.io/badge/status-in%20progress-yellow)
 
 <div align="center">
-  <img 
-    src="https://res.cloudinary.com/abdiel8real/image/upload/v1596045225/neobit/logoBlack_2x_kwp4o7.png">
+  <!-- <img 
+    src="https://res.cloudinary.com/abdiel8real/image/upload/v1596045225/neobit/logoBlack_2x_kwp4o7.png"> -->
 </div>
 
 Babysitter finder is a project that offers you the babysitter service, through science and astheroids study.

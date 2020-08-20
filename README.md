@@ -51,8 +51,6 @@ The staff:
 
 - **[Abdiel Ortega][abdiel_github]** _(Frontend Developer and Interface designer)_
 - **[Angel Estrada][angel_github]** _(Interface designer)_
-- **[Mario Fernandez][mario_github]** _(Frontend Developer and Interface designer)_
-- **[Pablo Corredor][joshua_github]** _(Frontend Developer and Interface designer)_
 
 This project exists thanks to  [Platzi](https://platzi.com/).
 
@@ -76,7 +74,6 @@ The design system and the rest of the documentation can be found in [Notion](htt
 - [Design System Course](https://platzi.com/clases/sistemas-diseno/)
 
 [angel_github]: https://github.com/ricardoares1989
-[mario_github]: https://github.com/mariuscaribe
 [abdiel_github]: https://github.com/abdieljortega
 [backend_project]: https://github.com/babysitter-finder/backend
 [frontend_project]: https://github.com/babysitter-finder/frontend

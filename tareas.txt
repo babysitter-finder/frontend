@@ -1,0 +1,14 @@
+configurado
+
+react
+babel
+webpack
+gitignote
+
+
+falta:
+
+css
+sass
+eslint
+pretier

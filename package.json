@@ -1,0 +1,40 @@
+{
+  "name": "hisitter",
+  "version": "1.0.0",
+  "description": "Proyecto de Plazti master, aplicativo que te ayuda con la busqueda de niñera para el cuidado de tu hijo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": " webpack --mode production",
+    "start": "webpack-dev-server --open --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/babysitter-finder/frontend.git"
+  },
+  "keywords": [
+    "Platzi",
+    "React"
+  ],
+  "author": "Team mcdevs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/babysitter-finder/frontend/issues"
+  },
+  "homepage": "https://github.com/babysitter-finder/frontend#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "html-loader": "^1.3.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

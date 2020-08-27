@@ -24,7 +24,7 @@ Babysitter finder is a project that offers you the babysitter service, through s
 ```
 4. Run it locally
 ```bash
-  npm run dev
+  npm run start
 ```
 
 ## 🔧 Built with

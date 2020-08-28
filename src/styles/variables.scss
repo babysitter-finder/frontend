@@ -1,7 +1,57 @@
 /*------------------------------------------------*\
-                    $colors
+                    $VARIABLES
 \---------------------------------------------------*\
 
 /* here we define the variables that will be used */
 
+/* imports fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Overlock:wght@700;900&family=Roboto:wght@300;400&display=swap");
+
 /*branding Colors  */
+$color-Primary-Blue: #87e0f0;
+$color-Primary-Pink: #f09ec3;
+$color-Secondary-Yellow: #f0e26e;
+$color-Secondary-Green: #98ee98;
+$color-Positive: #75cf75;
+$color-Warning: #f5e98c;
+$color-Negative: #f58c8c;
+$color-White: #effdff;
+$color-Black: #203f45;
+$color-Background: #f9f9f9;
+$color-Primary-Lightest: #fce8f1;
+$color-Pink-degrade: linear-gradient(#ffffff, #f5b5d2);
+$color-Pink-light: #f5b5d2;
+$color-Pink-Darkest: #4d2637;
+$color-Blue-dark: #5599a6;
+$color-Blue-Background: #b5ebf5;
+$color-Background-Container: #f8f5f5;
+
+/*-----FONTS-----*/
+$font-Family-Overlock: "Overlock", cursive;
+$font-Family-Roboto: "Roboto", sans-serif;
+
+/*--- TITLES ---*/
+
+@each $header, $size in (h1, 52), (h2, 38), (h3, 32), (h4, 28), (h5, 24) {
+  #{$header} {
+    font-size: $size;
+    font-weight: 900;
+    font-family: $font-Family-Overlock;
+  }
+}
+
+/*--- CONTENT ---*/
+
+@each $type_text, $size,
+  $weight in ("Emphasis", 18, 400) ("Paragraph", 18, 100) ("Small", 16, 300)
+{
+  .#{$type_text} {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $font-Family-Roboto;
+  }
+}
+
+/*---- EFFECTS ---*/
+
+$value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);

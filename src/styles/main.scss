@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+/**
+ * All files to be compiled
+ */
+
+/**
+ * Variables
+ **/
+@import "variables";
+
+/**
+ * Animations
+ **/
+@import "Animations/index.scss";
+
+/**
+ * COMPONENTS
+ **/
+
+/* Atoms*/
+@import "Components/Atoms/";
+
+/*Molecules*/
+@import "Components/Molecules/";
+
+/*Organisms*/
+@import "Components/Organisms/";
+
+/**
+ * CONTAINERS
+ **/
+
+@import "containers/";
+
+/**
+ * LAYOUTS
+ **/
+
+@import "layouts/";

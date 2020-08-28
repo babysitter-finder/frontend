@@ -64,6 +64,7 @@
       "no-multiple-empty-lines": "error",
       "object-curly-spacing": ["error", "always"],
       "react/jsx-curly-spacing": ["error", { "when": "always" }],
-      "react/jsx-tag-spacing": "error"
+      "react/jsx-tag-spacing": "error",
+      "react/no-unknown-property": "off"
     }
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import Button from '../components/atoms/Button';
 import { createBrowserHistory } from 'history';
 import '../styles/main.scss';
+import StarsRate from '../components/atoms/StarsRate';
 
 const App = () => {
   return (
     <Router history={ createBrowserHistory() }>
       <Switch>
         <Route exact path="/">
-          <Button text="Type me" className="button-pink" />
+          <StarsRate rate={ 2.4 } />
         </Route>
       </Switch>
     </Router>

@@ -63,7 +63,6 @@
       "key-spacing": ["error", { "beforeColon": false }],
       "no-multiple-empty-lines": "error",
       "object-curly-spacing": ["error", "always"],
-      "object-curly-newline": ["error", { "minProperties": 4 }],
       "react/jsx-curly-spacing": ["error", { "when": "always" }],
       "react/jsx-tag-spacing": "error"
     }

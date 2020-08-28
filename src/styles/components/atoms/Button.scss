@@ -1,0 +1,29 @@
+.button {
+  background-color: $color-Primary-Blue;
+  padding: $space-small $space-medium;
+  border-radius: 40px;
+  border: solid $color-Black;
+  color: $color-Black;
+  font-family: $font-Family-Roboto;
+  font-size: 18px;
+  &-blue {
+    @extend .button;
+    background-color: $color-Primary-Blue;
+  }
+  &-pink {
+    @extend .button;
+    background-color: $color-Primary-Pink;
+  }
+  &-yellow {
+    @extend .button;
+    background-color: $color-Warning;
+  }
+  &-red {
+    @extend .button;
+    background-color: $color-Negative;
+  }
+  &-green {
+    @extend .button;
+    background-color: $color-Positive;
+  }
+}

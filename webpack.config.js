@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
@@ -5,24 +6,18 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('./dist'),
     filename: 'app.js',
   },
-  devServer: {
-    historyApiFallback: true,
-  },
-  resolve: {
-    extensions: ['.jsx', '.js'],
-  },
+  devServer: { historyApiFallback: true },
+  resolve: { extensions: ['.jsx', '.js'] },
   module: {
     rules: [
       {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'babel-loader'
-          }
+          'babel-loader',
         ],
       },
       {

@@ -1,0 +1,68 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "commonjs": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "single",
+        { "allowTemplateLiterals": true }
+      ],
+      "func-style": [
+        "error",
+        "expression"
+      ],
+      "no-multi-spaces": [
+        "error",
+        {
+          "ignoreEOLComments": false
+        }
+      ],
+      "no-mixed-spaces-and-tabs": "error",
+      "no-var": "error",
+      "no-console": "warn",
+      "comma-dangle": [
+        "error",
+        {
+          "objects": "only-multiline",
+          "arrays": "only-multiline"
+        }
+      ],
+      "comma-spacing": ["error", {
+        "before": false,
+        "after": true
+      }],
+      "no-debugger": "error",
+      "no-empty": "error",
+      "no-alert": "error",
+      "no-unexpected-multiline": "error",
+      "eqeqeq": "error",
+      "no-undef": "error",
+      "no-unused-vars": "error",
+      "no-use-before-define": "error",
+      "capitalized-comments": "warn",
+      "camelcase": "error",
+      "indent": ["error", 2],
+      "jsx-quotes": ["error", "prefer-double"],
+      "key-spacing": ["error", { "beforeColon": false }],
+      "no-multiple-empty-lines": "error",
+      "object-curly-spacing": ["error", "always"],
+      "object-curly-newline": ["error", { "minProperties": 2 }]
+    }
+}

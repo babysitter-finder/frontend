@@ -8,34 +8,34 @@
 /**
  * Variables
  **/
-@import "variables";
+@import "./variables";
 
 /**
  * Animations
  **/
-@import "Animations/index.scss";
+@import "./animations/index.scss";
 
 /**
  * COMPONENTS
  **/
 
 /* Atoms*/
-@import "Components/Atoms/";
+@import "./components/atoms/Button.scss";
 
 /*Molecules*/
-@import "Components/Molecules/";
+// @import "./components/molecules/";
 
 /*Organisms*/
-@import "Components/Organisms/";
+// @import "./components/organisms/";
 
 /**
  * CONTAINERS
  **/
 
-@import "containers/";
+// @import "./containers/";
 
 /**
  * LAYOUTS
  **/
 
-@import "layouts/";
+// @import "./layouts/";

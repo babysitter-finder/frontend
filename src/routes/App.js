@@ -3,14 +3,13 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import '../styles/main.scss';
 import StarsRate from '../components/atoms/StarsRate';
-import StarsRating from '../components/atoms/StarsRating';
 
 const App = () => {
   return (
     <Router history={ createBrowserHistory() }>
       <Switch>
         <Route exact path="/">
-          <StarsRating />
+          <StarsRate rate={ 2.4 } />
         </Route>
       </Switch>
     </Router>

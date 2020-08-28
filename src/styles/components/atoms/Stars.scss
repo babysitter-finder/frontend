@@ -56,6 +56,14 @@
   }
 }
 
+.stars {
+  display: flex;
+  align-items: center;
+  & h3 {
+    margin-right: 24px;
+  }
+}
+
 .starsRate {
   &[data-stars] {
     .star {

@@ -6,6 +6,12 @@
   color: $color-Black;
   font-family: $font-Family-Roboto;
   font-size: 18px;
+  outline: none;
+  cursor: pointer;
+  &:hover{
+    box-shadow: $value-shadow-Box;
+  }
+  
   &-blue {
     @extend .button;
     background-color: $color-Primary-Blue;

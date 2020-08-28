@@ -32,7 +32,7 @@ $font-Family-Roboto: "Roboto", sans-serif;
 
 /*--- TITLES ---*/
 
-@each $header, $size in (h1, 52), (h2, 38), (h3, 32), (h4, 28), (h5, 24) {
+@each $header, $size in (h1, 52px), (h2, 38px), (h3, 32px), (h4, 28px), (h5, 24px) {
   #{$header} {
     font-size: $size;
     font-weight: 900;
@@ -43,7 +43,7 @@ $font-Family-Roboto: "Roboto", sans-serif;
 /*--- CONTENT ---*/
 
 @each $type_text, $size,
-  $weight in ("Emphasis", 18, 400) ("Paragraph", 18, 100) ("Small", 16, 300)
+  $weight in ("Emphasis", 18px, 400) ("Paragraph", 18px, 100) ("Small", 16px, 300)
 {
   .#{$type_text} {
     font-size: $size;

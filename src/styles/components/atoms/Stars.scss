@@ -1,0 +1,95 @@
+.starsRating {
+  cursor: pointer;
+  display: flex;
+  &:hover {
+    .starRating path {
+      fill: $color-Secondary-Yellow !important;
+    }
+  }
+
+  .starRating {
+    path {
+      fill: #d8d8d8;
+    }
+
+    &:hover ~ .starRating {
+      path {
+        fill: #d8d8d8 !important;
+      }
+    }
+  }
+
+  &[data-stars] {
+    .starRating path {
+      fill: $color-Secondary-Yellow;
+    }
+  }
+
+  &[data-stars="1"] {
+    .starRating:nth-child(1) ~ .starRating path {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="2"] {
+    .starRating:nth-child(2) ~ .starRating path {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="3"] {
+    .starRating:nth-child(3) ~ .starRating path {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="4"] {
+    .starRating:nth-child(4) ~ .starRating path {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="5"] {
+    .starRating:nth-child(5) ~ .starRating path {
+      fill: #d8d8d8;
+    }
+  }
+}
+
+.starsRate {
+  &[data-stars] {
+    .star {
+      fill: $color-Secondary-Yellow;
+    }
+  }
+
+  &[data-stars="1"] {
+    .star:nth-child(1) ~ .star {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="2"] {
+    .star:nth-child(2) ~ .star {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="3"] {
+    .star:nth-child(3) ~ .star {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="4"] {
+    .star:nth-child(4) ~ .star {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="5"] {
+    .star:nth-child(5) ~ .star {
+      fill: #d8d8d8;
+    }
+  }
+}

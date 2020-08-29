@@ -1,4 +1,5 @@
 .button {
+  display: inline-block;
   background-color: $color-Primary-Blue;
   padding: $space-small $space-medium;
   border-radius: 40px;
@@ -6,6 +7,7 @@
   color: $color-Black;
   font-family: $font-Family-Roboto;
   font-size: 18px;
+  text-decoration: none;
   &-blue {
     @extend .button;
     background-color: $color-Primary-Blue;

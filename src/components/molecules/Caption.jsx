@@ -6,7 +6,7 @@ const Caption = ({ name, image }) => {
   return (
     <div className="caption">
       <img src={ image ?? photo } alt="Profile picture" />
-      <h2>{ name }</h2>
+      <h2>{ name ?? 'Jessica Ramirez' }</h2>
     </div>
   );
 };

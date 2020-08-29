@@ -1,0 +1,21 @@
+.popupDeleteUser {
+  display: inline-block;
+  text-align: center;
+  padding: $space-medium;
+  border: 1px solid #000;
+  background-color: $color-Background-Container;
+  border-radius: 20px;
+  h2 {
+    margin-bottom: $space-medium;
+  }
+  .popupDeleteUser-label {
+    margin-right: 60px;
+    min-width: 140px;
+  }
+  .input {
+    display: block;
+    width: auto;
+    
+    margin-bottom: $space-medium;
+  }
+}

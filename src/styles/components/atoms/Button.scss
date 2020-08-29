@@ -8,6 +8,8 @@
   font-family: $font-Family-Roboto;
   font-size: 18px;
   text-decoration: none;
+  outline: none;
+  cursor: pointer;
   &-blue {
     @extend .button;
     background-color: $color-Primary-Blue;
@@ -27,5 +29,16 @@
   &-green {
     @extend .button;
     background-color: $color-Positive;
+  }
+}
+
+.buttons {
+  display: inline-block;
+  text-align: center;
+  & a, button {
+    margin-right: $space-extraLarge;
+  }
+  & a:last-child, button:last-child {
+    margin-right: 0;
   }
 }

@@ -9,14 +9,4 @@
   h1 {
     margin-bottom: $space-extraLarge;
   }
-  & .buttons {
-    display: inline-block;
-    text-align: center;
-    & a {
-      margin-right: $space-extraLarge;
-    }
-    & a:last-child {
-      margin-right: 0;
-    }
-  }
 }

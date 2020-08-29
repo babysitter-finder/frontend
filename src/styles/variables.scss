@@ -37,6 +37,11 @@ $font-Family-Roboto: "Roboto", sans-serif;
   font-family: $font-Family-Roboto;
 }
 
+@mixin h2 {
+  font-size: 38px;
+  font-family: $font-Family-Overlock;
+}
+
 /*--- TITLES ---*/
 
 @each $header, $size in (h1, 52px), (h2, 38px), (h3, 32px), (h4, 28px), (h5, 24px) {

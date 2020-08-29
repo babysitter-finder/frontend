@@ -27,8 +27,15 @@ $color-Blue-Background: #b5ebf5;
 $color-Background-Container: #f8f5f5;
 
 /*-----FONTS-----*/
+
 $font-Family-Overlock: "Overlock", cursive;
 $font-Family-Roboto: "Roboto", sans-serif;
+
+@mixin paragraph {
+  font-size: 16px;
+  color: $color-Black;
+  font-family: $font-Family-Roboto;
+}
 
 /*--- TITLES ---*/
 

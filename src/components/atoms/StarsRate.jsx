@@ -5,7 +5,6 @@ const StarsRate = ({ rate }) => {
   const rateFixed = Math.floor(rate);
   const rateDecimals = rate.toFixed(1).toString().split('.')[1];
   const starsNumber = [1, 2, 3, 4, 5];
-  console.log(rateFixed);
   useEffect(() => {
     const stars = document.querySelector('.starsRate');
     stars.setAttribute('data-stars', rateFixed);

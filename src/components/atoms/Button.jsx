@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({ text, className }) => (
-  <button className={ className } type="button">{ text }</button>
+  <button className={ className ?? 'button-blue' } type="button">{ text ?? 'Type me' }</button>
 );
 
 Button.propTypes = {

@@ -1,0 +1,13 @@
+.dialog-transparent {
+  display: inline-block;
+  padding: $space-large;
+  border: solid 1px #000;
+  border-radius: 40px;
+  background-color: rgba($color: #c4c4c4, $alpha: 0.1);
+  text-align: center;
+  box-shadow: $value-shadow-Box;
+  box-sizing: border-box;
+  & h1 {
+    margin-bottom: $space-medium;
+  }
+}

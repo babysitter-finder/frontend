@@ -1,0 +1,46 @@
+.input {
+  display: flex;
+  align-items: center;
+  width: 305px;
+  & label {
+    margin-right: 16px;
+    font-size: 16px;
+    color: $color-Black;
+    font-family: $font-Family-Roboto;
+  }
+  &::placeholder {
+    padding: calc($space-micro - 5px);
+    font-size: 16px;
+    color: $color-Black;
+    font-family: $font-Family-Roboto;
+  }
+  & input {
+    padding: $space-micro;
+    border: #000 solid 1px;
+    border-radius: 15px;
+    background-color: $color-Blue-Background;
+    box-shadow: $value-shadow-Box;
+    font-size: 16px;
+    color: #000;
+    font-family: $font-Family-Roboto;
+    outline: none;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+  &-alignedLeft {
+    width: 527px;
+    & label {
+      width: 171px;
+    }
+    & input {
+      width: 332px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.caption {
+  display: inline-block;
+  text-align: center;
+  img {
+    min-width: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    min-height: 200px;
+    border: 1px solid #000;
+    border-radius: 100%;
+    margin-bottom: $space-small;
+  }
+}

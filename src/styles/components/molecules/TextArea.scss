@@ -1,0 +1,18 @@
+.textArea {
+  label {
+    display: block;
+    margin-bottom: $space-small;
+    @include paragraph;
+    text-transform: capitalize;
+  }
+  textarea {
+    width: 949px;
+    padding: $space-micro;
+    border: #000 solid 1px;
+    border-radius: 15px;
+    background-color: $color-Blue-Background;
+    box-shadow: $value-shadow-Box;
+    @include paragraph;
+    outline: none;
+  }
+}

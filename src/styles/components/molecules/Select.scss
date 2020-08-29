@@ -1,16 +1,11 @@
-.input {
+.select {
   display: flex;
   align-items: center;
-  width: 305px;
+  @include paragraph;
   & label {
     margin-right: $space-micro;
-    @include paragraph;
   }
-  &::placeholder {
-    padding: calc($space-micro - 5px);
-    @include paragraph;
-  }
-  & input {
+  & select {
     padding: $space-micro;
     border: #000 solid 1px;
     border-radius: 15px;
@@ -18,22 +13,13 @@
     box-shadow: $value-shadow-Box;
     @include paragraph;
     outline: none;
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    &[type=number] {
-      -moz-appearance: textfield;
-    }
   }
   &-alignedLeft {
     width: 527px;
     & label {
       width: 171px;
     }
-    & input {
+    & select {
       width: 332px;
     }
   }

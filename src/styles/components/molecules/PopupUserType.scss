@@ -1,0 +1,22 @@
+.popupUserType {
+  display: inline-block;
+  padding: $space-medium;
+  border: solid 2px #000;
+  border-radius: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: $color-Background-Container;
+  h1 {
+    margin-bottom: $space-extraLarge;
+  }
+  & .buttons {
+    display: inline-block;
+    text-align: center;
+    & a {
+      margin-right: $space-extraLarge;
+    }
+    & a:last-child {
+      margin-right: 0;
+    }
+  }
+}

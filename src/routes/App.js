@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import '../styles/main.scss';
 import Header from '../components/organisms/Header';
-import DialogTransparent from '../components/molecules/DialogTransparent';
+import PopupUserType from '../components/molecules/PopupUserType';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Switch>
         {/* <Header /> */}
         <Route exact path="/">
-          <DialogTransparent header="Bienvenido a Hi Sitter" buttonText="Comenzar" />
+          <PopupUserType />
         </Route>
       </Switch>
     </Router>

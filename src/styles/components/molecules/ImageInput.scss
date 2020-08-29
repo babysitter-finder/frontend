@@ -1,0 +1,32 @@
+.imageInput {
+  position: relative;
+  &-inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  &-inputfile + label {
+    display: inline-block;
+    padding: 96px 35px;
+    border: solid 1px $color-Black;
+    border-radius: 20px;
+    background-color: $color-Blue-Background;
+    color: $color-Black;
+    cursor: pointer;
+    @include h2;
+  }
+  &-preview {
+    display: none;
+    width: 383.64px;
+    height: 232px;
+    border: 1px $color-Black solid;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+}

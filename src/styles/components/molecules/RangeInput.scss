@@ -1,0 +1,108 @@
+.rangeInput {
+  display: inline-block;
+  & label {
+    display: block;
+    margin-bottom: $space-nano;
+    @include paragraph;
+  }
+  & div {
+    display: flex;
+    position: relative;
+    @include paragraph;
+    & p:nth-of-type(2) {
+      position: absolute;
+      right: 0;
+    }
+  }
+  & input {
+    -webkit-appearance: none;
+    background: transparent;
+    margin-bottom: $space-nano;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    &:focus {
+      outline: none;
+    }
+    &::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid $color-Black;
+      height: 23px;
+      width: 25px;
+      border-radius: 100%;
+      background: $color-Blue-Background;
+      cursor: pointer;
+      margin-top: -8px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    &::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid $color-Black;
+      height: 36px;
+      width: 16px;
+      border-radius: 100%;
+      background: $color-Blue-Background;
+      cursor: pointer;
+    }
+    &::-ms-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid $color-Black;
+      height: 36px;
+      width: 16px;
+      border-radius: 3px;
+      background: $color-Blue-Background;
+      cursor: pointer;
+    }
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: $color-Black;
+      border-radius: 1.3px;
+    }
+    &:focus::-webkit-slider-runnable-track {
+      background: $color-Black;
+    }
+    &::-moz-range-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: $color-Black;
+      border-radius: 1.3px;
+    }
+    &::-ms-track {
+      width: 100%;
+      height: 8.4px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      border-width: 16px 0;
+      color: transparent;
+    }
+    &::-ms-fill-lower {
+      background: $color-Black;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    &:focus::-ms-fill-lower {
+      background: $color-Black;
+    }
+    &::-ms-fill-upper {
+      background: $color-Black;
+      border-radius: 2.6px;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+    &:focus::-ms-fill-upper {
+      background: $color-Black;
+    }
+  }
+}

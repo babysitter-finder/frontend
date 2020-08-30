@@ -1,7 +1,8 @@
 .input {
   display: flex;
-  align-items: center;
-  width: 305px;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
   & label {
     margin-right: $space-micro;
     @include paragraph;
@@ -11,6 +12,7 @@
     @include paragraph;
   }
   & input {
+    width: 70%;
     padding: $space-micro;
     border: #000 solid 1px;
     border-radius: 15px;
@@ -29,12 +31,12 @@
     }
   }
   &-alignedLeft {
-    width: 527px;
     & label {
       width: 171px;
+      text-align: left;
     }
     & input {
-      width: 332px;
+      width: 70%;
     }
   }
 }

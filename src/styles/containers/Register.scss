@@ -1,0 +1,48 @@
+.register {
+  width: 80%;
+  display: inline-block;
+  padding: $space-medium;
+  margin-bottom: $space-large;
+  background-color: $color-Background-Container;
+  @include border-black-20;
+  h2 {
+    margin-bottom: $space-medium;
+  }
+  form {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    .left {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      margin-right: $space-medium;
+      div {
+        margin-bottom: $space-medium;
+      }
+    }
+    .right {
+      div {
+        margin-bottom: $space-medium;
+      }
+    }
+    & > div.input {
+      width: 100%;
+      grid-column-start: 1;
+      grid-column-end: -1;
+      margin-bottom: $space-medium;
+      input {
+        width: 80%;
+      }
+    }
+    button {
+      grid-column-start: 1;
+      grid-column-end: -1;
+      justify-self: center;
+    }
+    strong {
+      font-size: 18px;
+      font-family: $font-Family-Roboto;
+      color: $color-Negative;
+    }
+  }
+}

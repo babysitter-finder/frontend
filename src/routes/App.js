@@ -2,16 +2,17 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import '../styles/main.scss';
-import Header from '../components/organisms/Header';
+import Layout from '../layouts/Layout';
+import Login from '../containers/Login';
 
 const App = () => {
   return (
     <Router history={ createBrowserHistory() }>
-      <Switch>
-        <Header />
-        <Route exact path="/">
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={ Login } />
+        </Switch>
+      </Layout>
     </Router>
   );
 };

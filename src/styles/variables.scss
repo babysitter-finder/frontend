@@ -55,7 +55,7 @@ $font-Family-Roboto: "Roboto", sans-serif;
 /*--- CONTENT ---*/
 
 @each $type_text, $size,
-  $weight in ("Emphasis", 18px, 400) ("Paragraph", 18px, 100) ("Small", 16px, 300)
+  $weight in (strong, 18px, 400) (p, 18px, 100) (small, 16px, 300)
 {
   .#{$type_text} {
     font-size: $size;
@@ -75,3 +75,8 @@ $space-extraLarge: 160px;
 /*---- EFFECTS ---*/
 
 $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+@mixin border-black-20 {
+  border: 1px solid #000;
+  border-radius: 20px;
+}

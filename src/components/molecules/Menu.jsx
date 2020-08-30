@@ -6,7 +6,7 @@ const Menu = ({ user }) => {
   return (
     <nav className="menu">
       <ul>
-        { user ?
+        {Object.keys(user ?? {}) ?
           <>
             <li><a href=""><h3>Registro</h3></a></li>
             <li><a href=""><h3>Iniciar sesión</h3></a></li>

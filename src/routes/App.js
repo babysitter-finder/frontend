@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import '../styles/main.scss';
 import Layout from '../layouts/Layout';
 import Login from '../containers/Login';
+import Congratulations from '../components/molecules/Congratulations';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Layout>
         <Switch>
           <Route exact path="/" component={ Login } />
+          <Route exact path="/Complete" component={ Congratulations } />
         </Switch>
       </Layout>
     </Router>

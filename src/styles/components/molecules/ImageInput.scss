@@ -9,6 +9,7 @@
     z-index: -1;
   }
   &-inputfile + label {
+    width: 100%;
     display: inline-block;
     padding: 96px 35px;
     border: solid 1px $color-Black;
@@ -16,11 +17,12 @@
     background-color: $color-Blue-Background;
     color: $color-Black;
     cursor: pointer;
+    box-sizing: border-box;
     @include h2;
   }
   &-preview {
     display: none;
-    width: 383.64px;
+    width: 100%;
     height: 232px;
     border: 1px $color-Black solid;
     border-radius: 20px;

@@ -1,9 +1,9 @@
-import { LOGIN_USER, LOADING, ERROR } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, REGISTER_USER } from '../types/usersTypes';
 
 const INITIAL_STATE = {
   user: {},
   loading: false,
-  error: ''
+  error: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,6 +12,12 @@ export default (state = INITIAL_STATE, action) => {
     return {
       ...state,
       user: action.payload,
+      loading: false,
+      error: ''
+    };
+  case REGISTER_USER:
+    return {
+      ...state,
       loading: false,
       error: ''
     };

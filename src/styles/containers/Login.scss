@@ -1,0 +1,29 @@
+.login {
+  display: inline-flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: $space-large;
+  margin-bottom: $space-large;
+  background-color: $color-Background-Container;
+  @include border-black-20;
+  h2 {
+    margin-bottom: $space-large;
+  }
+  form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    * {
+      margin-bottom: $space-medium;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    strong {
+      font-size: 18px;
+      font-family: $font-Family-Roboto;
+      color: $color-Negative;
+    }
+  }
+}

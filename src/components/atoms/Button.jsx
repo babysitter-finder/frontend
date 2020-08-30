@@ -6,7 +6,7 @@ const Button = ({ text, className }) => (
 );
 
 Button.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   text: PropTypes.string.isRequired
 }
 

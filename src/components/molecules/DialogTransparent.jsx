@@ -1,13 +1,21 @@
 import React from 'react';
-import Button from '../atoms/Button';
 import PropTypes from 'prop-types';
+import Background from '../../assets/background.jpg';
+import '../../styles/animations/index.scss';
+import { Link } from 'react-router-dom';
 
-const DialogTransparent = ({ header, buttonText }) => {
+const DialogTransparent = ({ header }) => {
+  
   return (
-    <div className="dialog-transparent">
-      <h1>{ header ?? 'Bienvenido a Hi Sitter'}</h1>
-      <Button className="button-blue" text={ buttonText } />
+    <div className="containerLanding">
+      <img src={ Background } />
+      <div className="dialog-transparent fadeInUp">
+        <h1>{ header ?? 'Bienvenido a Hi Sitter'}</h1>
+        <Link to="/register" className="button-blue"> Comenzar</Link>
+        
+      </div>
     </div>
+    
   );
 };
 

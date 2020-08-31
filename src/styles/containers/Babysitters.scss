@@ -1,0 +1,16 @@
+.babysitters-container {
+  .title {
+    padding: $space-medium;
+    margin-bottom: $space-large;
+    background-color: $color-Background-Container;
+    @include border-black-20;
+  }
+  .babysitterList {
+    margin-bottom: $space-large;
+  }
+  .babysittersLists-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding-bottom: $space-large;
+  }
+}

@@ -44,6 +44,7 @@
 
 /*Organisms*/
 @import "./components/organisms/Header.scss";
+@import "./components/organisms/BabysitterList.scss";
 
 /**
  * CONTAINERS
@@ -52,6 +53,7 @@
 @import "./containers/Login.scss";
 @import "./containers/Register.scss";
 @import "./containers/Email.scss";
+@import "./containers/Babysitters.scss";
 
 /**
  * LAYOUTS

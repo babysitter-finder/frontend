@@ -59,7 +59,6 @@ export const getBabysittersLocation = () => async (dispatch, getState) => {
       const data = response.data.results[0].geometry.location
       return data;
     }));
-    console.log(locationsData)
     
     dispatch({
       type: GET_BABYSITTERS_LOCATION,

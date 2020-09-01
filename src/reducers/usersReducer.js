@@ -1,4 +1,4 @@
-import { LOGIN_USER, LOADING, ERROR, REGISTER_USER } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER } from '../types/usersTypes';
 
 const INITIAL_STATE = {
   user: {},
@@ -9,6 +9,13 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case LOGIN_USER:
+    return {
+      ...state,
+      user: action.payload,
+      loading: false,
+      error: ''
+    };
+  case LOGOUT_USER:
     return {
       ...state,
       user: action.payload,

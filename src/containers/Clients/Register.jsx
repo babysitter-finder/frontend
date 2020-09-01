@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { registerUser } from '../actions/usersActions';
+import { registerUser } from '../../actions/usersActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ImageInput from '../components/molecules/ImageInput';
+import ImageInput from '../../components/molecules/ImageInput';
 
 const Register = ({ error, registerUser }) => {
   const [form, setValues] = useState({

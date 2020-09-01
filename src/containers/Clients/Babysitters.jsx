@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import BabysitterList from '../components/organisms/BabysitterList';
-import BabysittersMap from '../components/molecules/BabysittersMap';
+import BabysitterList from '../../components/organisms/BabysitterList';
+import BabysittersMap from '../../components/molecules/BabysittersMap';
 import PropTypes from 'prop-types';
-import { getBabysitters, getBabysittersLocation } from '../actions/babysittersActions';
+import { getBabysitters, getBabysittersLocation } from '../../actions/babysittersActions';
 import { connect } from 'react-redux';
 
 const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, locations, loading }) => {

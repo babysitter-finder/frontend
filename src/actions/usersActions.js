@@ -36,7 +36,8 @@ export const registerUser = ( form ) => async (dispatch) => {
     const response = await axios({
       'method': 'post',
       'url': 'https://hisitter.xyz/users/signup/',
-      data: form
+      data: form,
+      'headers': { 'Authorization': '' }
     });
     const { data } = response;
     window.location.href = '/email';

@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 const BabysitterMiniCard = ({ user }) => {
   return (
     <Link to={ `/user/${user.username}` } className="babysitterMiniCard">
-      <img src={ user?.image ?? photo } alt="" />
+      <img src={ user?.picture ?? photo } alt="" />
       <div className="babysitterMiniCard-info">
-        <h4>{ user?.name ?? 'Jessica Ramirez' }</h4>
-        <StarsRate rate={ user?.rate ?? 3.5 } />
+        <h4>{ user?.first_name ?? 'Jessica Ramirez' }</h4>
+        <StarsRate rate={ parseFloat(user?.reputation) ?? 3.5 } />
       </div>
     </Link>
   );

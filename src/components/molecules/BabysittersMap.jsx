@@ -1,6 +1,7 @@
 import React from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
-import { compose, withProps } from 'recompose'
+import { compose, withProps } from 'recompose';
+
 
 const BabysittersMap = compose(
   withProps({
@@ -11,15 +12,20 @@ const BabysittersMap = compose(
   }),
   withScriptjs,
   withGoogleMap
-)((props) =>
-  <div className="babysittersMap">
-    <GoogleMap
-      defaultZoom={ 15 }
-      defaultCenter={ { lat: 21.855556, lng: -102.266606 } }
-    >
-      {props.isMarkerShown && <Marker position={ { lat: 21.855556, lng: -102.266606 } } />}
-    </GoogleMap>
-  </div>
-)
+)((props) => {
+
+  return (
+    <div className="babysittersMap">
+      <GoogleMap
+        defaultZoom={ 15 }
+        defaultCenter={ props.locations[0] }
+      >
+        {props.isMarkerShown && props.locations.map((location, index) => (
+          <Marker key={ index } position={ location } />
+        ))}
+      </GoogleMap>
+    </div>
+  )
+});
 
 export default BabysittersMap;

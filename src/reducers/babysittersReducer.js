@@ -1,10 +1,11 @@
-import { LOADING, ERROR, GET_BABYSITTERS } from '../types/babysittersTypes';
+import { LOADING, ERROR, GET_BABYSITTERS, GET_BABYSITTERS_LOCATION } from '../types/babysittersTypes';
 
 const INITIAL_STATE = {
   user: {},
   loading: false,
   error: '',
-  babysitters: []
+  babysitters: [],
+  locations: []
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -15,6 +16,13 @@ export default (state = INITIAL_STATE, action) => {
       loading: false,
       error: '',
       babysitters: action.payload
+    };
+  case GET_BABYSITTERS_LOCATION:
+    return {
+      ...state,
+      loading: false,
+      error: '',
+      locations: action.payload
     };
   case LOADING:
     return {

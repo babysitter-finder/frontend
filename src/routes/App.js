@@ -6,9 +6,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layouts/Layout';
 import Login from '../containers/Login';
-import Register from '../containers/Clients/Register';
+import Register from '../containers/clients/Register';
 import Email from '../containers/Email';
-import Babysitters from '../containers/Clients/Babysitters';
+import Babysitters from '../containers/clients/Babysitters';
+import BabysitterDetail from '../containers/clients/BabysitterDetail';
 
 const App = ({ user }) => {
   const isLogged = (Object.keys(user).length > 0);
@@ -17,8 +18,9 @@ const App = ({ user }) => {
       <Layout isLogged={ isLogged }>
         <Switch>
           <Route exact path="/" component={ isLogged ? Babysitters : Login } />
-          <Route exact path="/register" component={ isLogged ? Babysitters : Register } />
           <Route exact path="/email" component={ Email } />
+          <Route exact path="/register" component={ Register } />
+          <Route exact path="/babysitter" component={ isLogged ? BabysitterDetail : Login } />
         </Switch>
       </Layout>
     </Router>

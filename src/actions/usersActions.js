@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER } from '../types/usersTypes';
-import { useHistory } from 'react-router-dom';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -21,7 +20,7 @@ export const loginUser = ( form ) => async (dispatch) => {
       type: LOGIN_USER,
       payload: data.user
     });
-    useHistory().push = '/';
+    window.location.href = '/';
   } catch (error) {
     dispatch({
       type: ERROR,

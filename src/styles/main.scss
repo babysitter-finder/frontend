@@ -51,9 +51,10 @@
  **/
 
 @import "./containers/Login.scss";
-@import "./containers/Register.scss";
+@import "./containers/clients/Register.scss";
 @import "./containers/Email.scss";
-@import "./containers/Babysitters.scss";
+@import "./containers/clients/Babysitters.scss";
+@import "./containers/clients/Babysitter.scss";
 
 /**
  * LAYOUTS

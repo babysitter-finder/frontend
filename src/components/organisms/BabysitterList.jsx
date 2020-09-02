@@ -7,7 +7,7 @@ const BabysitterList = ({ babysitters }) => {
     <div className="babysitterList">
       {
         babysitters.map(babysitter => (
-          <BabysitterMiniCard key={ babysitter.username } user={ babysitter } />
+          <BabysitterMiniCard key={ babysitter.username } babysitter={ babysitter } />
         ))
       }
     </div>

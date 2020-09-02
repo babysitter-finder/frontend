@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import photo from '../../assets/girl.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/usersActions';
 
@@ -49,4 +49,4 @@ const mapDispatchToProps = {
   logoutUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu));

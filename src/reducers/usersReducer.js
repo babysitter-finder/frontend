@@ -1,7 +1,19 @@
 import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER } from '../types/usersTypes';
+import getCookie from '../utils/getCookie';
+
+const token = getCookie('token');
+const username = getCookie('username');
+const name = getCookie('name');
+const email = getCookie('email');
+
+const user = token ? {
+  username,
+  name,
+  email
+} : {};
 
 const INITIAL_STATE = {
-  user: {},
+  user,
   loading: false,
   error: '',
 };

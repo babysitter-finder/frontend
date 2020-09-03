@@ -1,16 +1,46 @@
 import React from 'react';
+import photo from '../../assets/girl.jpeg';
+import StarsRate from '../../components/atoms/StarsRate';
+import AvailabilityInput from '../../components/molecules/AvailabilityInput';
+import { Link } from 'react-router-dom';
 
-const Babysitter = () => {
+const BabysitterDetail = () => {
   return (
-    <div className="babysitter-details">
-      <div className="image-container">
-        <img src="" alt="" />
-      </div>
-      <div>
-        <h3>Jessica Ramirez</h3>
-      </div>
+    <div className="babysitter">
+      <section className="babysitter-details">
+        <div className="image-container">
+          <img src={ photo } alt="Profile picture" />
+        </div>
+        <div className="details-info">
+          <h3>Jessica Ramirez</h3>
+          <h3>Edad - 24</h3>
+          <StarsRate rate="3.0" />
+        </div>
+      </section>
+      <section className="babysitter-about">
+        <div className="about-container">
+          <div className="textArea">
+            <label htmlFor="about">Acerca de mí:</label>
+            <textarea name="about" id="about" rows="10" disabled>dasdas</textarea>
+          </div>
+          <div className="textArea">
+            <label htmlFor="studies">Estudios:</label>
+            <textarea name="studies" id="studies" rows="10" disabled>dasdas</textarea>
+          </div>
+        </div>
+        <div className="price">
+          <h3>$120.00 / Hora</h3>
+          <Link type="button" className="button-highlight">Contratar</Link>
+        </div>
+      </section>
+      <section className="babysitter-availability">
+        <div className="availability-container">
+          <h4>Disponibilidad horaria</h4>
+          <AvailabilityInput />
+        </div>
+      </section>
     </div>
   );
 };
 
-export default Babysitter;
+export default BabysitterDetail;

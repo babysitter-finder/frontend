@@ -1,9 +1,15 @@
 .availabilityInput {
   @include paragraph;
-  color: #000;
-  border: 1px solid black;
+  color: $color-Black;
   border-radius: 20px;
   border-collapse: separate;
+  box-shadow: $value-shadow-Box;
+  & th {
+    background-color: $color-Background-Form-Button;
+  }
+  & tr:nth-child(even) {
+    background-color: $color-Background-Form-Button;
+  }
   & tr:first-child th:first-child {
     border-top-left-radius: 20px;
   }
@@ -16,8 +22,10 @@
   & tr:last-child td:last-child {
       border-bottom-right-radius: 20px;
   }
+  & tr:last-child td {
+    border-bottom: none;
+  }
   & th, td {
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-collapse: collapse;
     padding: $space-nano 0;
@@ -26,6 +34,7 @@
     min-width: 75px;
     padding-right: 32px;
     padding-left: $space-small;
+    text-align: left;
   }
   & td:last-child {
     padding-right: $space-small;
@@ -45,7 +54,7 @@
   }
   &-mini {
     @include paragraph;
-    color: #000;
+    color: $color-Black;
     border: 1px solid black;
     & td:first-child {
       min-width: 42px;

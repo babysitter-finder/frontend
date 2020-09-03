@@ -12,11 +12,12 @@ $color-Primary-Blue: #87e0f0;
 $color-Primary-Pink: #f09ec3;
 $color-Secondary-Yellow: #f0e26e;
 $color-Secondary-Green: #98ee98;
+$color-Brown-Main: #F3D2C1;
 $color-Positive: #75cf75;
 $color-Warning: #f5e98c;
 $color-Negative: #f58c8c;
 $color-White: #effdff;
-$color-Black: #203f45;
+$color-Black: #001858;
 $color-Background: #f9f9f9;
 $color-Primary-Lightest: #fce8f1;
 $color-Pink-degrade: linear-gradient(#ffffff, #f5b5d2);
@@ -24,7 +25,10 @@ $color-Pink-light: #f5b5d2;
 $color-Pink-Darkest: #4d2637;
 $color-Blue-dark: #5599a6;
 $color-Blue-Background: #b5ebf5;
-$color-Background-Container: #f8f5f5;
+$color-Background-Container: #FEF6E4;
+$color-Background-Section: #FFFFFE;
+$color-Background-Elements: #FEF6E4;
+$color-Background-Form-Button: #E8CDBC;
 
 /*-----FONTS-----*/
 
@@ -49,6 +53,7 @@ $font-Family-Roboto: "Roboto", sans-serif;
     font-size: $size;
     font-weight: 900;
     font-family: $font-Family-Overlock;
+    color: $color-Black;
   }
 }
 
@@ -76,7 +81,27 @@ $space-extraLarge: 160px;
 
 $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+/*---- DEFAULT STYLES ---*/
+
 @mixin border-black-20 {
-  border: 1px solid #000;
+  border: 1px solid $color-Black;
   border-radius: 20px;
+}
+
+@mixin mediumPicture {
+    width: 200px;
+    height: 200px;
+    img {
+      border: 1px solid $color-Black;
+      border-radius: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+}
+
+@mixin containerBrown {
+  border-radius: 20px;
+  background-color: $color-Background-Container;
+  box-shadow: $value-shadow-Box;
 }

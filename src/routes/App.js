@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import '../styles/main.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layouts/Layout';
@@ -20,7 +19,7 @@ const App = ({ user }) => {
           <Route exact path="/" component={ isLogged ? Babysitters : Login } />
           <Route exact path="/email" component={ Email } />
           <Route exact path="/register" component={ Register } />
-          <Route exact path="/babysitter" component={ isLogged ? BabysitterDetail : Login } />
+          <Route exact path="/babysitter/:username" component={ BabysitterDetail } />
         </Switch>
       </Layout>
     </Router>

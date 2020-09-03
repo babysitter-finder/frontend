@@ -13,13 +13,13 @@
     }
     & a {
       text-decoration: none;
-      color: #000;
+      color: $color-Black;
     }
   }
   & img {
     width: 80px;
     height: 80px;
-    border: solid 1px #000;
+    border: solid 1px $color-Black;
     border-radius: 100%;
     object-fit: cover;
     

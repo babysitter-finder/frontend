@@ -7,11 +7,10 @@ import { connect } from 'react-redux';
 
 const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, locations, loading }) => {
   useEffect(() => {
-    const bringData = async () => {
+    (async () => {
       await getBabysitters();
       await getBabysittersLocation();
-    };
-    bringData();
+    })();
   }, [])
 
   return (

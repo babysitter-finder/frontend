@@ -3,7 +3,6 @@
   background-color: $color-Primary-Blue;
   padding: $space-small $space-medium;
   border-radius: 40px;
-  border: solid $color-Black;
   color: $color-Black;
   font-family: $font-Family-Roboto;
   font-size: 18px;
@@ -29,6 +28,11 @@
   &-green {
     @extend .button;
     background-color: $color-Positive;
+  }
+  &-highlight {
+    @extend .button;
+    background-color: $color-Black;
+    color: $color-Background-Elements;
   }
 }
 

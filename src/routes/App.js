@@ -9,6 +9,7 @@ import Register from '../containers/clients/Register';
 import Email from '../containers/Email';
 import Babysitters from '../containers/clients/Babysitters';
 import BabysitterDetail from '../containers/clients/BabysitterDetail';
+import ServiceForm from '../containers/clients/ServiceForm';
 
 const App = ({ user }) => {
   const isLogged = (Object.keys(user).length > 0);
@@ -19,7 +20,8 @@ const App = ({ user }) => {
           <Route exact path="/" component={ isLogged ? Babysitters : Login } />
           <Route exact path="/email" component={ Email } />
           <Route exact path="/register" component={ Register } />
-          <Route exact path="/babysitter/:username" component={ BabysitterDetail } />
+          <Route exact path="/babysitter/:username" component={ isLogged ? BabysitterDetail : Login } />
+          <Route exact path="/service" component={ isLogged ? ServiceForm : Login } />
         </Switch>
       </Layout>
     </Router>

@@ -26,43 +26,43 @@ const AvailabilityInput = ({ mini }) => {
       <tbody>
         <tr>
           <td>Mañana</td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
         </tr>
         <tr>
           <td>Mediodía</td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
         </tr>
         <tr>
           <td>Tarde</td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
         </tr>
         <tr>
           <td>Noche</td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
-          <td><input type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
+          <td><input disabled type="checkbox" /></td>
         </tr>
       </tbody>
     </table>

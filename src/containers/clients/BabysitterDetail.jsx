@@ -21,16 +21,16 @@ const BabysitterDetail = () => {
         <div className="about-container">
           <div className="textArea">
             <label htmlFor="about">Acerca de mí:</label>
-            <textarea name="about" id="about" rows="10" disabled>dasdas</textarea>
+            <textarea name="about" id="about" rows="10" disabled></textarea>
           </div>
           <div className="textArea">
             <label htmlFor="studies">Estudios:</label>
-            <textarea name="studies" id="studies" rows="10" disabled>dasdas</textarea>
+            <textarea name="studies" id="studies" rows="10" disabled></textarea>
           </div>
         </div>
         <div className="price">
           <h3>$120.00 / Hora</h3>
-          <Link type="button" className="button-highlight">Contratar</Link>
+          <Link to="/service" type="button" className="button-highlight">Contratar</Link>
         </div>
       </section>
       <section className="babysitter-availability">

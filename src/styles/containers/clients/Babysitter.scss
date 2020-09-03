@@ -48,16 +48,20 @@
       }
     }
   }
-  .availability-container {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    width: fit-content;
-    padding: $space-medium;
-    margin: 0 auto;
-    @include containerBrown;
-    h4 {
-      margin-bottom: $space-small;
+  .babysitter-availability {
+    padding-bottom: $space-medium;
+    .availability-container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      width: fit-content;
+      padding: $space-medium;
+      margin: 0 auto;
+      @include containerBrown;
+      h4 {
+        margin-bottom: $space-small;
+      }
     }
   }
+
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ServiceInput from '../../components/molecules/ServiceInput';
+import { Link } from 'react-router-dom';
 
 const ServiceForm = () => {
   const [marker, setMarker] = useState({});
@@ -53,8 +54,8 @@ const ServiceForm = () => {
             <div className="right">
               <div className="select">
                 <label htmlFor="genre">Horario:</label>
-                <select name="genre" onChange={ handleInput }>
-                  <option defaultValue disabled="disabled" selected>Selecciona una opción</option>
+                <select name="genre" onChange={ handleInput } defaultValue="">
+                  <option value="" disabled>Selecciona una opción</option>
                   <option value="morning">Mañana</option>
                   <option value="noon">Mediodía</option>
                   <option value="afternoon">Tarde</option>
@@ -76,7 +77,7 @@ const ServiceForm = () => {
             <label htmlFor="about">¿Tienen algún cuidado especial tus hijos?</label>
             <textarea name="about" id="about" rows="10" onChange={ handleInput }></textarea>
           </div>
-          <button className="button-blue" type="submit">Registrar</button>
+          <Link to="/service" className="button-blue">Registrar</Link>
 
           {/* <strong>{ error }</strong> */}
         </form>

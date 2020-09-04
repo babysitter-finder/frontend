@@ -1,0 +1,35 @@
+.serviceResume {
+  padding: $space-medium;
+  &-container {
+    padding: $space-medium;
+    @include containerBrown;
+  }
+  & h1 {
+      margin-bottom: $space-medium;
+  }
+  &-divide {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-left {
+    text-align: left;
+    h3 {
+      margin-bottom: $space-medium;
+    }
+  }
+  h3 {
+    text-align: left;
+    &:first-of-type {
+      margin-bottom: $space-medium;
+    }
+    &:last-of-type {
+      margin-bottom: $space-small;
+    }
+  }
+  p {
+    padding: $space-micro;
+    margin-bottom: $space-medium;
+    text-align: justify;
+    @include containerBrownStrong;
+  }
+}

@@ -30,7 +30,7 @@ const BabysitterDetail = () => {
         </div>
         <div className="price">
           <h3>$120.00 / Hora</h3>
-          <Link to="/service" type="button" className="button-highlight">Contratar</Link>
+          <Link to="/service/new" type="button" className="button-highlight">Contratar</Link>
         </div>
       </section>
       <section className="babysitter-availability">

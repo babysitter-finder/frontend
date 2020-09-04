@@ -1,3 +1,40 @@
 .serviceForm {
-  
+  padding-bottom: $space-medium;
+  padding: $space-medium;
+  .serviceForm-container {
+    padding: $space-medium;
+    @include containerBrown;
+    h1 {
+      margin-bottom: $space-large;
+    }
+    form {
+      .serviceForm-divide {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-bottom: $space-medium;
+        .left {
+          margin-right: $space-micro;
+          & > :not(:last-child) {
+            margin-bottom: $space-medium;
+          }
+        }
+        .right {
+          & > :not(:last-child) {
+            margin-bottom: $space-medium;
+          }
+        }
+      }
+      textarea {
+        margin-bottom: $space-medium;
+      }
+    }
+    .inputMap {
+      display: inline-flex;
+      text-align: left;
+      margin-bottom: $space-medium;
+      label {
+        align-self: flex-start;
+      }
+    }
+  }
 }

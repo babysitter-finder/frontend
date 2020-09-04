@@ -3,29 +3,28 @@ import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-map
 import { compose, withProps } from 'recompose';
 
 
-const BabysittersMap = compose(
+const ServiceInput = compose(
   withProps({
     googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAeTBVGhPqkbeNcVh-sEXG5K_l4CBhzZCQ&v=3.exp&libraries=geometry,drawing,places',
     loadingElement: <div style={ { height: `100%` } } />,
-    containerElement: <div style={ { height: `400px` } } />,
-    mapElement: <div style={ { height: `100%`, width: `100%` } } />,
+    containerElement: <div style={ { height: `400px`, 'width': `86%`, 'bordeRadius': `15px` } } />,
+    mapElement: <div style={ { height: `100%`, width: `100%`, 'borderRadius': `15px` } } />,
   }),
   withScriptjs,
   withGoogleMap
 )((props) => {
 
   return (
-    <div className="babysittersMap">
+    <div className="serviceInput">
       <GoogleMap
         defaultZoom={ 15 }
-        defaultCenter={ props.locations[0] }
+        defaultCenter={ { lat: -34.397, lng: 150.644 } }
+        onClick={ props.onMapClick }
       >
-        {props.isMarkerShown && props.locations.map((location, index) => (
-          <Marker key={ index } position={ location } />
-        ))}
+        {props.isMarkerShown && <Marker position={ props.marker } />}
       </GoogleMap>
     </div>
   )
 });
 
-export default BabysittersMap;
+export default ServiceInput;

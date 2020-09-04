@@ -1,52 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ServiceInput from '../../components/molecules/ServiceInput';
 
 const ServiceForm = () => {
-  const handleInput = () => {
+  const [marker, setMarker] = useState({});
+  const [form, setForm] = useState({});
 
+  const handleSubmit = () => {
+
+  }
+
+  const handleInput = () => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleClick = (e) => {
+    setMarker({
+      lat: e.latLng.lat(),
+      lng: e.latLng.lng()
+    });
+    setForm({
+      ...form,
+      location: {
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng()
+      }
+    })
   };
   
   return (
     <div className="serviceForm">
-      <h1>Solicitar cita</h1>
-      <form onSubmit="">
-        <div className="left">
-          <div className="input input-alignedLeft">
-            <label htmlFor="day">Día:</label>
-            <input type="date" name="day" placeholder="Día" onChange={ handleInput } />
+      <div className="serviceForm-container">
+        <h1>Solicitar cita</h1>
+        <form onSubmit={ handleSubmit }>
+          <div className="serviceForm-divide">
+            <div className="left">
+              <div className="input input-alignedLeft">
+                <label htmlFor="day">Día:</label>
+                <input type="date" name="day" placeholder="Día" onChange={ handleInput } />
+              </div>
+              <div className="input input-alignedLeft">
+                <label htmlFor="service_start">Hora de inicio:</label>
+                <input type="time" name="service_start" placeholder="Hora de inicio" onChange={ handleInput } />
+              </div>
+              <div className="input input-alignedLeft">
+                <label htmlFor="service_end">Hora de Finalización:</label>
+                <input type="time" name="service_end" placeholder="Hora de inicio" onChange={ handleInput } />
+              </div>
+            </div>
+            <div className="right">
+              <div className="select">
+                <label htmlFor="genre">Horario:</label>
+                <select name="genre" onChange={ handleInput }>
+                  <option defaultValue disabled="disabled" selected>Selecciona una opción</option>
+                  <option value="morning">Mañana</option>
+                  <option value="noon">Mediodía</option>
+                  <option value="afternoon">Tarde</option>
+                  <option value="night">Noche</option>
+                </select>
+              </div>
+              <div className="input">
+                <label htmlFor="count_children">Numero de niños:</label>
+                <input type="number" name="count_children" placeholder="Numero de niños" min="1" onChange={ handleInput } />
+              </div>
+            </div>
           </div>
-          <div className="input input-alignedLeft">
-            <label htmlFor="service_start">Hora de inicio:</label>
-            <input type="time" name="service_start" placeholder="Hora de inicio" onChange={ handleInput } />
+          <div className="input inputMap">
+            <label htmlFor="address">Lugar:</label>
+            <input type="hidden" name="address" placeholder="Dirección" />
+            <ServiceInput isMarkerShown={ Object.keys(marker).length > 0 } marker={ marker } onMapClick={ handleClick } />
           </div>
-          <div className="input input-alignedLeft">
-            <label htmlFor="service_end">Hora de Finalización:</label>
-            <input type="time" name="service_end" placeholder="Hora de inicio" onChange={ handleInput } />
+          <div className="textArea">
+            <label htmlFor="about">¿Tienen algún cuidado especial tus hijos?</label>
+            <textarea name="about" id="about" rows="10" onChange={ handleInput }></textarea>
           </div>
-          <div className="input input-alignedLeft">
-            <label htmlFor="count_children">Numero de niños:</label>
-            <input type="number" name="count_children" placeholder="Numero de niños" onChange={ handleInput } />
-          </div>
-        </div>
-        <div className="right">
-          <div className="select">
-            <label htmlFor="genre">Horario:</label>
-            <select name="genre" onChange={ handleInput }>
-              <option selected disabled="disabled">Selecciona una opción</option>
-              <option value="morning">Mañana</option>
-              <option value="noon">Mediodía</option>
-              <option value="afternoon">Tarde</option>
-              <option value="night">Noche</option>
-            </select>
-          </div>
-        </div>
-        <div className="input">
-          <label htmlFor="address">Lugar:</label>
-          <input type="hidden" name="address" placeholder="Dirección" onChange={ handleInput } />
-        </div>
-        <button className="button-green" type="submit">Registrar</button>
+          <button className="button-blue" type="submit">Registrar</button>
 
-        {/* <strong>{ error }</strong> */}
-      </form>
+          {/* <strong>{ error }</strong> */}
+        </form>
+      </div>
     </div>
   );
 };

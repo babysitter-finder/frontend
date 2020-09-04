@@ -3,6 +3,7 @@
   align-items: baseline;
   justify-content: space-between;
   width: 100%;
+  text-align: left;
   & label {
     margin-right: $space-micro;
     @include paragraph;
@@ -14,12 +15,13 @@
   & input {
     width: 70%;
     padding: $space-micro;
-    border: $color-Black solid 1px;
+    border: none;
     border-radius: 15px;
-    background-color: $color-Blue-Background;
+    background-color: $color-Brown-Main;
     box-shadow: $value-shadow-Box;
-    @include paragraph;
+    box-sizing: content-box;
     outline: none;
+    @include paragraph;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;

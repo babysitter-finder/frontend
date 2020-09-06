@@ -106,15 +106,9 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 }
 
-@mixin containerBrown {
+@mixin container($color) {
   border-radius: 20px;
-  background-color: $color-Background-Container;
-  box-shadow: $value-shadow-Box;
-}
-
-@mixin containerBrownStrong {
-  border-radius: 20px;
-  background-color: $color-Background-Form-Button;
+  background-color: $color;
   box-shadow: $value-shadow-Box;
 }
 

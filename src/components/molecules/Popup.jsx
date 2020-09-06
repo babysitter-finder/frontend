@@ -1,0 +1,16 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Popup = ({ children }) => {
+  return ReactDOM.createPortal(
+    <div className="popup">
+      <div className="popup-container">
+        <button className="popup-close">X</button>
+        { children }
+      </div>
+    </div>,
+    document.getElementById('modal')
+  );
+};
+
+export default Popup;

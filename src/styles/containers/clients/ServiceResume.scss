@@ -2,7 +2,8 @@
   padding: $space-medium;
   &-container {
     padding: $space-medium;
-    @include containerBrown;
+    @include container($color-Background-Container
+);
   }
   & h1 {
       margin-bottom: $space-medium;
@@ -30,6 +31,7 @@
     padding: $space-micro;
     margin-bottom: $space-medium;
     text-align: justify;
-    @include containerBrownStrong;
+    @include container($color-Background-Form-Button
+);
   }
 }

@@ -3,7 +3,8 @@
     display: flex;
     align-items: center;
     padding: $space-small;
-    @include containerBrown;
+    @include container($color-Background-Container
+);
     .image-container {
       margin-right: #{$space-small * 3};
       @include mediumPicture;
@@ -34,7 +35,8 @@
       .price {
         height: fit-content;
         padding: $space-small $space-medium;
-        @include containerBrown;
+        @include container($color-Background-Container
+);
         background-color: $color-Brown-Main;
         h3 {
           margin-bottom: $space-small;
@@ -57,7 +59,8 @@
       width: fit-content;
       padding: $space-medium;
       margin: 0 auto;
-      @include containerBrown;
+      @include container($color-Background-Container
+);
       h4 {
         margin-bottom: $space-small;
       }

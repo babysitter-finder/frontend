@@ -2,7 +2,8 @@
   padding: $space-large;
   &-container {
     padding: $space-medium;
-    @include containerBrown;
+    @include container($color-Background-Container
+);
   }
   h1 {
     margin-bottom: $space-medium;

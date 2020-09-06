@@ -1,6 +1,7 @@
 .service {
   padding: $space-small;
-  @include containerBrownLight;
+  @include container($color-Brown-Main
+);
   h2 {
     margin-bottom: $space-small;
   }

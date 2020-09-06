@@ -3,7 +3,8 @@
   padding: $space-medium;
   .serviceForm-container {
     padding: $space-medium;
-    @include containerBrown;
+    @include container($color-Background-Container
+);
     h1 {
       margin-bottom: $space-large;
     }

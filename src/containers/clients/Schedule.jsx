@@ -1,5 +1,4 @@
 import React from 'react';
-import Service from '../../components/molecules/Service';
 import ServiceList from '../../components/organisms/ServiceList';
 
 const Schedule = () => {

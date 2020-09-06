@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ServiceInput from '../../components/molecules/ServiceInput';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const ServiceForm = () => {
+  const editForm = useLocation().pathname !== '/service/new';
   const [marker, setMarker] = useState({});
   const [form, setForm] = useState({});
 
@@ -34,7 +35,7 @@ const ServiceForm = () => {
   return (
     <div className="serviceForm">
       <div className="serviceForm-container">
-        <h1>Solicitar cita</h1>
+        <h1>{ editForm ? 'Editar Cita' : 'Solicitar cita' }</h1>
         <form onSubmit={ handleSubmit }>
           <div className="serviceForm-divide">
             <div className="left">
@@ -77,7 +78,7 @@ const ServiceForm = () => {
             <label htmlFor="about">¿Tienen algún cuidado especial tus hijos?</label>
             <textarea name="about" id="about" rows="10" onChange={ handleInput }></textarea>
           </div>
-          <Link to="/service/resume" className="button-blue">Registrar</Link>
+          <Link to={ editForm ? '' : '/service/resume' } className="button-blue">{editForm ? 'Guardar' : 'Registrar'}</Link>
 
           {/* <strong>{ error }</strong> */}
         </form>

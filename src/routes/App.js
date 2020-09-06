@@ -25,6 +25,7 @@ const App = ({ user }) => {
           <Route exact path="/babysitter/:username" component={ isLogged ? BabysitterDetail : Login } />
           <Route exact path="/service/new" component={ isLogged ? ServiceForm : Login } />
           <Route exact path="/service/resume" component={ isLogged ? ServiceResume : Login } />
+          <Route exact path="/service/:id/edit" component={ isLogged ? ServiceForm : Login } />
           <Route exact path="/schedule" component={ isLogged ? Schedule : Login } />
         </Switch>
       </Layout>

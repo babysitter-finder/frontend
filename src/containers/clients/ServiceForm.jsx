@@ -77,7 +77,7 @@ const ServiceForm = () => {
             <label htmlFor="about">¿Tienen algún cuidado especial tus hijos?</label>
             <textarea name="about" id="about" rows="10" onChange={ handleInput }></textarea>
           </div>
-          <Link to="/service" className="button-blue">Registrar</Link>
+          <Link to="/service/resume" className="button-blue">Registrar</Link>
 
           {/* <strong>{ error }</strong> */}
         </form>

@@ -9,7 +9,7 @@
 
 /*branding Colors  */
 $color-Ilustation-Secondary: #8BD3DD;
-$color-Primary-Pink: #f09ec3;
+$color-Ilustration-Primary: #F582AE;
 $color-Secondary-Yellow: #f0e26e;
 $color-Secondary-Green: #98ee98;
 $color-Brown-Main: #F3D2C1;
@@ -70,6 +70,11 @@ $font-Family-Roboto: "Roboto", sans-serif;
   }
 }
 
+/*--- SEPARATORS ---*/
+hr {
+  border: 1px solid $color-Black;
+}
+
 /*---- SPACING ---*/
 $space-nano: 8px;
 $space-micro: 16px;
@@ -110,5 +115,11 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 @mixin containerBrownStrong {
   border-radius: 20px;
   background-color: $color-Background-Form-Button;
+  box-shadow: $value-shadow-Box;
+}
+
+@mixin containerBrownLight {
+  border-radius: 20px;
+  background-color: $color-Brown-Main;
   box-shadow: $value-shadow-Box;
 }

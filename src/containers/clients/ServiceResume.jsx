@@ -1,5 +1,6 @@
 import React from 'react';
 import Caption from '../../components/molecules/Caption';
+import { Link } from 'react-router-dom';
 
 const ServiceResume = () => {
   return (
@@ -21,7 +22,7 @@ const ServiceResume = () => {
         <h3>Lugar: Primera Constitucion #325 Morelos 1</h3>
         <h3>Cuidados especiales</h3>
         <p>Juan tiene problemas con el frio, por tanto mantenerlo muy abrigado</p>
-        <button className="button-blue">Confirmar</button>
+        <Link to="/schedule" className="button-blue">Confirmar</Link>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout';
 import Login from '../containers/Login';
 import PersonalInfoForm from '../containers/clients/PersonalInfoForm';
 import Email from '../containers/Email';
+import Landing from '../components/molecules/DialogTransparent';
 import Babysitters from '../containers/clients/Babysitters';
 import BabysitterDetail from '../containers/clients/BabysitterDetail';
 import ServiceForm from '../containers/clients/ServiceForm';
@@ -22,6 +23,7 @@ const App = ({ user }) => {
         <Switch>
           <Route exact path="/" component={ isLogged ? Babysitters : Login } />
           <Route exact path="/email" component={ Email } />
+          <Route exact path="/landing" component={ Landing } />
           <Route exact path="/register" component={ isLogged ? Babysitters : PersonalInfoForm } />
           <Route exact path="/babysitter/:username" component={ isLogged ? BabysitterDetail : Login } />
           <Route exact path="/service/new" component={ isLogged ? ServiceForm : Login } />

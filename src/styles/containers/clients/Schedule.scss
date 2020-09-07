@@ -1,0 +1,11 @@
+.schedule {
+  padding: $space-large;
+  &-container {
+    padding: $space-medium;
+    @include container($color-Background-Container
+);
+  }
+  h1 {
+    margin-bottom: $space-medium;
+  }
+}

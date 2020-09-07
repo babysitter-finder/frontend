@@ -8,8 +8,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Overlock:wght@700;900&family=Roboto:wght@300;400&display=swap");
 
 /*branding Colors  */
-$color-Primary-Blue: #87e0f0;
-$color-Primary-Pink: #f09ec3;
+$color-Ilustation-Secondary: #8BD3DD;
+$color-Ilustration-Primary: #F582AE;
 $color-Secondary-Yellow: #f0e26e;
 $color-Secondary-Green: #98ee98;
 $color-Brown-Main: #F3D2C1;
@@ -60,13 +60,19 @@ $font-Family-Roboto: "Roboto", sans-serif;
 /*--- CONTENT ---*/
 
 @each $type_text, $size,
-  $weight in (strong, 18px, 400) (p, 18px, 100) (small, 16px, 300)
+  $weight in (strong, 18px, 400) (p, 18px, 400) (small, 16px, 400)
 {
-  .#{$type_text} {
+  #{$type_text} {
     font-size: $size;
     font-weight: $weight;
     font-family: $font-Family-Roboto;
+    color: $color-Black;
   }
+}
+
+/*--- SEPARATORS ---*/
+hr {
+  border: 1px solid $color-Black;
 }
 
 /*---- SPACING ---*/
@@ -88,9 +94,9 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 
-@mixin mediumPicture {
-    width: 200px;
-    height: 200px;
+@mixin picture($size) {
+    width: $size;
+    height: $size;
     img {
       border: 1px solid $color-Black;
       border-radius: 100%;
@@ -100,8 +106,8 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 }
 
-@mixin containerBrown {
+@mixin container($color) {
   border-radius: 20px;
-  background-color: $color-Background-Container;
+  background-color: $color;
   box-shadow: $value-shadow-Box;
 }

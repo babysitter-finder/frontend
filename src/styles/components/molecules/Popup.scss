@@ -1,0 +1,31 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  &-container {
+    position: relative;
+    top: 10rem;
+    padding: $space-medium;
+    text-align: center;
+    @include container($color-Background-Elements);
+    & > *:not(:last-child) {
+      margin-bottom: $space-small;
+    }
+  }
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    border-radius: 0 15px;
+    background-color: $color-Background-Form-Button;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+}

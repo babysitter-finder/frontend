@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Layout from '../layouts/Layout';
 import Login from '../containers/Login';
-import Register from '../containers/clients/Register';
+import PersonalInfoForm from '../containers/clients/PersonalInfoForm';
 import Email from '../containers/Email';
 import Babysitters from '../containers/clients/Babysitters';
 import BabysitterDetail from '../containers/clients/BabysitterDetail';
@@ -22,13 +22,14 @@ const App = ({ user }) => {
         <Switch>
           <Route exact path="/" component={ isLogged ? Babysitters : Login } />
           <Route exact path="/email" component={ Email } />
-          <Route exact path="/register" component={ Register } />
+          <Route exact path="/register" component={ isLogged ? Babysitters : PersonalInfoForm } />
           <Route exact path="/babysitter/:username" component={ isLogged ? BabysitterDetail : Login } />
           <Route exact path="/service/new" component={ isLogged ? ServiceForm : Login } />
           <Route exact path="/service/resume" component={ isLogged ? ServiceResume : Login } />
           <Route exact path="/service/:id/edit" component={ isLogged ? ServiceForm : Login } />
           <Route exact path="/schedule" component={ isLogged ? Schedule : Login } />
           <Route exact path="/profile" component={ isLogged ? Profile : Login } />
+          <Route exact path="/profile/edit" component={ isLogged ? PersonalInfoForm : Login } />
         </Switch>
       </Layout>
     </Router>

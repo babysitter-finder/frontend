@@ -8,10 +8,6 @@
     margin-right: $space-micro;
     @include paragraph;
   }
-  &::placeholder {
-    padding: calc($space-micro - 5px);
-    @include paragraph;
-  }
   & input {
     width: 70%;
     padding: $space-micro;
@@ -22,6 +18,10 @@
     box-sizing: content-box;
     outline: none;
     @include paragraph;
+    &::placeholder {
+      padding: calc($space-micro - 5px);
+      @include paragraph;
+    }
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;

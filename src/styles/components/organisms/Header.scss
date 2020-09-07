@@ -4,9 +4,9 @@
   justify-content: space-between;
   align-items: center;
   padding: $space-nano $space-medium;
-  margin-bottom: $space-medium;
-  border: solid 2px $color-Black;
-  border-radius: 0 0 20px 20px;
-  background: $color-Pink-degrade;
+  background: $color-Ilustation-Secondary;
   box-sizing: border-box;
+  &-pink {
+    background-color: $color-Ilustration-Primary;
+  }
 }

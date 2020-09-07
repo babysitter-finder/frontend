@@ -14,12 +14,12 @@ const Menu = ({ user, logoutUser }) => {
       <ul>
         {(Object.keys(user).length > 0) ?
           <>
-            <li><Link to="/babysitter/dadkask"><h3>Encontrar niñera</h3></Link></li>
+            <li><Link to="/"><h3>Encontrar niñera</h3></Link></li>
             <li><Link to="/schedule"><h3>Agenda</h3></Link></li>
             <li>
               <img src={ user?.image ?? photo } alt="" />
               <ul className="menu-list">
-                <li><a href="/">Cuenta</a></li>
+                <li><a href="/profile">Cuenta</a></li>
                 <li><a href="#logout" onClick={ handleLogout }>Cerrar sesión</a></li>
               </ul>
             </li>

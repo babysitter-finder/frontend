@@ -14,13 +14,15 @@ const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, loca
   }, [])
 
   return (
-    <div className="babysitters-container">
-      <div className="title">
-        <h1>Niñeras</h1>
-      </div>
-      <div className="babysittersLists-container">
-        <BabysitterList babysitters={ babysitters } />
-        {!loading && <BabysittersMap isMarkerShown locations={ locations } />}
+    <div className="babysitters">
+      <div className="babysitters-container">
+        <div className="title">
+          <h1>Niñeras</h1>
+        </div>
+        <div className="babysittersLists-container">
+          <BabysitterList babysitters={ babysitters } />
+          {!loading && <BabysittersMap isMarkerShown locations={ locations } />}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_USER, LOADING, ERROR } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER } from '../types/usersTypes';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -20,12 +20,25 @@ export const loginUser = ( form ) => async (dispatch) => {
       type: LOGIN_USER,
       payload: data.user
     });
+    window.location.href = '/';
   } catch (error) {
     dispatch({
       type: ERROR,
       payload: 'Ocurrió un error'
     });
   }
+}
+
+export const logoutUser = () => async (dispatch) => {
+  document.cookie = `email=`;
+  document.cookie = `name=`;
+  document.cookie = `username=`;
+  document.cookie = `token=`;
+  dispatch({
+    type: LOGOUT_USER,
+    payload: {}
+  });
+  window.location.href = '/';
 }
 
 export const registerUser = ( form ) => async (dispatch) => {

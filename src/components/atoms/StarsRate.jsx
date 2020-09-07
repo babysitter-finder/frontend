@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const StarsRate = ({ rate }) => {
   const rateFixed = Math.floor(rate);
-  const rateDecimals = rate.toFixed(1).toString().split('.')[1];
+  const rateDecimals = rate.toString().split('.')[1];
   const starsNumber = [1, 2, 3, 4, 5];
   useEffect(() => {
     const stars = document.querySelector('.starsRate');
@@ -32,7 +32,7 @@ const StarsRate = ({ rate }) => {
 };
 
 StarsRate.propTypes = {
-  rate: PropTypes.number.isRequired
+  rate: PropTypes.string.isRequired
 }
 
 export default StarsRate;

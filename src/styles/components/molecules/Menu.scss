@@ -1,23 +1,40 @@
 .menu {
-  & ul {
+  & > ul {
     display: flex;
     align-items: center;
-  }
-  & li {
-    margin-right: 80px;
-  }
-  & li:last-child {
-    margin-right: 0;
-  }
-  & a {
-    text-decoration: none;
-    color: #000;
+    & > li {
+      margin-right: 80px;
+    }
+    & li:last-child {
+      margin-right: 0;
+      &:hover ul.menu-list, ul.menu-list:hover {
+      display: block;
+    }
+    }
+    & a {
+      text-decoration: none;
+      color: $color-Black;
+    }
   }
   & img {
     width: 80px;
     height: 80px;
-    border: solid 1px #000;
+    border: solid 1px $color-Black;
     border-radius: 100%;
     object-fit: cover;
+    
+  }
+  .menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100px;
+    text-align: right;
+    margin: 0 0 0 -14px;
+    @include paragraph;
+    & li a:hover {
+      text-decoration: underline;
+    }
   }
 }

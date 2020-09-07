@@ -1,18 +1,22 @@
 .babysitterMiniCard {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: $space-small;
+  text-decoration: none;
+  color: $color-Black;
   img {
     width: 80px;
     height: 80px;
-    border: solid 1px #000;
+    border: solid 1px $color-Black;
     border-radius: 100%;
     margin-right: $space-medium;
     object-fit: cover;
   }
   .babysitterMiniCard-info {
     h4 {
+      width: 220px;
       margin-bottom: $space-nano;
+      text-align: left;
     }
   }
 }

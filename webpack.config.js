@@ -1,14 +1,17 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const LinkTypePlugin = require('html-webpack-link-type-plugin').HtmlWebpackLinkTypePlugin;
 
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('./dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
   },
-  devServer: { historyApiFallback: true },
+  devServer: {
+    historyApiFallback: true,
+  },
   resolve: { extensions: ['.jsx', '.js'] },
   module: {
     rules: [
@@ -63,8 +66,11 @@ module.exports = {
       }
     ),
     new MiniCSSExtractPlugin({
-      filename: 'styles/[name].css',
-      chunkFilename: 'styles/[id].css'
+      filename: './styles/[name].css',
+      chunkFilename: './styles/[id].css'
+    }),
+    new LinkTypePlugin({
+      '*.css': 'text/css',
     })
   ],
 }

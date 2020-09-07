@@ -41,17 +41,27 @@
 @import "./components/molecules/PopupDeleteUser.scss";
 @import "./components/molecules/Caption.scss";
 @import "./components/molecules/BabysitterMiniCard.scss";
+@import "./components/molecules/Service.scss";
+@import "./components/molecules/Popup.scss";
 
 /*Organisms*/
 @import "./components/organisms/Header.scss";
+@import "./components/organisms/BabysitterList.scss";
+@import "./components/organisms/ServiceList.scss";
 
 /**
  * CONTAINERS
  **/
 
 @import "./containers/Login.scss";
-@import "./containers/Register.scss";
+@import "./containers/clients/PersonalInfoForm.scss";
 @import "./containers/Email.scss";
+@import "./containers/clients/Babysitters.scss";
+@import "./containers/clients/BabysitterDetail.scss";
+@import "./containers/clients/ServiceForm.scss";
+@import "./containers/clients/ServiceResume.scss";
+@import "./containers/clients/Schedule.scss";
+@import "./containers/clients/Profile.scss";
 
 /**
  * LAYOUTS

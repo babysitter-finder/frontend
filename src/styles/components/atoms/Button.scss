@@ -1,9 +1,9 @@
 .button {
   display: inline-block;
-  background-color: $color-Primary-Blue;
-  padding: $space-small $space-medium;
+  background-color: $color-Ilustation-Secondary;
+  padding: $space-micro $space-medium;
   border-radius: 40px;
-  border: solid $color-Black;
+  border: none;
   color: $color-Black;
   font-family: $font-Family-Roboto;
   font-size: 18px;
@@ -12,11 +12,11 @@
   cursor: pointer;
   &-blue {
     @extend .button;
-    background-color: $color-Primary-Blue;
+    background-color: $color-Ilustation-Secondary;
   }
   &-pink {
     @extend .button;
-    background-color: $color-Primary-Pink;
+    background-color: $color-Ilustration-Primary;
   }
   &-yellow {
     @extend .button;
@@ -29,6 +29,11 @@
   &-green {
     @extend .button;
     background-color: $color-Positive;
+  }
+  &-highlight {
+    @extend .button;
+    background-color: $color-Black;
+    color: $color-Background-Elements;
   }
 }
 

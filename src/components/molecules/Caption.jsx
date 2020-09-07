@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 const Caption = ({ name, image }) => {
   return (
     <div className="caption">
-      <img src={ image ?? photo } alt="Profile picture" />
+      <div className="caption-imgContainer">
+        <img src={ image ?? photo } alt="Profile picture" />
+      </div>
       <h2>{ name ?? 'Jessica Ramirez' }</h2>
     </div>
   );

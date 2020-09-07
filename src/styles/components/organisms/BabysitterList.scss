@@ -1,0 +1,16 @@
+.babysitterList {
+  display: inline-flex;
+  flex-flow: column;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  overflow-y: scroll;
+  .babysitterMiniCard {
+    &:nth-child(odd) {
+      background-color: $color-Background-Elements;
+    }
+    &:nth-child(even) {
+      background-color: $color-Brown-Main;
+    }
+  }
+}

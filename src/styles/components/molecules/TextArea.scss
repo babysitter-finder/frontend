@@ -4,15 +4,20 @@
     margin-bottom: $space-small;
     @include paragraph;
     text-transform: capitalize;
+    text-align: left;
   }
   textarea {
-    width: 949px;
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
     padding: $space-micro;
-    border: #000 solid 1px;
+    border: none;
     border-radius: 15px;
-    background-color: $color-Blue-Background;
+    background-color: $color-Brown-Main;
     box-shadow: $value-shadow-Box;
     @include paragraph;
     outline: none;
+    box-sizing: border-box;
+    resize: none;
   }
 }

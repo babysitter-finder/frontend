@@ -1,22 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import photo from '../../assets/girl.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/usersActions';
 
-const Menu = ({ user }) => {
+const Menu = ({ user, logoutUser }) => {
+  const handleLogout = () => {
+    logoutUser();
+  };
   return (
     <nav className="menu">
       <ul>
-        {Object.keys(user ?? {}) ?
+        {(Object.keys(user).length > 0) ?
           <>
-            <li><Link to="/register"><h3>Registro</h3></Link></li>
-            <li><Link to="/login"><h3>Iniciar sesión</h3></Link></li>
+            <li><Link to="/"><h3>Encontrar niñera</h3></Link></li>
+            <li><Link to="/schedule"><h3>Agenda</h3></Link></li>
+            <li>
+              <img src={ user?.image ?? photo } alt="" />
+              <ul className="menu-list">
+                <li><a href="/profile">Cuenta</a></li>
+                <li><a href="#logout" onClick={ handleLogout }>Cerrar sesión</a></li>
+              </ul>
+            </li>
           </>
           :
           <>
-            <li><Link to="/babysitters"><h3>Encontrar niñera</h3></Link></li>
-            <li><Link to="/schedule"><h3>Agenda</h3></Link></li>
-            <li><img src={ user?.image ?? photo } alt="" /></li>
+            <li><Link to="/register"><h3>Registro</h3></Link></li>
+            <li><Link to="/"><h3>Iniciar sesión</h3></Link></li>
           </>
         }
 
@@ -26,7 +37,16 @@ const Menu = ({ user }) => {
 };
 
 Menu.propTypes = {
-  user: PropTypes.object
-}
+  user: PropTypes.object,
+  logoutUser: PropTypes.func,
+};
 
-export default Menu;
+const mapStateToProps = (reducers) => {
+  return reducers.usersReducer;
+};
+
+const mapDispatchToProps = {
+  logoutUser
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Menu));

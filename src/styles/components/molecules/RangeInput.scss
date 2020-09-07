@@ -40,10 +40,10 @@
       background: $color-Blue-Background;
       cursor: pointer;
       margin-top: -8px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
     }
     &::-moz-range-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
       border: 1px solid $color-Black;
       height: 36px;
       width: 16px;
@@ -52,7 +52,7 @@
       cursor: pointer;
     }
     &::-ms-thumb {
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
       border: 1px solid $color-Black;
       height: 36px;
       width: 16px;
@@ -64,7 +64,7 @@
       width: 100%;
       height: 8.4px;
       cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
       background: $color-Black;
       border-radius: 1.3px;
     }
@@ -75,7 +75,7 @@
       width: 100%;
       height: 8.4px;
       cursor: pointer;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
       background: $color-Black;
       border-radius: 1.3px;
     }
@@ -91,7 +91,7 @@
     &::-ms-fill-lower {
       background: $color-Black;
       border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
     }
     &:focus::-ms-fill-lower {
       background: $color-Black;
@@ -99,7 +99,7 @@
     &::-ms-fill-upper {
       background: $color-Black;
       border-radius: 2.6px;
-      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      box-shadow: 1px 1px 1px $color-Black, 0px 0px 1px #0d0d0d;
     }
     &:focus::-ms-fill-upper {
       background: $color-Black;

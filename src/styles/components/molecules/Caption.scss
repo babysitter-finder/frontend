@@ -1,14 +1,10 @@
 .caption {
-  display: inline-block;
+  display: inline-flex;
+  flex-flow: column;
+  align-items: center;
   text-align: center;
-  img {
-    min-width: 200px;
-    max-width: 200px;
-    max-height: 200px;
-    min-height: 200px;
-    border: 1px solid #000;
-    border-radius: 100%;
+  .caption-imgContainer {
+    @include picture(200px);
     margin-bottom: $space-small;
-    object-fit: cover;
   }
 }

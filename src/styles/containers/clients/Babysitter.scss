@@ -7,7 +7,7 @@
 );
     .image-container {
       margin-right: #{$space-small * 3};
-      @include mediumPicture;
+      @include picture(200px);
     }
     .details-info {
       text-align: left;

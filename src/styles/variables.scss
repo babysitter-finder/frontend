@@ -94,9 +94,9 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 
-@mixin mediumPicture {
-    width: 200px;
-    height: 200px;
+@mixin picture($size) {
+    width: $size;
+    height: $size;
     img {
       border: 1px solid $color-Black;
       border-radius: 100%;
@@ -109,11 +109,5 @@ $value-shadow-Box: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 @mixin container($color) {
   border-radius: 20px;
   background-color: $color;
-  box-shadow: $value-shadow-Box;
-}
-
-@mixin containerBrownLight {
-  border-radius: 20px;
-  background-color: $color-Brown-Main;
   box-shadow: $value-shadow-Box;
 }

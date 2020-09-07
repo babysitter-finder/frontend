@@ -12,6 +12,7 @@ import BabysitterDetail from '../containers/clients/BabysitterDetail';
 import ServiceForm from '../containers/clients/ServiceForm';
 import ServiceResume from '../containers/clients/ServiceResume';
 import Schedule from '../containers/clients/Schedule';
+import Profile from '../containers/clients/Profile';
 
 const App = ({ user }) => {
   const isLogged = (Object.keys(user).length > 0);
@@ -27,6 +28,7 @@ const App = ({ user }) => {
           <Route exact path="/service/resume" component={ isLogged ? ServiceResume : Login } />
           <Route exact path="/service/:id/edit" component={ isLogged ? ServiceForm : Login } />
           <Route exact path="/schedule" component={ isLogged ? Schedule : Login } />
+          <Route exact path="/profile" component={ isLogged ? Profile : Login } />
         </Switch>
       </Layout>
     </Router>

@@ -1,0 +1,29 @@
+.profile {
+  padding: $space-medium;
+  &-container {
+    padding: $space-medium;
+    @include container($color-Background-Elements);
+  }
+  h2 {
+    margin-bottom: $space-medium;
+  }
+  &-content {
+    & > *:not(:last-child) {
+      margin-bottom: $space-medium;
+    }
+  }
+  &-divide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-imgContainer {
+    margin-right: $space-large;
+    @include picture(400px);
+  }
+  &-data {
+    h3:not(:last-child) {
+      margin-bottom: $space-medium;
+    }
+  }
+}

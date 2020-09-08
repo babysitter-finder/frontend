@@ -9,7 +9,7 @@ const picture = getCookie('picture');
 const user = token ? {
   username,
   name,
-  picture
+  picture,
 } : {};
 
 const INITIAL_STATE = {

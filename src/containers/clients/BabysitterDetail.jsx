@@ -16,16 +16,15 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
     birthdate,
     reputation,
   } = babysitter;
-  const {
-    education_degree: educationDegree,
-    about_me: aboutMe,
-    cost_of_service: costOfService,
-    availabilities
-  } = babysitter?.user_bbs;
-  const fullName = `${firstName} ${lastName}`;
+  let babysitterInfo;
   useEffect(() => {
     selectBabysitter(username);
+    babysitterInfo = babysitter?.user_bbs;
   }, []);
+  
+  const fullName = `${firstName} ${lastName}`;
+  const aboutMeMock = 'hola mi nombre es maria he trabajado como niñera hace tres años me gusta interactuar mucho con ellos y ayudarlos a sentir cómodos ayudarles en lo que necesiten estoy disponible en la semana si quieres saber de mi por favor no dudes en contactarme';
+  const educationDegreeMock = 'Ingenieria Industrial en el Instituto Tecnologico Nacional de México Concluido';
   return (
     <div className="babysitterDetail">
       <div className="babysitterDetail-container">
@@ -36,18 +35,18 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
           <div className="details-info">
             <h3>{ fullName ?? 'Jessica Ramirez'}</h3>
             <h3>Edad - 24</h3>
-            <StarsRate rate="3.0" />
+            <StarsRate rate={ babysitter?.reputation ?? '4.0' } />
           </div>
         </section>
         <section className="babysitterDetail-about">
           <div className="about-container">
             <div className="textArea">
               <label htmlFor="about">Acerca de mí:</label>
-              <textarea name="about" id="about" rows="10" disabled></textarea>
+              <textarea name="about" id="about" rows="10" disabled value={ babysitterInfo?.about_me ?? aboutMeMock }></textarea>
             </div>
             <div className="textArea">
               <label htmlFor="studies">Estudios:</label>
-              <textarea name="studies" id="studies" rows="10" disabled></textarea>
+              <textarea name="studies" id="studies" rows="10" disabled value={ educationDegreeMock }></textarea>
             </div>
           </div>
           <div className="price">

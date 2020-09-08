@@ -30,7 +30,7 @@ export const loginUser = ( form ) => async (dispatch) => {
 }
 
 export const logoutUser = () => async (dispatch) => {
-  document.cookie = `email=`;
+  document.cookie = `picture=`;
   document.cookie = `name=`;
   document.cookie = `username=`;
   document.cookie = `token=`;

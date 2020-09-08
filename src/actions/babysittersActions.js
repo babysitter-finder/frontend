@@ -17,7 +17,11 @@ export const getBabysitters = () => async (dispatch) => {
       'method': 'get',
       'url': 'https://hisitter.xyz/users/',
       'headers': {
-        'Authorization': `Token ${getCookie('token')}` },
+        'Authorization': `Token ${getCookie('token')}`
+      },
+      'params': {
+        'limit': 30
+      }
     });
     const { data } = response;
     dispatch({

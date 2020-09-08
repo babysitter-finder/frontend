@@ -13,13 +13,9 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
     first_name: firstName,
     last_name: lastName,
     picture,
-    birthdate,
-    reputation,
   } = babysitter;
-  let babysitterInfo;
   useEffect(() => {
     selectBabysitter(username);
-    babysitterInfo = babysitter?.user_bbs;
   }, []);
   
   const fullName = `${firstName} ${lastName}`;
@@ -42,22 +38,22 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
           <div className="about-container">
             <div className="textArea">
               <label htmlFor="about">Acerca de mí:</label>
-              <textarea name="about" id="about" rows="10" disabled value={ babysitterInfo?.about_me ?? aboutMeMock }></textarea>
+              <textarea name="about" id="about" rows="10" disabled value={ babysitter?.user_bbs?.about_me ?? aboutMeMock }></textarea>
             </div>
             <div className="textArea">
               <label htmlFor="studies">Estudios:</label>
-              <textarea name="studies" id="studies" rows="10" disabled value={ educationDegreeMock }></textarea>
+              <textarea name="studies" id="studies" rows="10" disabled value={ babysitter?.user_bbs?.education_degree ?? educationDegreeMock }></textarea>
             </div>
           </div>
           <div className="price">
-            <h3>$120.00 / Hora</h3>
+            <h3>${ babysitter?.user_bbs?.cost_of_service } / Hora</h3>
             <Link to="/service/new" type="button" className="button-highlight">Contratar</Link>
           </div>
         </section>
         <section className="babysitterDetail-availability">
           <div className="availability-container">
             <h4>Disponibilidad horaria</h4>
-            <AvailabilityInput />
+            <AvailabilityInput availabilities={ babysitter?.user_bbs?.availabilities ?? [] } />
           </div>
         </section>
       </div>

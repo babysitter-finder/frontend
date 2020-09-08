@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { GET_BABYSITTERS, LOADING, ERROR, GET_BABYSITTERS_LOCATION } from '../types/babysittersTypes';
+import {
+  GET_BABYSITTERS,
+  LOADING,
+  ERROR,
+  GET_BABYSITTERS_LOCATION,
+  SELECT_BABYSITTER
+} from '../types/babysittersTypes';
 import getCookie from '../utils/getCookie';
 
 export const getBabysitters = () => async (dispatch) => {
@@ -9,7 +15,7 @@ export const getBabysitters = () => async (dispatch) => {
   try {
     const response = await axios({
       'method': 'get',
-      'url': 'https://hisitter.xyz/babysitters/',
+      'url': 'https://hisitter.xyz/users/',
       'headers': {
         'Authorization': `Token ${getCookie('token')}` },
     });
@@ -49,6 +55,40 @@ export const getBabysittersLocation = () => async (dispatch, getState) => {
     dispatch({
       type: GET_BABYSITTERS_LOCATION,
       payload: locationsData
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
+  }
+}
+
+export const selectBabysitter = (username) => async (dispatch, getState) => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const babysitters = getState().babysittersReducer.babysitters;
+    let babysitter;
+    if (babysitters.length > 0) {
+      babysitter = babysitters.filter(babysitter => {
+        return babysitter.username === username;
+      })[0];
+    } else {
+      const response = await axios({
+        'method': 'get',
+        'url': `https://hisitter.xyz/users/${username}/babysitter_data/`,
+        'headers': {
+          'Authorization': `Token ${getCookie('token')}`
+        },
+      });
+      const { data } = response;
+      babysitter = data;
+    }
+    dispatch({
+      type: SELECT_BABYSITTER,
+      payload: babysitter
     });
   } catch (error) {
     dispatch({

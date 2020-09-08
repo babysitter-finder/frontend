@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -12,7 +12,7 @@ export const loginUser = ( form ) => async (dispatch) => {
       data: form
     });
     const { data } = response;
-    document.cookie = `email=${data.user.email}`;
+    document.cookie = `picture=${data.user.picture ?? ''}`;
     document.cookie = `name=${data.user.first_name}`;
     document.cookie = `username=${data.user.username}`;
     document.cookie = `token=${data.access_token}`;
@@ -52,9 +52,30 @@ export const registerUser = ( form ) => async (dispatch) => {
       data: form
     });
     const { data } = response;
-    window.location.href = '/email';
     dispatch({
       type: LOGIN_USER,
+      payload: data.user
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
+  }
+}
+
+export const getUserData = (username) => async (dispatch) => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const response = await axios({
+      'method': 'get',
+      'url': `https://hisitter.xyz/users/${username}/`,
+    });
+    const { data } = response;
+    dispatch({
+      type: GET_USER_DATA,
       payload: data.user
     });
   } catch (error) {

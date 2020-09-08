@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 const PersonalInfoForm = ({ error, registerUser }) => {
 
   const editForm = useLocation().pathname === '/profile/edit';
-  console.log(editForm);
   const [form, setValues] = useState({
     email: '',
   });

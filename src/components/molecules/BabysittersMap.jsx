@@ -1,6 +1,8 @@
-import React from 'react';
-import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
-import { compose, withProps } from 'recompose';
+import React, { useState } from 'react';
+import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
+import { compose, withProps, withStateHandlers } from 'recompose';
+import Caption from './Caption';
+import { Link } from 'react-router-dom';
 
 
 const BabysittersMap = compose(
@@ -13,6 +15,18 @@ const BabysittersMap = compose(
   withScriptjs,
   withGoogleMap
 )((props) => {
+  const opens = {};
+  for (let index = 0; index < props.locations.length; index++) {
+    opens[index] = false;
+  }
+  const [ open, setOpen ] = useState(opens);
+
+  const handleClick = (index) => {
+    setOpen({
+      ...open,
+      [index]: !open[index]
+    });
+  }
 
   return (
     <div className="babysittersMap">
@@ -21,7 +35,17 @@ const BabysittersMap = compose(
         defaultCenter={ props.locations[0] }
       >
         {props.isMarkerShown && props.locations.map((location, index) => (
-          <Marker key={ index } position={ location } />
+          <Marker key={ index } position={ location } onClick={ () => handleClick(index) }>
+            {open[index] && <InfoWindow onCloseClick={ () => handleClick(index) }>
+              <Link to={ `/babysitter/${props.babysitters[index].username}` } style={ { textDecoration: 'none' } } >
+                <Caption
+                  size="small"
+                  name={ `${props.babysitters[index].first_name} ${props.babysitters[index].last_name}` }
+                  image={ props.babysitters[index]?.picture }
+                />
+              </Link>
+            </InfoWindow>}
+          </Marker>
         ))}
       </GoogleMap>
     </div>

@@ -17,9 +17,9 @@ const Menu = ({ user, logoutUser }) => {
             <li><Link to="/"><h3>Encontrar niñera</h3></Link></li>
             <li><Link to="/schedule"><h3>Agenda</h3></Link></li>
             <li>
-              <img src={ user?.image ?? photo } alt="" />
+              <img src={ user?.picture || photo } alt="photo" />
               <ul className="menu-list">
-                <li><a href="/profile">Cuenta</a></li>
+                <li><Link to="/profile">Cuenta</Link></li>
                 <li><a href="#logout" onClick={ handleLogout }>Cerrar sesión</a></li>
               </ul>
             </li>

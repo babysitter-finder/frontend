@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import photo from '../../assets/girl.jpeg';
 import StarsRate from '../../components/atoms/StarsRate';
 import AvailabilityInput from '../../components/molecules/AvailabilityInput';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { selectBabysitter } from '../../actions/babysittersActions';
 
-const BabysitterDetail = () => {
+const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
+  const { username } = useParams();
+  const {
+    first_name: firstName,
+    last_name: lastName,
+    picture,
+    birthdate,
+    reputation,
+  } = babysitter;
+  const {
+    education_degree: educationDegree,
+    about_me: aboutMe,
+    cost_of_service: costOfService,
+    availabilities
+  } = babysitter?.user_bbs;
+  const fullName = `${firstName} ${lastName}`;
+  useEffect(() => {
+    selectBabysitter(username);
+  }, []);
   return (
     <div className="babysitterDetail">
       <div className="babysitterDetail-container">
         <section className="babysitterDetail-details">
           <div className="image-container">
-            <img src={ photo } alt="Profile picture" />
+            <img src={ picture || photo } alt="Profile picture" />
           </div>
           <div className="details-info">
-            <h3>Jessica Ramirez</h3>
+            <h3>{ fullName ?? 'Jessica Ramirez'}</h3>
             <h3>Edad - 24</h3>
             <StarsRate rate="3.0" />
           </div>
@@ -45,4 +66,17 @@ const BabysitterDetail = () => {
   );
 };
 
-export default BabysitterDetail;
+BabysitterDetail.propTypes = {
+  babysitter: PropTypes.object,
+  selectBabysitter: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (reducers) => {
+  return reducers.babysittersReducer;
+};
+
+const mapDispatchToProps = {
+  selectBabysitter,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BabysitterDetail);

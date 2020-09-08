@@ -1,12 +1,13 @@
 .login {
-  display: inline-flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  padding: $space-large;
-  margin-bottom: $space-large;
-  background-color: $color-Background-Container;
-  @include border-black-20;
+  padding: $space-medium;
+  &-container {
+    display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: $space-large;
+    @include container($color-Background-Container);
+  }
   h2 {
     margin-bottom: $space-large;
   }
@@ -14,11 +15,14 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    * {
+    & > *:not(:last-child) {
       margin-bottom: $space-medium;
-      &:last-child {
-        margin-bottom: 0;
-      }
+    }
+    .input:last-of-type {
+      margin-bottom: $space-large;
+    }
+    .button-blue {
+      margin-bottom: 0;
     }
     strong {
       font-size: 18px;

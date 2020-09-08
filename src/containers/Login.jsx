@@ -20,19 +20,21 @@ const Login = ({ error, loginUser }) => {
 
   return (
     <div className="login">
-      <h2>Bienvenidos a Hi Sitter</h2>
-      <form onSubmit={ handleSubmit }>
-        <div className="input input-alignedLeft">
-          <label htmlFor="email">Correo:</label>
-          <input type="text" name="email" placeholder="Correo" onChange={ handleInput } />
-        </div>
-        <div className="input input-alignedLeft">
-          <label htmlFor="password">Contraseña:</label>
-          <input type="password" name="password" placeholder="Contraseña" onChange={ handleInput } />
-        </div>
-        <button className="button-green" type="submit">Ingresar</button>
-        <strong>{ error }</strong>
-      </form>
+      <div className="login-container">
+        <h2>Inicio de sesión</h2>
+        <form onSubmit={ handleSubmit }>
+          <div className="input input-alignedLeft">
+            <label htmlFor="email">Correo:</label>
+            <input type="text" name="email" placeholder="Correo" onChange={ handleInput } />
+          </div>
+          <div className="input input-alignedLeft">
+            <label htmlFor="password">Contraseña:</label>
+            <input type="password" name="password" placeholder="Contraseña" onChange={ handleInput } />
+          </div>
+          <button className="button-blue" type="submit">Ingresar</button>
+          <strong>{ error }</strong>
+        </form>
+      </div>
     </div>
   );
 };

@@ -65,28 +65,12 @@ export const registerUser = ( form ) => async (dispatch) => {
   }
 }
 
-<<<<<<< HEAD
 export const getUserData = () => async (dispatch, getState) => {
   dispatch({
     type: LOADING
   });
   const { user } = getState().usersReducer;
   if (Object.keys(user).length > 3) {
-=======
-export const getUserData = () => async (dispatch) => {
-  dispatch({
-    type: LOADING
-  });
-  try {
-    const response = await axios({
-      'method': 'get',
-      'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
-      'headers': {
-        'Authorization': `Token ${getCookie('token')}`
-      },
-    });
-    const { data } = response;
->>>>>>> 72a5ca5568f7b3288ca408de16f0bd2210119e7e
     dispatch({
       type: LOGIN_USER,
       payload: user

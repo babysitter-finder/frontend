@@ -15,15 +15,9 @@ import ServiceResume from '../containers/clients/ServiceResume';
 import Schedule from '../containers/clients/Schedule';
 import Profile from '../containers/clients/Profile';
 import { getUserData } from '../actions/usersActions';
-<<<<<<< HEAD
 import PrivateRoute from './PrivateRoute';
 
 const App = ({ getUserData }) => {
-=======
-
-const App = ({ user, getUserData }) => {
-  const isLogged = (Object.keys(user).length > 0);
->>>>>>> 72a5ca5568f7b3288ca408de16f0bd2210119e7e
   useEffect(() => {
     getUserData();
   }, []);
@@ -66,10 +60,6 @@ const App = ({ user, getUserData }) => {
 };
 
 App.propTypes = {
-<<<<<<< HEAD
-=======
-  user: PropTypes.object,
->>>>>>> 72a5ca5568f7b3288ca408de16f0bd2210119e7e
   getUserData: PropTypes.func,
 };
 
@@ -77,12 +67,4 @@ const mapDispatchToProps = {
   getUserData
 };
 
-<<<<<<< HEAD
 export default connect(null, mapDispatchToProps)(App);
-=======
-const mapDispatchToProps = {
-  getUserData
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
->>>>>>> 72a5ca5568f7b3288ca408de16f0bd2210119e7e

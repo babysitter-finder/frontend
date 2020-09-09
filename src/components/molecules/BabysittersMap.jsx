@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import { compose, withProps, withStateHandlers } from 'recompose';
+import { compose, withProps } from 'recompose';
 import Caption from './Caption';
 import { Link } from 'react-router-dom';
 

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
+import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -64,14 +65,17 @@ export const registerUser = ( form ) => async (dispatch) => {
   }
 }
 
-export const getUserData = (username) => async (dispatch) => {
+export const getUserData = () => async (dispatch) => {
   dispatch({
     type: LOADING
   });
   try {
     const response = await axios({
       'method': 'get',
-      'url': `https://hisitter.xyz/users/${username}/`,
+      'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      },
     });
     const { data } = response;
     dispatch({

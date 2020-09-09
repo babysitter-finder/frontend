@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { connect } from 'react-redux';
@@ -14,9 +14,13 @@ import ServiceForm from '../containers/clients/ServiceForm';
 import ServiceResume from '../containers/clients/ServiceResume';
 import Schedule from '../containers/clients/Schedule';
 import Profile from '../containers/clients/Profile';
+import { getUserData } from '../actions/usersActions';
 
-const App = ({ user }) => {
+const App = ({ user, getUserData }) => {
   const isLogged = (Object.keys(user).length > 0);
+  useEffect(() => {
+    getUserData();
+  }, []);
   return (
     <Router history={ createBrowserHistory() }>
       <Layout isLogged={ isLogged }>
@@ -40,10 +44,15 @@ const App = ({ user }) => {
 
 App.propTypes = {
   user: PropTypes.object,
+  getUserData: PropTypes.func,
 };
 
 const mapStateToProps = (reducers) => {
   return reducers.usersReducer;
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  getUserData
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

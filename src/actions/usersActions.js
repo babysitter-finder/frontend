@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
+import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -64,24 +65,35 @@ export const registerUser = ( form ) => async (dispatch) => {
   }
 }
 
-export const getUserData = (username) => async (dispatch) => {
+export const getUserData = () => async (dispatch, getState) => {
   dispatch({
     type: LOADING
   });
-  try {
-    const response = await axios({
-      'method': 'get',
-      'url': `https://hisitter.xyz/users/${username}/`,
-    });
-    const { data } = response;
+  const { user } = getState().usersReducer;
+  if (Object.keys(user).length > 3) {
     dispatch({
-      type: GET_USER_DATA,
-      payload: data.user
+      type: LOGIN_USER,
+      payload: user
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: 'Ocurrió un error'
-    });
+  } else {
+    try {
+      const response = await axios({
+        'method': 'get',
+        'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+        'headers': {
+          'Authorization': `Token ${getCookie('token')}`
+        },
+      });
+      const { data } = response;
+      dispatch({
+        type: GET_USER_DATA,
+        payload: data.user
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: 'Ocurrió un error'
+      });
+    }
   }
 }

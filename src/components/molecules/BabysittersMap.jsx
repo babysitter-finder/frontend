@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import { compose, withProps, withStateHandlers } from 'recompose';
+import { compose, withProps } from 'recompose';
 import Caption from './Caption';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 const BabysittersMap = compose(
@@ -32,7 +33,7 @@ const BabysittersMap = compose(
     <div className="babysittersMap">
       <GoogleMap
         defaultZoom={ 15 }
-        defaultCenter={ props.locations[0] }
+        defaultCenter={ { lat: parseFloat(props.user.lat), lng: parseFloat(props.user.long) } }
       >
         {props.isMarkerShown && props.locations.map((location, index) => (
           <Marker key={ index } position={ location } onClick={ () => handleClick(index) }>
@@ -52,4 +53,8 @@ const BabysittersMap = compose(
   )
 });
 
-export default BabysittersMap;
+const mapStateToProps = (reducer) => {
+  return reducer.usersReducer
+}
+
+export default connect(mapStateToProps)(BabysittersMap);

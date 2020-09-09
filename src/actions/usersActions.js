@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
+import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
   dispatch({
@@ -12,7 +13,7 @@ export const loginUser = ( form ) => async (dispatch) => {
       data: form
     });
     const { data } = response;
-    document.cookie = `email=${data.user.email}`;
+    document.cookie = `picture=${data.user.picture ?? ''}`;
     document.cookie = `name=${data.user.first_name}`;
     document.cookie = `username=${data.user.username}`;
     document.cookie = `token=${data.access_token}`;
@@ -30,7 +31,7 @@ export const loginUser = ( form ) => async (dispatch) => {
 }
 
 export const logoutUser = () => async (dispatch) => {
-  document.cookie = `email=`;
+  document.cookie = `picture=`;
   document.cookie = `name=`;
   document.cookie = `username=`;
   document.cookie = `token=`;
@@ -52,7 +53,6 @@ export const registerUser = ( form ) => async (dispatch) => {
       data: form
     });
     const { data } = response;
-    window.location.href = '/email';
     dispatch({
       type: LOGIN_USER,
       payload: data.user
@@ -62,5 +62,54 @@ export const registerUser = ( form ) => async (dispatch) => {
       type: ERROR,
       payload: 'Ocurrió un error'
     });
+  }
+}
+
+<<<<<<< HEAD
+export const getUserData = () => async (dispatch, getState) => {
+  dispatch({
+    type: LOADING
+  });
+  const { user } = getState().usersReducer;
+  if (Object.keys(user).length > 3) {
+=======
+export const getUserData = () => async (dispatch) => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const response = await axios({
+      'method': 'get',
+      'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      },
+    });
+    const { data } = response;
+>>>>>>> 72a5ca5568f7b3288ca408de16f0bd2210119e7e
+    dispatch({
+      type: LOGIN_USER,
+      payload: user
+    });
+  } else {
+    try {
+      const response = await axios({
+        'method': 'get',
+        'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+        'headers': {
+          'Authorization': `Token ${getCookie('token')}`
+        },
+      });
+      const { data } = response;
+      dispatch({
+        type: GET_USER_DATA,
+        payload: data.user
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: 'Ocurrió un error'
+      });
+    }
   }
 }

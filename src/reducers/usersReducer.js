@@ -1,15 +1,15 @@
-import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
 import getCookie from '../utils/getCookie';
 
 const token = getCookie('token');
 const username = getCookie('username');
 const name = getCookie('name');
-const email = getCookie('email');
+const picture = getCookie('picture');
 
 const user = token ? {
   username,
   name,
-  email
+  picture,
 } : {};
 
 const INITIAL_STATE = {
@@ -37,6 +37,13 @@ export default (state = INITIAL_STATE, action) => {
   case REGISTER_USER:
     return {
       ...state,
+      loading: false,
+      error: ''
+    };
+  case GET_USER_DATA:
+    return {
+      ...state,
+      user: action.payload,
       loading: false,
       error: ''
     };

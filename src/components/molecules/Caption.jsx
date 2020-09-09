@@ -1,10 +1,15 @@
 import React from 'react';
 import photo from '../../assets/girl.jpeg';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const Caption = ({ name, image }) => {
+const Caption = ({ name, image, size }) => {
+  const captionClass = classNames({
+    'caption': true,
+    [`caption-${size}`]: size
+  })
   return (
-    <div className="caption">
+    <div className={ captionClass }>
       <div className="caption-imgContainer">
         <img src={ image ?? photo } alt="Profile picture" />
       </div>
@@ -15,7 +20,8 @@ const Caption = ({ name, image }) => {
 
 Caption.propTypes = {
   name: PropTypes.string.isRequired,
-  image: PropTypes.string
+  image: PropTypes.string,
+  size: PropTypes.string
 }
 
 export default Caption;

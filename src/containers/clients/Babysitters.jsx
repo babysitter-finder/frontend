@@ -21,7 +21,7 @@ const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, loca
         </div>
         <div className="babysittersLists-container">
           <BabysitterList babysitters={ babysitters } />
-          {!loading && <BabysittersMap isMarkerShown locations={ locations } />}
+          {!loading && <BabysittersMap isMarkerShown babysitters={ babysitters } locations={ locations } />}
         </div>
       </div>
     </div>

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import photo from '../../assets/girl.jpeg';
 import { Link } from 'react-router-dom';
+import PopupDeleteUser from '../../components/molecules/PopupDeleteUser';
 
 const Profile = () => {
+  const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const handleClose = () => {
+    setIsOpenPopup(false);
+  };
+
   return (
     <div className="profile">
       <div className="profile-container">
@@ -21,7 +27,8 @@ const Profile = () => {
           </div>
           <h3>Direccion: Primera, Constitucion 325  Morelos Aguascalientes, Ags.</h3>
           <div className="buttons">
-            <button className="button-pink">Eliminar cuenta</button>
+            <button className="button-pink" onClick={ () => setIsOpenPopup(true) }>Eliminar cuenta</button>
+            {isOpenPopup && <PopupDeleteUser closePopup={ handleClose } />}
             <Link to="/profile/edit" className="button-blue">Editar perfil</Link>
           </div>
         </div>

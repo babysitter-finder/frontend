@@ -44,12 +44,8 @@ const ServiceForm = () => {
                 <input type="date" name="day" placeholder="Día" onChange={ handleInput } />
               </div>
               <div className="input input-alignedLeft">
-                <label htmlFor="service_start">Hora de inicio:</label>
-                <input type="time" name="service_start" placeholder="Hora de inicio" onChange={ handleInput } />
-              </div>
-              <div className="input input-alignedLeft">
-                <label htmlFor="service_end">Hora de Finalización:</label>
-                <input type="time" name="service_end" placeholder="Hora de inicio" onChange={ handleInput } />
+                <label htmlFor="count_children">Numero de niños:</label>
+                <input type="number" name="count_children" placeholder="Numero de niños" min="1" onChange={ handleInput } />
               </div>
             </div>
             <div className="right">
@@ -62,10 +58,6 @@ const ServiceForm = () => {
                   <option value="afternoon">Tarde</option>
                   <option value="night">Noche</option>
                 </select>
-              </div>
-              <div className="input">
-                <label htmlFor="count_children">Numero de niños:</label>
-                <input type="number" name="count_children" placeholder="Numero de niños" min="1" onChange={ handleInput } />
               </div>
             </div>
           </div>

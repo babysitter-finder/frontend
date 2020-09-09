@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 const PersonalInfoForm = ({ error, registerUser }) => {
 
   const editForm = useLocation().pathname === '/profile/edit';
-  console.log(editForm);
   const [form, setValues] = useState({
     email: '',
   });
@@ -48,14 +47,14 @@ const PersonalInfoForm = ({ error, registerUser }) => {
               <label htmlFor="email">Correo:</label>
               <input type="text" name="email" placeholder="Correo" onChange={ handleInput } />
             </div>
-            <div className="input input-alignedLeft">
+            {!editForm && <><div className="input input-alignedLeft">
               <label htmlFor="password">Contraseña:</label>
               <input type="password" name="password" placeholder="Contraseña" onChange={ handleInput } />
             </div>
             <div className="input input-alignedLeft">
               <label htmlFor="password_confirmation">Confirmar contraseña:</label>
               <input type="password" name="password_confirmation" placeholder="Contraseña" onChange={ handleInput } />
-            </div>
+            </div></>}
             <div className="input input-alignedLeft">
               <label htmlFor="username">Nombre de usuario:</label>
               <input type="text" name="username" placeholder="Nombre de usuario" onChange={ handleInput } />
@@ -85,7 +84,6 @@ const PersonalInfoForm = ({ error, registerUser }) => {
             <input type="text" name="address" placeholder="Dirección" onChange={ handleInput } />
           </div>
           <button className="button-blue" type="submit">{ editForm ? 'Guardar' : 'Registrar'}</button>
-          
           <strong>{ error }</strong>
         </form>
       </div>

@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { registerUser } from '../../actions/usersActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImageInput from '../../components/molecules/ImageInput';
 import { useLocation } from 'react-router-dom';
+import picture from '../../assets/girl.jpeg';
 
-const PersonalInfoForm = ({ error, registerUser }) => {
+const PersonalInfoForm = ({ error, registerUser, user }) => {
 
   const editForm = useLocation().pathname === '/profile/edit';
   const [form, setValues] = useState({
+    first_name: '',
+    last_name: '',
     email: '',
+    username: '',
+    birthdate: '',
+    phone_number: '',
+    address: '',
+    genre: ''
   });
+  useEffect(() => {
+    if (Object.keys(user).length > 3 && editForm) {
+      setValues(user);
+    }
+  }, [user])
   const handleInput = (event) => {
     setValues({
       ...form,
@@ -37,15 +50,15 @@ const PersonalInfoForm = ({ error, registerUser }) => {
           <div className="left">
             <div className="input input-alignedLeft">
               <label htmlFor="first_name">Nombres:</label>
-              <input type="text" name="first_name" placeholder="Nombres" onChange={ handleInput } />
+              <input type="text" name="first_name" placeholder="Nombres" value={ form.first_name } onChange={ handleInput } />
             </div>
             <div className="input input-alignedLeft">
               <label htmlFor="last_name">Apellidos:</label>
-              <input type="text" name="last_name" placeholder="Apellidos" onChange={ handleInput } />
+              <input type="text" name="last_name" placeholder="Apellidos" value={ form.last_name } onChange={ handleInput } />
             </div>
             <div className="input input-alignedLeft">
               <label htmlFor="email">Correo:</label>
-              <input type="text" name="email" placeholder="Correo" onChange={ handleInput } />
+              <input type="text" name="email" placeholder="Correo" value={ form.email } onChange={ handleInput } />
             </div>
             {!editForm && <><div className="input input-alignedLeft">
               <label htmlFor="password">Contraseña:</label>
@@ -57,22 +70,22 @@ const PersonalInfoForm = ({ error, registerUser }) => {
             </div></>}
             <div className="input input-alignedLeft">
               <label htmlFor="username">Nombre de usuario:</label>
-              <input type="text" name="username" placeholder="Nombre de usuario" onChange={ handleInput } />
+              <input type="text" name="username" placeholder="Nombre de usuario" value={ form.username } onChange={ handleInput } />
             </div>
             <div className="input input-alignedLeft">
               <label htmlFor="birthdate">Fecha de nacimiento:</label>
-              <input type="date" name="birthdate" placeholder="Fecha de nacimiento" onChange={ handleInput } />
+              <input type="date" name="birthdate" placeholder="Fecha de nacimiento" value={ form.birthdate } onChange={ handleInput } />
             </div>
           </div>
           <div className="right">
-            <ImageInput handleImage={ handleImage } />
+            <ImageInput handleImage={ handleImage } imageValue={ form.picture ?? picture } />
             <div className="input">
               <label htmlFor="phone_number">Celular:</label>
-              <input type="number" name="phone_number" placeholder="Celular" onChange={ handleInput } />
+              <input type="number" name="phone_number" placeholder="Celular" value={ form.phone_number } onChange={ handleInput } />
             </div>
             <div className="select">
               <label htmlFor="genre">Género:</label>
-              <select name="genre" onChange={ handleInput }>
+              <select name="genre" onChange={ handleInput } defaultValue={ 'male' }>
                 <option>Selecciona una opción</option>
                 <option value="male">Masculino</option>
                 <option value="female">Femenino</option>
@@ -81,7 +94,7 @@ const PersonalInfoForm = ({ error, registerUser }) => {
           </div>
           <div className="input">
             <label htmlFor="address">Dirección:</label>
-            <input type="text" name="address" placeholder="Dirección" onChange={ handleInput } />
+            <input type="text" name="address" placeholder="Dirección" value={ form.address } onChange={ handleInput } />
           </div>
           <button className="button-blue" type="submit">{ editForm ? 'Guardar' : 'Registrar'}</button>
           <strong>{ error }</strong>
@@ -94,6 +107,7 @@ const PersonalInfoForm = ({ error, registerUser }) => {
 PersonalInfoForm.propTypes = {
   error: PropTypes.string,
   registerUser: PropTypes.func,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = (reducers) => {

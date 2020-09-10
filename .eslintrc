@@ -60,7 +60,7 @@
       "no-unused-vars": "error",
       "no-use-before-define": "error",
       "capitalized-comments": "warn",
-      "camelcase": "error",
+      "camelcase": ["error", {"properties": "never"}],
       "indent": ["error", 2],
       "jsx-quotes": ["error", "prefer-double"],
       "key-spacing": ["error", { "beforeColon": false }],

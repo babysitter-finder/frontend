@@ -48,8 +48,8 @@ const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter }) => {
           <div className="serviceForm-divide">
             <div className="left">
               <div className="input input-alignedLeft">
-                <label htmlFor="day">Día:</label>
-                <input type="date" name="day" placeholder="Día" onChange={ handleInput } />
+                <label htmlFor="date">Día:</label>
+                <input type="date" name="date" placeholder="Día" onChange={ handleInput } />
               </div>
               <div className="input input-alignedLeft">
                 <label htmlFor="count_children">Numero de niños:</label>
@@ -62,8 +62,8 @@ const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter }) => {
                 <select name="shift" onChange={ handleInput } defaultValue="">
                   <option value="" disabled>Selecciona una opción</option>
                   <option value="morning">Mañana</option>
-                  <option value="noon">Mediodía</option>
-                  <option value="afternoon">Tarde</option>
+                  <option value="afternoon">Mediodía</option>
+                  <option value="evening">Tarde</option>
                   <option value="night">Noche</option>
                 </select>
               </div>

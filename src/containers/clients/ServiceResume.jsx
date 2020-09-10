@@ -7,8 +7,8 @@ import { registerService } from '../../actions/servicesActions';
 const ServiceResume = ({ serviceForm, babysitter, registerService }) => {
   const shifts = {
     morning: 'Mañana',
-    noon: 'Mediodía',
-    afternoon: 'Tarde',
+    afternoon: 'Mediodía',
+    evening: 'Tarde',
     night: 'Noche'
   };
 

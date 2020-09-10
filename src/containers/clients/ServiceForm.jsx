@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import ServiceInput from '../../components/molecules/ServiceInput';
 import { Link, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setServiceForm } from '../../actions/servicesActions';
+import PropTypes from 'prop-types';
 
-const ServiceForm = () => {
+const ServiceForm = ({ setServiceForm }) => {
   const editForm = useLocation().pathname !== '/service/new';
   const [marker, setMarker] = useState({});
-  const [form, setForm] = useState({});
 
   const handleSubmit = () => {
 
   }
 
-  const handleInput = () => {
-    setForm({
-      ...form,
-      [event.target.name]: event.target.value,
+  const handleInput = (event) => {
+    let { name, value } = event.target;
+    if (name === 'count_children') {
+      value = parseInt(value)
+    }
+    setServiceForm({
+      [name]: value,
     });
   };
 
@@ -23,13 +28,12 @@ const ServiceForm = () => {
       lat: e.latLng.lat(),
       lng: e.latLng.lng()
     });
-    setForm({
-      ...form,
-      location: {
-        lat: e.latLng.lat(),
-        lng: e.latLng.lng()
-      }
-    })
+    setServiceForm({
+      lat: e.latLng.lat(),
+    });
+    setServiceForm({
+      long: e.latLng.lng()
+    });
   };
   
   return (
@@ -45,13 +49,13 @@ const ServiceForm = () => {
               </div>
               <div className="input input-alignedLeft">
                 <label htmlFor="count_children">Numero de niños:</label>
-                <input type="number" name="count_children" placeholder="Numero de niños" min="1" onChange={ handleInput } />
+                <input type="number" name="count_children" placeholder="Numero de niños" min="1" max="10" onChange={ handleInput } />
               </div>
             </div>
             <div className="right">
               <div className="select">
-                <label htmlFor="genre">Horario:</label>
-                <select name="genre" onChange={ handleInput } defaultValue="">
+                <label htmlFor="shift">Horario:</label>
+                <select name="shift" onChange={ handleInput } defaultValue="">
                   <option value="" disabled>Selecciona una opción</option>
                   <option value="morning">Mañana</option>
                   <option value="noon">Mediodía</option>
@@ -79,4 +83,12 @@ const ServiceForm = () => {
   );
 };
 
-export default ServiceForm;
+ServiceForm.propTypes = {
+  setServiceForm: PropTypes.func
+};
+
+const mapDispatchToProps = {
+  setServiceForm
+};
+
+export default connect(null, mapDispatchToProps)(ServiceForm);

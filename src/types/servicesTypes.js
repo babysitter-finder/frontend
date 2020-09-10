@@ -1,0 +1,3 @@
+export const SET_SERVICE_FORM = 'SET_SERVICE_FORM';
+export const LOADING = 'LOADING_SERVICES';
+export const ERROR = 'ERROR_SERVICES';

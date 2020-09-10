@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ServiceInput from '../../components/molecules/ServiceInput';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setServiceForm } from '../../actions/servicesActions';
+import { selectBabysitter } from '../../actions/babysittersActions';
 import PropTypes from 'prop-types';
 
-const ServiceForm = ({ setServiceForm }) => {
-  const editForm = useLocation().pathname !== '/service/new';
+const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter }) => {
   const [marker, setMarker] = useState({});
-
-  const handleSubmit = () => {
-
-  }
+  const { username } = useParams();
+  
+  useEffect(() => {
+    if (Object.keys(babysitter).length === 0) {
+      selectBabysitter(username);
+    }
+  }, []);
+  const editForm = useLocation().pathname !== `/service/new/${username}`;
 
   const handleInput = (event) => {
     let { name, value } = event.target;
@@ -40,7 +44,7 @@ const ServiceForm = ({ setServiceForm }) => {
     <div className="serviceForm">
       <div className="serviceForm-container">
         <h1>{ editForm ? 'Editar Cita' : 'Solicitar cita' }</h1>
-        <form onSubmit={ handleSubmit }>
+        <form>
           <div className="serviceForm-divide">
             <div className="left">
               <div className="input input-alignedLeft">
@@ -71,8 +75,8 @@ const ServiceForm = ({ setServiceForm }) => {
             <ServiceInput isMarkerShown={ Object.keys(marker).length > 0 } marker={ marker } onMapClick={ handleClick } />
           </div>
           <div className="textArea">
-            <label htmlFor="about">¿Tienen algún cuidado especial tus hijos?</label>
-            <textarea name="about" id="about" rows="10" onChange={ handleInput }></textarea>
+            <label htmlFor="special_cares">¿Tienen algún cuidado especial tus hijos?</label>
+            <textarea name="special_cares" id="special_cares" rows="10" onChange={ handleInput }></textarea>
           </div>
           <Link to={ editForm ? '' : '/service/resume' } className="button-blue">{editForm ? 'Guardar' : 'Registrar'}</Link>
 
@@ -84,11 +88,18 @@ const ServiceForm = ({ setServiceForm }) => {
 };
 
 ServiceForm.propTypes = {
-  setServiceForm: PropTypes.func
+  setServiceForm: PropTypes.func,
+  selectBabysitter: PropTypes.func,
+  babysitter: PropTypes.object
 };
 
 const mapDispatchToProps = {
-  setServiceForm
+  setServiceForm,
+  selectBabysitter
 };
 
-export default connect(null, mapDispatchToProps)(ServiceForm);
+const mapStateToProps = (reducer) => {
+  return reducer.babysittersReducer;
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceForm);

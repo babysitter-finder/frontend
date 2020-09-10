@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { selectBabysitter } from '../../actions/babysittersActions';
+import differenceInYears from 'date-fns/differenceInYears';
 
 const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
   const { username } = useParams();
@@ -13,6 +14,7 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
     first_name: firstName,
     last_name: lastName,
     picture,
+    birthdate
   } = babysitter;
   useEffect(() => {
     selectBabysitter(username);
@@ -30,7 +32,7 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
           </div>
           <div className="details-info">
             <h3>{ fullName ?? 'Jessica Ramirez'}</h3>
-            <h3>Edad - 24</h3>
+            <h3>Edad - { differenceInYears(Date.now(), new Date(birthdate)) ?? '24'}</h3>
             <StarsRate rate={ babysitter?.reputation ?? '4.0' } />
           </div>
         </section>

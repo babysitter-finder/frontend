@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { registerUser } from '../../actions/usersActions';
+import { registerUser, updateUserData } from '../../actions/usersActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImageInput from '../../components/molecules/ImageInput';
 import { useLocation } from 'react-router-dom';
 import picture from '../../assets/girl.jpeg';
 
-const PersonalInfoForm = ({ error, registerUser, user }) => {
+const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
 
   const editForm = useLocation().pathname === '/profile/edit';
   const [form, setValues] = useState({
@@ -17,7 +17,7 @@ const PersonalInfoForm = ({ error, registerUser, user }) => {
     birthdate: '',
     phone_number: '',
     address: '',
-    genre: ''
+    genre: '',
   });
   useEffect(() => {
     if (Object.keys(user).length > 3 && editForm) {
@@ -32,7 +32,11 @@ const PersonalInfoForm = ({ error, registerUser, user }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    registerUser(form);
+    if (editForm) {
+      updateUserData(form);
+    } else {
+      registerUser(form);
+    }
   };
 
   const handleImage = (event) => {
@@ -78,14 +82,14 @@ const PersonalInfoForm = ({ error, registerUser, user }) => {
             </div>
           </div>
           <div className="right">
-            <ImageInput handleImage={ handleImage } imageValue={ form.picture ?? picture } />
+            <ImageInput handleImage={ handleImage } imageValue={ editForm ? form.picture ?? picture : '' } />
             <div className="input">
               <label htmlFor="phone_number">Celular:</label>
               <input type="number" name="phone_number" placeholder="Celular" value={ form.phone_number } onChange={ handleInput } />
             </div>
             <div className="select">
               <label htmlFor="genre">Género:</label>
-              <select name="genre" onChange={ handleInput } defaultValue={ 'male' }>
+              <select name="genre" onChange={ handleInput } defaultValue={ form.genre }>
                 <option>Selecciona una opción</option>
                 <option value="male">Masculino</option>
                 <option value="female">Femenino</option>
@@ -107,6 +111,7 @@ const PersonalInfoForm = ({ error, registerUser, user }) => {
 PersonalInfoForm.propTypes = {
   error: PropTypes.string,
   registerUser: PropTypes.func,
+  updateUserData: PropTypes.func,
   user: PropTypes.object,
 };
 
@@ -115,7 +120,8 @@ const mapStateToProps = (reducers) => {
 };
 
 const mapDispatchToProps = {
-  registerUser
+  registerUser,
+  updateUserData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalInfoForm);

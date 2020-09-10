@@ -1,5 +1,12 @@
 import axios from 'axios';
-import { LOGIN_USER, LOADING, ERROR, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
+import {
+  LOGIN_USER,
+  LOADING,
+  ERROR,
+  LOGOUT_USER,
+  GET_USER_DATA,
+  UPDATE_USER_DATA
+} from '../types/usersTypes';
 import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
@@ -95,5 +102,32 @@ export const getUserData = () => async (dispatch, getState) => {
         payload: 'Ocurrió un error'
       });
     }
+  }
+}
+
+export const updateUserData = (form) => async (dispatch) => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const response = await axios({
+      'method': 'patch',
+      'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      },
+      'data': form
+    });
+    const { data } = response;
+    dispatch({
+      type: UPDATE_USER_DATA,
+      payload: data.user
+    });
+    document.location.href = '/profile';
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
   }
 }

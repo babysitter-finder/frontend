@@ -66,11 +66,13 @@ const ServiceInput = compose(
   const handlePlacesChanged = () => {
     props.onPlacesChanged();
     if (props.markers[0]?.position.lat()) {
+      const lat = parseFloat(props.markers[0].position.lat().toFixed(6));
+      const lng = parseFloat(props.markers[0].position.lng().toFixed(6));
       props.setServiceForm({
-        lat: props.markers[0].position.lat()
+        lat
       });
       props.setServiceForm({
-        long: props.markers[0].position.lng()
+        long: lng
       });
     }
   };

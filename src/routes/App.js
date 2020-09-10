@@ -31,7 +31,7 @@ const App = ({ getUserData }) => {
           <PrivateRoute exact path="/babysitter/:username" >
             <BabysitterDetail />
           </PrivateRoute>
-          <PrivateRoute exact path="/service/new" >
+          <PrivateRoute exact path="/service/new/:username" >
             <ServiceForm />
           </PrivateRoute>
           <PrivateRoute exact path="/service/resume" >

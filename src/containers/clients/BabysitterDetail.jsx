@@ -47,7 +47,7 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
           </div>
           <div className="price">
             <h3>${ babysitter?.user_bbs?.cost_of_service } / Hora</h3>
-            <Link to="/service/new" type="button" className="button-highlight">Contratar</Link>
+            <Link to={ `/service/new/${username}` } type="button" className="button-highlight">Contratar</Link>
           </div>
         </section>
         <section className="babysitterDetail-availability">

@@ -125,6 +125,10 @@ const Register = () => {
                     </tr>
                   </tbody>
                 </table>
+                <div className="input">
+                  <label htmlFor="cost_of_service">Costo de servicio por hora:</label>
+                  <input type="number" name="cost_of_service" placeholder="Monto" onChange=""/>                
+                </div>
                 <button className="button-blue" type="submit">Registrar</button>
               </div>
             </form>

@@ -68,18 +68,26 @@ const ServiceInput = compose(
     if (props.markers[0]?.position.lat()) {
       const lat = parseFloat(props.markers[0].position.lat().toFixed(6));
       const lng = parseFloat(props.markers[0].position.lng().toFixed(6));
-      props.setServiceForm({
-        lat
-      });
-      props.setServiceForm({
-        long: lng
-      });
+      if (props.isEditForm) {
+        props.onChange(lat, lng);
+      } else {
+        props.setServiceForm({
+          lat
+        });
+        props.setServiceForm({
+          long: lng
+        });
+      }
     }
   };
   const handleInput = (event) => {
-    props.setServiceForm({
-      [event.target.name]: event.target.value
-    });
+    if (props.isEditForm) {
+      props.onInputChange(event.target.name, event.target.value);
+    } else {
+      props.setServiceForm({
+        [event.target.name]: event.target.value
+      });
+    }
   }
   return (
     <div className="serviceInput">
@@ -95,27 +103,49 @@ const ServiceInput = compose(
           controlPosition={ google.maps.ControlPosition.TOP_LEFT }
           onPlacesChanged={ handlePlacesChanged }
         >
-          <input
-            type="text"
-            placeholder="Dirección completa"
-            name="address"
-            onChange={ handleInput }
-            style={ {
-              boxSizing: `border-box`,
-              border: `1px solid transparent`,
-              width: `240px`,
-              height: `32px`,
-              marginTop: `27px`,
-              padding: `0 12px`,
-              borderRadius: `10px`,
-              boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-              fontSize: `14px`,
-              outline: `none`,
-              textOverflow: `ellipses`,
-            } }
-          />
+          {props.isEditForm ?
+            <input
+              type="text"
+              placeholder="Dirección completa"
+              name="address"
+              onChange={ handleInput }
+              value={ props.address }
+              style={ {
+                boxSizing: `border-box`,
+                border: `1px solid transparent`,
+                width: `240px`,
+                height: `32px`,
+                marginTop: `27px`,
+                padding: `0 12px`,
+                borderRadius: `10px`,
+                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                fontSize: `14px`,
+                outline: `none`,
+                textOverflow: `ellipses`,
+              } }
+            /> :
+            <input
+              type="text"
+              placeholder="Dirección completa"
+              name="address"
+              onChange={ handleInput }
+              style={ {
+                boxSizing: `border-box`,
+                border: `1px solid transparent`,
+                width: `240px`,
+                height: `32px`,
+                marginTop: `27px`,
+                padding: `0 12px`,
+                borderRadius: `10px`,
+                boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                fontSize: `14px`,
+                outline: `none`,
+                textOverflow: `ellipses`,
+              } }
+            />
+          }
         </SearchBox>
-        {props.markers.map((marker, index) =>
+        {<Marker position={ { lat: parseFloat(props.marker.lat), lng: parseFloat(props.marker.lng) } } /> || props.markers.map((marker, index) =>
           <Marker key={ index } position={ marker.position } />
         )}
       </GoogleMap>

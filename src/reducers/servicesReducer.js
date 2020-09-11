@@ -1,11 +1,15 @@
 import {
   LOADING,
   ERROR,
-  SET_SERVICE_FORM, REGISTER_SERVICE, GET_SERVICES
+  SET_SERVICE_FORM,
+  REGISTER_SERVICE,
+  GET_SERVICES,
+  GET_SERVICE
 } from '../types/servicesTypes';
 
 const INITIAL_STATE = {
   serviceForm: {},
+  editForm: {},
   loading: false,
   error: '',
   services: [],
@@ -35,6 +39,11 @@ export default (state = INITIAL_STATE, action) => {
     return {
       ...state,
       services: action.payload
+    }
+  case GET_SERVICE:
+    return {
+      ...state,
+      editForm: action.payload
     }
   case LOADING:
     return {

@@ -19,7 +19,8 @@
         "react"
     ],
     "globals": {
-      "__dirname": "readonly"
+      "__dirname": "readonly",
+      "google": "readonly"
     },
     "rules": {
       "quotes": [

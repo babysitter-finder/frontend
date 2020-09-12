@@ -1,15 +1,25 @@
 import React from 'react';
 import ServiceList from '../../components/organisms/ServiceList';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Schedule = () => {
+const Schedule = ({ services }) => {
   return (
     <div className="schedule">
       <div className="schedule-container">
         <h1>Citas</h1>
-        <ServiceList services={ [1, 2, 3, 4] } />
+        { services.length > 0 ? <ServiceList services={ services } /> : <h2>No tienes citas</h2>}
       </div>
     </div>
   );
 };
 
-export default Schedule;
+Schedule.propTypes = {
+  services: PropTypes.array
+};
+
+const mapStateToProps = (reducer) => {
+  return reducer.servicesReducer
+};
+
+export default connect(mapStateToProps)(Schedule);

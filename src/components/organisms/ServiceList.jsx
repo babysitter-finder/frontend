@@ -6,7 +6,7 @@ const ServiceList = ({ services }) => {
   return (
     <div className="serviceList">
       {services.map((service, index) => (
-        <Service key={ index } />
+        <Service key={ index } service={ service } />
       ))}
     </div>
   );

@@ -7,6 +7,7 @@ import {
   GET_USER_DATA,
   UPDATE_USER_DATA
 } from '../types/usersTypes';
+import { GET_SERVICES } from '../types/servicesTypes'
 import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
@@ -64,6 +65,7 @@ export const registerUser = ( form ) => async (dispatch) => {
       data: formData,
     });
     const { data } = response;
+    document.location.href = '/email';
     dispatch({
       type: LOGIN_USER,
       payload: data.user
@@ -123,9 +125,11 @@ export const updateUserData = (form) => async (dispatch) => {
   try {
     const formData = new FormData();
     Object.keys(form).forEach(key => {
+      if (form.picture === form[key] && typeof form.picture === 'string') {
+        return
+      }
       formData.append(key, form[key]);
     });
-    console.log(form)
     const response = await axios({
       'method': 'patch',
       'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
@@ -135,11 +139,11 @@ export const updateUserData = (form) => async (dispatch) => {
       },
     });
     const { data } = response;
+    document.location.href = '/profile';
     dispatch({
       type: UPDATE_USER_DATA,
-      payload: data.user
+      payload: data
     });
-    document.location.href = '/profile';
   } catch (error) {
     dispatch({
       type: ERROR,

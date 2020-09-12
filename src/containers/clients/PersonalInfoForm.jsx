@@ -20,7 +20,7 @@ const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
     genre: '',
   });
   useEffect(() => {
-    if (Object.keys(user).length > 3 && editForm) {
+    if (Object.keys(user ?? {}).length > 3 && editForm) {
       setValues(user);
     }
   }, [user])

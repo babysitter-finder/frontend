@@ -19,7 +19,7 @@ import PrivateRoute from './PrivateRoute';
 
 const App = ({ getUserData }) => {
   useEffect(() => {
-    getUserData();
+    (async() => await getUserData())()
   }, []);
   return (
     <Router history={ createBrowserHistory() }>

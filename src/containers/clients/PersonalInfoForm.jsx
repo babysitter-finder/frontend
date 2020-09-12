@@ -82,7 +82,10 @@ const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
             </div>
           </div>
           <div className="right">
-            <ImageInput handleImage={ handleImage } imageValue={ editForm ? form.picture ?? picture : '' } />
+            {editForm ?
+              <ImageInput handleImage={ handleImage } imageValue={ form.picture || picture } /> :
+              <ImageInput handleImage={ handleImage } />
+            }
             <div className="input">
               <label htmlFor="phone_number">Celular:</label>
               <input type="number" name="phone_number" placeholder="Celular" value={ form.phone_number } onChange={ handleInput } />

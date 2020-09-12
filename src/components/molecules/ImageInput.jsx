@@ -8,7 +8,7 @@ const ImageInput = ({ handleImage, imageValue }) => {
     const image = document.querySelector('.imageInput-preview');
     const input = document.querySelector('.imageInput-inputfile');
     if(imageValue) {
-      setSrc(imageValue)
+      setSrc(imageValue);
       image.style.display = 'block';
     }
     const reader = new FileReader();
@@ -51,7 +51,7 @@ const ImageInput = ({ handleImage, imageValue }) => {
         setSrc(this.result);
       });
     }
-  }, [])
+  }, [imageValue])
 
   return (
     <div className="imageInput">

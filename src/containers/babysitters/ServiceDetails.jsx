@@ -21,7 +21,7 @@ const ServiceDetails = () => {
             </div>
           </div>
           <h3>Direccion: Primera Constitucion 325  Morelos Aguascalientes, Ags.</h3>
-          <Link to="/profile/edit" className="button-blue">Estoy en camino</Link>
+          <Link to="/service/1/way" className="button-blue">Estoy en camino</Link>
         </div>
       </div>
       <div className="serviceDetails-maps">

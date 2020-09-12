@@ -1,0 +1,8 @@
+.serviceDetails {
+  padding: $space-small;
+  &-container {
+    padding: $space-medium;
+    margin-bottom: $space-medium;
+    @include container($color-Background-Container);
+  }
+}

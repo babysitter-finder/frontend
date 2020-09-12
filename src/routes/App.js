@@ -15,6 +15,7 @@ import ServiceResume from '../containers/clients/ServiceResume';
 import Schedule from '../containers/clients/Schedule';
 import Profile from '../containers/clients/Profile';
 import Review from '../containers/clients/Review';
+import ServiceDetails from '../containers/babysitters/ServiceDetails';
 import { getUserData } from '../actions/usersActions';
 import PrivateRoute from './PrivateRoute';
 
@@ -52,6 +53,9 @@ const App = ({ getUserData }) => {
           </PrivateRoute>
           <PrivateRoute exact path="/review/:id/" >
             <Review />
+          </PrivateRoute>
+          <PrivateRoute exact path="/service/:id/" >
+            <ServiceDetails />
           </PrivateRoute>
           <Route exact path="/login" component={ Login } />
           <Route exact path="/email" component={ Email } />

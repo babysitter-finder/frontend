@@ -1,4 +1,4 @@
-import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER, GET_USER_DATA } from '../types/usersTypes';
+import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER, GET_USER_DATA, UPDATE_USER_DATA } from '../types/usersTypes';
 import getCookie from '../utils/getCookie';
 
 const token = getCookie('token');
@@ -41,6 +41,13 @@ export default (state = INITIAL_STATE, action) => {
       error: ''
     };
   case GET_USER_DATA:
+    return {
+      ...state,
+      user: action.payload,
+      loading: false,
+      error: ''
+    };
+  case UPDATE_USER_DATA:
     return {
       ...state,
       user: action.payload,

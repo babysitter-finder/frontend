@@ -4,9 +4,9 @@ import {
   LOADING,
   ERROR,
   LOGOUT_USER,
-  GET_USER_DATA
+  GET_USER_DATA,
+  UPDATE_USER_DATA
 } from '../types/usersTypes';
-import { GET_SERVICES } from '../types/servicesTypes';
 import getCookie from '../utils/getCookie';
 
 export const loginUser = ( form ) => async (dispatch) => {
@@ -54,10 +54,14 @@ export const registerUser = ( form ) => async (dispatch) => {
     type: LOADING
   });
   try {
+    const formData = new FormData();
+    Object.keys(form).forEach(key => {
+      formData.append(key, form[key]);
+    });
     const response = await axios({
       'method': 'post',
       'url': 'https://hisitter.xyz/users/signup/',
-      data: form
+      data: formData,
     });
     const { data } = response;
     dispatch({
@@ -109,5 +113,37 @@ export const getUserData = () => async (dispatch, getState) => {
         });
       }
     }
+  }
+}
+
+export const updateUserData = (form) => async (dispatch) => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const formData = new FormData();
+    Object.keys(form).forEach(key => {
+      formData.append(key, form[key]);
+    });
+    console.log(form)
+    const response = await axios({
+      'method': 'patch',
+      'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+      'data': formData,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      },
+    });
+    const { data } = response;
+    dispatch({
+      type: UPDATE_USER_DATA,
+      payload: data.user
+    });
+    document.location.href = '/profile';
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
   }
 }

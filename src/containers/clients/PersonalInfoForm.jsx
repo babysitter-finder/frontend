@@ -89,7 +89,7 @@ const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
             </div>
             <div className="select">
               <label htmlFor="genre">Género:</label>
-              <select name="genre" onChange={ handleInput } defaultValue={ form.genre }>
+              <select name="genre" onChange={ handleInput } value={ form.genre }>
                 <option>Selecciona una opción</option>
                 <option value="male">Masculino</option>
                 <option value="female">Femenino</option>

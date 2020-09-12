@@ -54,10 +54,14 @@ export const registerUser = ( form ) => async (dispatch) => {
     type: LOADING
   });
   try {
+    const formData = new FormData();
+    Object.keys(form).forEach(key => {
+      formData.append(key, form[key]);
+    });
     const response = await axios({
       'method': 'post',
       'url': 'https://hisitter.xyz/users/signup/',
-      data: form
+      data: formData,
     });
     const { data } = response;
     dispatch({
@@ -110,13 +114,18 @@ export const updateUserData = (form) => async (dispatch) => {
     type: LOADING
   });
   try {
+    const formData = new FormData();
+    Object.keys(form).forEach(key => {
+      formData.append(key, form[key]);
+    });
+    console.log(form)
     const response = await axios({
       'method': 'patch',
       'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
+      'data': formData,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
       },
-      'data': form
     });
     const { data } = response;
     dispatch({

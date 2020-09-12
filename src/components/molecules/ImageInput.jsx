@@ -55,8 +55,8 @@ const ImageInput = ({ handleImage, imageValue }) => {
 
   return (
     <div className="imageInput">
-      <input type="file" name="file" id="file" className="imageInput-inputfile" accept="image/*" onChange={ handleImage } />
-      <label htmlFor="file" className="imageInput-label">
+      <input type="file" name="picture" id="picture" className="imageInput-inputfile" accept="image/*" onChange={ handleImage } />
+      <label htmlFor="picture" className="imageInput-label">
         Selecciona una foto
         <img src={ src } alt="Image Preview" className="imageInput-preview" />
       </label>

@@ -25,13 +25,12 @@ export const loginUser = ( form ) => async (dispatch) => {
     document.cookie = `name=${data.user.first_name}`;
     document.cookie = `username=${data.user.username}`;
     document.cookie = `token=${data.access_token}`;
+    document.cookie = `user_bbs=${data.user.user_bbs ? 'true' : ''}`;
     dispatch({
       type: LOGIN_USER,
       payload: data.user
     });
-    if(data.user.user_bbs) {
-      window.location.href = '/schedule';
-    }
+    window.location.href = '/';
 
   } catch (error) {
     dispatch({
@@ -46,6 +45,7 @@ export const logoutUser = () => async (dispatch) => {
   document.cookie = `name=`;
   document.cookie = `username=`;
   document.cookie = `token=`;
+  document.cookie = `user_bbs=`;
   dispatch({
     type: LOGOUT_USER,
     payload: {}
@@ -88,7 +88,7 @@ export const getUserData = () => async (dispatch, getState) => {
   const { user } = getState().usersReducer;
   const token = getCookie('token');
   if (token) {
-    if (Object.keys(user).length > 3) {
+    if (Object.keys(user).length > 4) {
       dispatch({
         type: LOGIN_USER,
         payload: user

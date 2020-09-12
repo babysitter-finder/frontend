@@ -5,11 +5,13 @@ const token = getCookie('token');
 const username = getCookie('username');
 const name = getCookie('name');
 const picture = getCookie('picture');
+const user_bbs = getCookie('user_bbs');
 
 const user = token ? {
   username,
   name,
   picture,
+  user_bbs,
 } : {};
 
 const INITIAL_STATE = {

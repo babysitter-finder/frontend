@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-const PrivateRoute = ({ children, user, ...rest }) => {
+const PrivateRoute = ({ children, user, babysitterComponent, ...rest }) => {
   return (
     <Route
       { ...rest }
       render={ ({ location }) =>
         (Object.keys(user).length > 0) ? (
-          children
+          babysitterComponent ? (!user.user_bbs ? children : babysitterComponent()) : children
         ) : (
           <Redirect
             to={ {
@@ -26,7 +26,8 @@ const PrivateRoute = ({ children, user, ...rest }) => {
 
 PrivateRoute.propTypes = {
   children: PropTypes.element,
-  user: PropTypes.object
+  user: PropTypes.object,
+  babysitterComponent: PropTypes.func
 }
 
 const mapStateToProps = (reducer) => {

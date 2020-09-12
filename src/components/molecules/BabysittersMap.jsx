@@ -17,7 +17,7 @@ const BabysittersMap = compose(
   withGoogleMap
 )((props) => {
   const opens = {};
-  for (let index = 0; index < props.locations.length; index++) {
+  for (let index = 0; index < props.babysitters.length; index++) {
     opens[index] = false;
   }
   const [ open, setOpen ] = useState(opens);
@@ -35,14 +35,14 @@ const BabysittersMap = compose(
         defaultZoom={ 15 }
         defaultCenter={ { lat: parseFloat(props.user.lat), lng: parseFloat(props.user.long) } }
       >
-        {props.isMarkerShown && props.locations.map((location, index) => (
-          <Marker key={ index } position={ location } onClick={ () => handleClick(index) }>
+        {props.isMarkerShown && props.babysitters.map((babysitter, index) => (
+          <Marker key={ index } position={ { lat: parseFloat(babysitter.lat), lng: parseFloat(babysitter.long) } } onClick={ () => handleClick(index) }>
             {open[index] && <InfoWindow onCloseClick={ () => handleClick(index) }>
-              <Link to={ `/babysitter/${props.babysitters[index].username}` } style={ { textDecoration: 'none' } } >
+              <Link to={ `/babysitter/${babysitter.username}` } style={ { textDecoration: 'none' } } >
                 <Caption
                   size="small"
-                  name={ `${props.babysitters[index].first_name} ${props.babysitters[index].last_name}` }
-                  image={ props.babysitters[index]?.picture }
+                  name={ `${babysitter.first_name} ${babysitter.last_name}` }
+                  image={ babysitter?.picture }
                 />
               </Link>
             </InfoWindow>}

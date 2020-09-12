@@ -8,31 +8,33 @@ import {
 } from '../types/babysittersTypes';
 import getCookie from '../utils/getCookie';
 
-export const getBabysitters = () => async (dispatch) => {
-  dispatch({
-    type: LOADING
-  });
-  try {
-    const response = await axios({
-      'method': 'get',
-      'url': 'https://hisitter.xyz/users/',
-      'headers': {
-        'Authorization': `Token ${getCookie('token')}`
-      },
-      'params': {
-        'limit': 30
-      }
-    });
-    const { data } = response;
+export const getBabysitters = () => async (dispatch, getState) => {
+  if (!getState().usersReducer.user.user_bbs) {
     dispatch({
-      type: GET_BABYSITTERS,
-      payload: data.results
+      type: LOADING
     });
-  } catch (error) {
-    dispatch({
-      type: ERROR,
-      payload: 'Ocurrió un error'
-    });
+    try {
+      const response = await axios({
+        'method': 'get',
+        'url': 'https://hisitter.xyz/users/',
+        'headers': {
+          'Authorization': `Token ${getCookie('token')}`
+        },
+        'params': {
+          'limit': 30
+        }
+      });
+      const { data } = response;
+      dispatch({
+        type: GET_BABYSITTERS,
+        payload: data.results
+      });
+    } catch (error) {
+      dispatch({
+        type: ERROR,
+        payload: 'Ocurrió un error'
+      });
+    }
   }
 }
 

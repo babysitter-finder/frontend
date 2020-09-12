@@ -28,7 +28,7 @@ const App = ({ getUserData }) => {
     <Router history={ createBrowserHistory() }>
       <Layout>
         <Switch>
-          <PrivateRoute exact path="/" >
+          <PrivateRoute exact path="/" babysitterComponent={ () => <Schedule /> } >
             <Babysitters />
           </PrivateRoute>
           <PrivateRoute exact path="/babysitter/:username" >

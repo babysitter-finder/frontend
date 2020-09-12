@@ -34,8 +34,8 @@ const Service = ({ service }) => {
         }
       </h3>
       <div className="service-buttons">
-        <button className="button button-pink">Eliminar</button>
-        <Link className="button button-blue" to={ `/service/${service.id}/edit` }>Editar Cita</Link>
+        {!service.service_start && <Link className="button button-blue" to={ `/service/${service.id}/edit` }>Editar Cita</Link>}
+        {service.service_end && <Link className="button button-blue" to={ `/review/${service.id}` }>Calificar</Link>}
       </div>
     </div>
   );

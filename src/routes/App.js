@@ -14,6 +14,7 @@ import ServiceForm from '../containers/clients/ServiceForm';
 import ServiceResume from '../containers/clients/ServiceResume';
 import Schedule from '../containers/clients/Schedule';
 import Profile from '../containers/clients/Profile';
+import Review from '../containers/clients/Review';
 import { getUserData } from '../actions/usersActions';
 import PrivateRoute from './PrivateRoute';
 
@@ -48,6 +49,9 @@ const App = ({ getUserData }) => {
           </PrivateRoute>
           <PrivateRoute exact path="/profile/edit" >
             <PersonalInfoForm />
+          </PrivateRoute>
+          <PrivateRoute exact path="/review/:id/" >
+            <Review />
           </PrivateRoute>
           <Route exact path="/login" component={ Login } />
           <Route exact path="/email" component={ Email } />

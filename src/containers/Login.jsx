@@ -21,7 +21,7 @@ const Login = ({ error, loginUser }) => {
   return (
     <div className="login">
       <div className="login-container">
-        <h2>Inicio de sesión</h2>
+        <h2>Inicio de sesión.</h2>
         <form onSubmit={ handleSubmit }>
           <div className="input input-alignedLeft">
             <label htmlFor="email">Correo:</label>

@@ -14,7 +14,7 @@ const Menu = ({ user, logoutUser }) => {
       <ul>
         {(Object.keys(user).length > 0) ?
           <>
-            <li><Link to="/"><h3>Encontrar niñera</h3></Link></li>
+            {!user.user_bbs && <li><Link to="/"><h3>Encontrar niñera</h3></Link></li>}
             <li><Link to="/schedule"><h3>Agenda</h3></Link></li>
             <li>
               <img src={ user?.picture || photo } alt="photo" />

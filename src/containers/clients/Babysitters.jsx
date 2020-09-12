@@ -2,14 +2,17 @@ import React, { useEffect } from 'react';
 import BabysitterList from '../../components/organisms/BabysitterList';
 import BabysittersMap from '../../components/molecules/BabysittersMap';
 import PropTypes from 'prop-types';
-import { getBabysitters, getBabysittersLocation } from '../../actions/babysittersActions';
+import { getBabysitters } from '../../actions/babysittersActions';
 import { connect } from 'react-redux';
 
-const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, locations, loading }) => {
+const Babysitters = ({ getBabysitters, babysitters, loading, user }) => {
   useEffect(() => {
     (async () => {
-      await getBabysitters();
-      await getBabysittersLocation();
+      if (!user.user_bbs) {
+        if(babysitters.length < 1) {
+          getBabysitters();
+        }
+      }
     })();
   }, [])
 
@@ -21,7 +24,7 @@ const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, loca
         </div>
         <div className="babysittersLists-container">
           <BabysitterList babysitters={ babysitters } />
-          {!loading && <BabysittersMap isMarkerShown babysitters={ babysitters } locations={ locations } />}
+          {!loading && <BabysittersMap isMarkerShown babysitters={ babysitters } />}
         </div>
       </div>
     </div>
@@ -30,19 +33,20 @@ const Babysitters = ({ getBabysitters, getBabysittersLocation, babysitters, loca
 
 Babysitters.propTypes = {
   getBabysitters: PropTypes.func,
-  getBabysittersLocation: PropTypes.func,
   babysitters: PropTypes.array,
-  locations: PropTypes.array,
   loading: PropTypes.bool,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = (reducers) => {
-  return reducers.babysittersReducer;
+  return {
+    ...reducers.babysittersReducer,
+    ...reducers.usersReducer,
+  };
 };
 
 const mapDispatchToProps = {
   getBabysitters,
-  getBabysittersLocation
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Babysitters);

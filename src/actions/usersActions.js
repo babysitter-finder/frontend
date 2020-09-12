@@ -29,7 +29,10 @@ export const loginUser = ( form ) => async (dispatch) => {
       type: LOGIN_USER,
       payload: data.user
     });
-    window.location.href = '/';
+    if(data.user.user_bbs) {
+      window.location.href = '/schedule';
+    }
+
   } catch (error) {
     dispatch({
       type: ERROR,

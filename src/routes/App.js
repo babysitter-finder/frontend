@@ -62,7 +62,7 @@ const App = ({ getUserData }) => {
             <ServiceWay />
           </PrivateRoute>
           <Route exact path="/login" component={ Login } />
-          <Route exact path="/email" component={ Email } />
+          <Route exact path="/emailSend" component={ Email } />
           <Route exact path="/landing" component={ Landing } />
           <Route exact path="/register" component={ PersonalInfoForm } />
         </Switch>

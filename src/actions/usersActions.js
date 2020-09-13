@@ -68,7 +68,7 @@ export const registerUser = ( form ) => async (dispatch) => {
       data: formData,
     });
     const { data } = response;
-    document.location.href = '/email';
+    document.location.href = '/emailSend';
     dispatch({
       type: LOGIN_USER,
       payload: data.user

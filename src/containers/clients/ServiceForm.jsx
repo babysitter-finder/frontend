@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ServiceInput from '../../components/molecules/ServiceInput';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setServiceForm, getService, updateService } from '../../actions/servicesActions';
@@ -7,7 +6,6 @@ import { selectBabysitter } from '../../actions/babysittersActions';
 import PropTypes from 'prop-types';
 
 const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updateService, setServiceForm }) => {
-  const [marker, setMarker] = useState({});
   const [form, setForm] = useState({
     date: '',
     count_children: '',
@@ -30,10 +28,6 @@ const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updat
       getService(id);
       if (editForm.shift) {
         setForm(editForm);
-        setMarker({
-          lat: editForm.lat,
-          lng: editForm.long
-        });
       }
     }
   }, [editForm.shift]);
@@ -46,21 +40,6 @@ const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updat
     setForm({
       ...form,
       [name]: value
-    })
-  };
-
-  const handleChange = (lat, lng) => {
-    setForm({
-      ...form,
-      lat,
-      long: lng
-    });
-  };
-
-  const handleInputChange = (key, value) => {
-    setForm({
-      ...form,
-      [key]: value
     })
   };
 
@@ -105,7 +84,6 @@ const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updat
           <div className="input inputMap">
             <label htmlFor="address">Lugar:</label>
             <input type="hidden" name="address" placeholder="Dirección" />
-            <ServiceInput isMarkerShown={ Object.keys(marker).length > 0 } marker={ marker } onChange={ handleChange } isEditForm={ isEditForm } address={ form.address } onInputChange={ handleInputChange } />
           </div>
           <div className="textArea">
             <label htmlFor="special_cares">¿Tienen algún cuidado especial tus hijos?</label>

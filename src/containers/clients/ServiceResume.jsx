@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { registerService } from '../../actions/servicesActions';
 
-const ServiceResume = ({ serviceForm, babysitter, registerService }) => {
+const ServiceResume = ({ serviceForm, babysitter, registerService, user }) => {
   const shifts = {
     morning: 'Mañana',
     afternoon: 'Mediodía',
@@ -30,7 +30,7 @@ const ServiceResume = ({ serviceForm, babysitter, registerService }) => {
             <Caption name={ `${babysitter.first_name} ${babysitter.last_name}` } image={ babysitter.picture } />
           </div>
         </div>
-        <h3>Lugar: { serviceForm.address ?? 'Primera Constitucion #325 Morelos 1'}</h3>
+        <h3>Lugar: { user.address ?? 'Primera Constitucion #325 Morelos 1'}</h3>
         <h3>Cuidados especiales</h3>
         <p>{ serviceForm.special_cares ?? 'Juan tiene problemas con el frio, por tanto mantenerlo muy abrigado'}</p>
         <button onClick={ handleClick } className="button-blue">Confirmar</button>
@@ -43,12 +43,14 @@ ServiceResume.propTypes = {
   serviceForm: PropTypes.object.isRequired,
   babysitter: PropTypes.object.isRequired,
   registerService: PropTypes.func,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = (reducer) => {
   return {
     ...reducer.servicesReducer,
     ...reducer.babysittersReducer,
+    ...reducer.usersReducer,
   };
 };
 

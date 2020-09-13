@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { registerUser, updateUserData } from '../../actions/usersActions';
+import { registerUser, updateUserData, closePopUp } from '../../actions/usersActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ImageInput from '../../components/molecules/ImageInput';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import picture from '../../assets/girl.jpeg';
+import PopupWithoutCloseButton from '../../components/molecules/PopupWithoutCloseButton';
 
-const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
+const PersonalInfoForm = ({ error, registerUser, user, updateUserData, popUp, closePopUp }) => {
 
   const editForm = useLocation().pathname === '/profile/edit';
   const [form, setValues] = useState({
@@ -22,6 +23,11 @@ const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
   useEffect(() => {
     if (Object.keys(user ?? {}).length > 3 && editForm) {
       setValues(user);
+    }
+
+    return () => {
+      setValues({});
+      closePopUp();
     }
   }, [user])
   const handleInput = (event) => {
@@ -105,6 +111,12 @@ const PersonalInfoForm = ({ error, registerUser, user, updateUserData }) => {
           </div>
           <button className="button-blue" type="submit">{ editForm ? 'Guardar' : 'Registrar'}</button>
           <strong>{ error }</strong>
+          {popUp &&
+            <PopupWithoutCloseButton>
+              <h2>Te hemos enviado un correo para finalizar tu inscripcion</h2>
+              <Link className="button" to="/login">Continuar</Link>
+            </PopupWithoutCloseButton>
+          }
         </form>
       </div>
     </div>
@@ -115,7 +127,9 @@ PersonalInfoForm.propTypes = {
   error: PropTypes.string,
   registerUser: PropTypes.func,
   updateUserData: PropTypes.func,
+  closePopUp: PropTypes.func,
   user: PropTypes.object,
+  popUp: PropTypes.bool,
 };
 
 const mapStateToProps = (reducers) => {
@@ -125,6 +139,7 @@ const mapStateToProps = (reducers) => {
 const mapDispatchToProps = {
   registerUser,
   updateUserData,
+  closePopUp,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalInfoForm);

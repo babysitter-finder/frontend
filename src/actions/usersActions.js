@@ -5,7 +5,9 @@ import {
   ERROR,
   LOGOUT_USER,
   GET_USER_DATA,
-  UPDATE_USER_DATA
+  UPDATE_USER_DATA,
+  REGISTER_USER,
+  CLOSE_POPUP
 } from '../types/usersTypes';
 import { GET_SERVICES } from '../types/servicesTypes'
 import getCookie from '../utils/getCookie';
@@ -62,16 +64,13 @@ export const registerUser = ( form ) => async (dispatch) => {
     Object.keys(form).forEach(key => {
       formData.append(key, form[key]);
     });
-    const response = await axios({
+    await axios({
       'method': 'post',
       'url': 'https://hisitter.xyz/users/signup/',
       data: formData,
     });
-    const { data } = response;
-    document.location.href = '/emailSend';
     dispatch({
-      type: LOGIN_USER,
-      payload: data.user
+      type: REGISTER_USER,
     });
   } catch (error) {
     dispatch({
@@ -153,4 +152,10 @@ export const updateUserData = (form) => async (dispatch) => {
       payload: 'Ocurrió un error'
     });
   }
+}
+
+export const closePopUp = () => async (dispatch) => {
+  dispatch({
+    type: CLOSE_POPUP
+  });
 }

@@ -1,4 +1,13 @@
-import { LOGIN_USER, LOADING, ERROR, REGISTER_USER, LOGOUT_USER, GET_USER_DATA, UPDATE_USER_DATA } from '../types/usersTypes';
+import {
+  LOGIN_USER,
+  LOADING,
+  ERROR,
+  REGISTER_USER,
+  LOGOUT_USER,
+  GET_USER_DATA,
+  UPDATE_USER_DATA,
+  CLOSE_POPUP
+} from '../types/usersTypes';
 import getCookie from '../utils/getCookie';
 
 const token = getCookie('token');
@@ -18,6 +27,7 @@ const INITIAL_STATE = {
   user,
   loading: false,
   error: '',
+  popUp: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -40,7 +50,8 @@ export default (state = INITIAL_STATE, action) => {
     return {
       ...state,
       loading: false,
-      error: ''
+      error: '',
+      popUp: true
     };
   case GET_USER_DATA:
     return {
@@ -55,6 +66,11 @@ export default (state = INITIAL_STATE, action) => {
       user: action.payload,
       loading: false,
       error: ''
+    };
+  case CLOSE_POPUP:
+    return {
+      ...state,
+      popUp: false,
     };
   case LOADING:
     return {

@@ -5,4 +5,10 @@
     margin-bottom: $space-medium;
     @include container($color-Background-Container);
   }
+  h2 {
+    margin-bottom: $space-medium;
+  }
+  .profile-data {
+    text-align: left;
+  }
 }

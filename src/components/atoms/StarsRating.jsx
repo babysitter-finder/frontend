@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const StarsRating = () => {
+const StarsRating = ({ onChange }) => {
   useEffect(() => {
     const starEls = document.querySelectorAll('.starRating.rating');
 
@@ -8,6 +9,7 @@ const StarsRating = () => {
       star.addEventListener('click', function (e) {
         let starEl = e.currentTarget;
         starEl.parentNode.setAttribute('data-stars', starEl.dataset.rating);
+        onChange(starEl.dataset.rating);
       });
     });
 
@@ -40,5 +42,9 @@ const StarsRating = () => {
     </div>
   );
 };
+
+StarsRating.propTypes = {
+  onChange: PropTypes.func,
+}
 
 export default StarsRating;

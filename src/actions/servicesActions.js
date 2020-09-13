@@ -3,7 +3,8 @@ import {
   REGISTER_SERVICE,
   GET_SERVICE,
   LOADING,
-  ERROR
+  ERROR,
+  START_SERVICE
 } from '../types/servicesTypes';
 import axios from 'axios';
 import getCookie from '../utils/getCookie';
@@ -88,6 +89,54 @@ export const getService = (id) => async (dispatch) => {
       type: GET_SERVICE,
       payload: response.data
     });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
+  }
+}
+
+export const startService = (id) => async (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
+  try {
+    await axios({
+      'method': 'patch',
+      'url': `https://hisitter.xyz/services/${id}/start`,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      }
+    });
+    dispatch({
+      type: START_SERVICE,
+    });
+    document.location.href = '/schedule';
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: 'Ocurrió un error'
+    });
+  }
+}
+
+export const endService = (id) => async (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
+  try {
+    await axios({
+      'method': 'patch',
+      'url': `https://hisitter.xyz/services/${id}/end`,
+      'headers': {
+        'Authorization': `Token ${getCookie('token')}`
+      }
+    });
+    dispatch({
+      type: START_SERVICE,
+    });
+    document.location.href = '/schedule';
   } catch (error) {
     dispatch({
       type: ERROR,

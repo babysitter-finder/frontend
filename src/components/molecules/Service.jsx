@@ -18,7 +18,7 @@ const Service = ({ service, user }) => {
   else if(service.is_active && service.service_start) {
     state = 'En progreso'
   }
-  else if(service.is_active && service.service_end) {
+  else if(service.service_end) {
     state = 'Concluido'
   }
   return (
@@ -37,9 +37,8 @@ const Service = ({ service, user }) => {
       </h3>
       <div className="service-buttons">
         {!user.user_bbs && !service.service_start && <Link className="button button-blue" to={ `/service/${service.id}/edit` }>Editar Cita</Link>}
-        {!user.user_bbs && service.service_end && <Link className="button button-blue" to={ `/review/${service.id}` }>Calificar</Link>}
-        {!user.user_bbs && service.service_end && <Link className="button button-blue" to={ `/review/${service.id}` }>Calificar</Link>}
-        {user.user_bbs && !service.service_end && <Link className="button button-blue" to={ `/service/${service.id}` }>Ver más</Link>}
+        {!user.user_bbs && service.service_end && !service.service_origin && <Link className="button button-pink" to={ `/review/${service.id}` }>Calificar</Link>}
+        <Link className="button button-blue" to={ `/service/${service.id}` }>Ver más</Link>
       </div>
     </div>
   );

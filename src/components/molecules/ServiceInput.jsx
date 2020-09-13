@@ -3,7 +3,6 @@ import _ from 'lodash';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
 import { compose, withProps, lifecycle } from 'recompose';
 import { SearchBox } from 'react-google-maps/lib/components/places/SearchBox';
-import { setServiceForm } from '../../actions/servicesActions';
 import { connect } from 'react-redux';
 
 
@@ -68,26 +67,11 @@ const ServiceInput = compose(
     if (props.markers[0]?.position.lat()) {
       const lat = parseFloat(props.markers[0].position.lat().toFixed(6));
       const lng = parseFloat(props.markers[0].position.lng().toFixed(6));
-      if (props.isEditForm) {
-        props.onChange(lat, lng);
-      } else {
-        props.setServiceForm({
-          lat
-        });
-        props.setServiceForm({
-          long: lng
-        });
-      }
+      props.onChange(lat, lng);
     }
   };
   const handleInput = (event) => {
-    if (props.isEditForm) {
-      props.onInputChange(event.target.name, event.target.value);
-    } else {
-      props.setServiceForm({
-        [event.target.name]: event.target.value
-      });
-    }
+    props.onInputChange(event.target.name, event.target.value);
   }
   return (
     <div className="serviceInput">
@@ -145,20 +129,16 @@ const ServiceInput = compose(
             />
           }
         </SearchBox>
-        {<Marker position={ { lat: parseFloat(props.marker.lat), lng: parseFloat(props.marker.lng) } } /> || props.markers.map((marker, index) =>
+        {props.marker.lat && <Marker position={ { lat: parseFloat(props.marker.lat), lng: parseFloat(props.marker.lng) } } /> || props.markers.map((marker, index) => (
           <Marker key={ index } position={ marker.position } />
-        )}
+        ))}
       </GoogleMap>
     </div>
   )
 });
 
-const mapDispatchToProps = {
-  setServiceForm,
-};
-
 const mapStateToProps = (reducer) => {
   return reducer.usersReducer
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServiceInput);
+export default connect(mapStateToProps)(ServiceInput);

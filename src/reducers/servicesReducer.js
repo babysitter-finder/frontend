@@ -21,10 +21,7 @@ export default (state = INITIAL_STATE, action) => {
   case SET_SERVICE_FORM:
     return {
       ...state,
-      serviceForm: {
-        ...state.serviceForm,
-        ...action.payload
-      },
+      serviceForm: action.payload
     };
   case REGISTER_SERVICE:
     return {

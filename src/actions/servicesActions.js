@@ -10,12 +10,10 @@ import axios from 'axios';
 import getCookie from '../utils/getCookie';
 
 
-export const setServiceForm = (input) => (dispatch) => {
+export const setServiceForm = (form) => (dispatch) => {
   dispatch({
     type: SET_SERVICE_FORM,
-    payload: {
-      ...input
-    }
+    payload: form
   });
 };
 
@@ -34,11 +32,11 @@ export const registerService = () => async (dispatch, getState) => {
       },
       'data': serviceForm
     });
+    document.location.href = '/schedule';
     dispatch({
       type: REGISTER_SERVICE,
       payload: response.data
     });
-    document.location.href = '/schedule';
   } catch(error) {
     dispatch({
       type: ERROR,

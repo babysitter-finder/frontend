@@ -6,7 +6,7 @@ import { setServiceForm, getService, updateService } from '../../actions/service
 import { selectBabysitter } from '../../actions/babysittersActions';
 import PropTypes from 'prop-types';
 
-const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter, getService, editForm, updateService }) => {
+const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updateService, setServiceForm }) => {
   const [marker, setMarker] = useState({});
   const [form, setForm] = useState({
     date: '',
@@ -43,16 +43,10 @@ const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter, getService,
     if (name === 'count_children') {
       value = parseInt(value)
     }
-    if (!editForm) {
-      setServiceForm({
-        [name]: value,
-      });
-    } else {
-      setForm({
-        ...form,
-        [name]: value
-      })
-    }
+    setForm({
+      ...form,
+      [name]: value
+    })
   };
 
   const handleChange = (lat, lng) => {
@@ -73,6 +67,10 @@ const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter, getService,
   const handleSubmit = (e) => {
     e.preventDefault();
     updateService(form, id);
+  };
+
+  const continueResume = () => {
+    setServiceForm(form);
   };
   
   return (
@@ -114,7 +112,7 @@ const ServiceForm = ({ setServiceForm, babysitter, selectBabysitter, getService,
             <textarea name="special_cares" value={ form.special_cares } id="special_cares" rows="10" onChange={ handleInput }></textarea>
           </div>
           {!isEditForm ?
-            <Link to="/service/resume" className="button-blue">Registrar</Link> :
+            <Link onClick={ continueResume } to="/service/resume" className="button-blue">Registrar</Link> :
             <button type="submit" className="button-blue">Guardar</button>
           }
 

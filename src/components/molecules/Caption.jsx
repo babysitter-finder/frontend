@@ -19,7 +19,7 @@ const Caption = ({ name, image, size }) => {
 };
 
 Caption.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   image: PropTypes.string,
   size: PropTypes.string
 }

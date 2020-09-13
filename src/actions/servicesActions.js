@@ -73,6 +73,9 @@ export const updateService = (form, id) => async (dispatch) => {
 };
 
 export const getService = (id) => async (dispatch) => {
+  dispatch({
+    type: LOADING,
+  });
   try {
     const response = await axios({
       'method': 'get',

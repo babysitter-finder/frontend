@@ -43,7 +43,9 @@ export default (state = INITIAL_STATE, action) => {
   case GET_SERVICE:
     return {
       ...state,
-      editForm: action.payload
+      editForm: action.payload,
+      loading: false,
+      error: ''
     }
   case LOADING:
     return {

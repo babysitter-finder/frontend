@@ -81,10 +81,6 @@ const ServiceForm = ({ babysitter, selectBabysitter, getService, editForm, updat
               </div>
             </div>
           </div>
-          <div className="input inputMap">
-            <label htmlFor="address">Lugar:</label>
-            <input type="hidden" name="address" placeholder="Dirección" />
-          </div>
           <div className="textArea">
             <label htmlFor="special_cares">¿Tienen algún cuidado especial tus hijos?</label>
             <textarea name="special_cares" value={ form.special_cares } id="special_cares" rows="10" onChange={ handleInput }></textarea>

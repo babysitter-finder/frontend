@@ -141,7 +141,7 @@ export const updateUserData = (form) => async (dispatch) => {
       },
     });
     const { data } = response;
-    document.location.href = '/profile';
+    document.location.href = '/';
     dispatch({
       type: UPDATE_USER_DATA,
       payload: data

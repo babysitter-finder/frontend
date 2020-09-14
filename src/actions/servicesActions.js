@@ -32,7 +32,7 @@ export const registerService = () => async (dispatch, getState) => {
       },
       'data': serviceForm
     });
-    document.location.href = '/schedule';
+    document.location.href = '/';
     dispatch({
       type: REGISTER_SERVICE,
       payload: response.data
@@ -58,7 +58,7 @@ export const updateService = (form, id) => async (dispatch) => {
       },
       'data': form
     });
-    document.location.href = '/schedule';
+    document.location.href = '/';
     dispatch({
       type: REGISTER_SERVICE,
       payload: response.data
@@ -110,7 +110,7 @@ export const startService = (id) => async (dispatch) => {
     dispatch({
       type: START_SERVICE,
     });
-    document.location.href = '/schedule';
+    document.location.href = '/';
   } catch (error) {
     dispatch({
       type: ERROR,
@@ -134,7 +134,7 @@ export const endService = (id) => async (dispatch) => {
     dispatch({
       type: START_SERVICE,
     });
-    document.location.href = '/schedule';
+    document.location.href = '/';
   } catch (error) {
     dispatch({
       type: ERROR,

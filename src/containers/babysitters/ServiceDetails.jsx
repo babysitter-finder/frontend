@@ -50,6 +50,7 @@ const ServiceDetails = ({ getService, editForm, user, startService, endService }
               <h3>Día: { editForm?.date ?? '12-08-2020'}</h3>
               <h3>Horario: { shifts[editForm?.shift] ?? 'Tarde'}</h3>
               <h3>Niños: { editForm?.count_children ?? '1'}</h3>
+              {editForm?.total_cost && <h3>Costo: ${ editForm?.total_cost ?? '150'}</h3>}
             </div>
           </div>
           <h3>Direccion: { editForm?.address ?? 'Primera Constitucion 325  Morelos Aguascalientes, Ags.'}</h3>

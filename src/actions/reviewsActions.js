@@ -24,7 +24,7 @@ export const registerReview = (id, form) => async (dispatch) => {
       type: REGISTER_REVIEW,
       payload: response.data
     });
-    document.location.href = '/schedule';
+    document.location.href = '/';
   } catch(error) {
     dispatch({
       type: ERROR,

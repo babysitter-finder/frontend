@@ -24,6 +24,7 @@ const AvailabilityInput = ({ mini, availabilities }) => {
           <th></th>
           <th>{ !mini ? 'Lúnes' : 'Lu' }</th>
           <th>{ !mini ? 'Martes' : 'Ma' }</th>
+          {/* Miercoles => Miércoles  */}
           <th>{ !mini ? 'Miercoles' : 'Mi'}</th>
           <th>{ !mini ? 'Jueves' : 'Ju' }</th>
           <th>{ !mini ? 'Viernes' : 'Vi' }</th>
@@ -35,6 +36,7 @@ const AvailabilityInput = ({ mini, availabilities }) => {
         <tr id="morning">
           <td>Mañana</td>
           <td><input name="monday-morning" disabled type="checkbox" /></td>
+          {/* thusday => tuesday */}
           <td><input name="thusday-morning" disabled type="checkbox" /></td>
           <td><input name="wednesday-morning" disabled type="checkbox" /></td>
           <td><input name="thursday-morning" disabled type="checkbox" /></td>
@@ -45,6 +47,7 @@ const AvailabilityInput = ({ mini, availabilities }) => {
         <tr id="afternoon">
           <td>Mediodía</td>
           <td><input name="monday-afternoon" disabled type="checkbox" /></td>
+          {/* thusday => tuesday */}
           <td><input name="thusday-afternoon" disabled type="checkbox" /></td>
           <td><input name="wednesday-afternoon" disabled type="checkbox" /></td>
           <td><input name="thursday-afternoon" disabled type="checkbox" /></td>
@@ -55,6 +58,7 @@ const AvailabilityInput = ({ mini, availabilities }) => {
         <tr id="evening">
           <td>Tarde</td>
           <td><input name="monday-evening" disabled type="checkbox" /></td>
+          {/* thusday => tuesday */}
           <td><input name="thusday-evening" disabled type="checkbox" /></td>
           <td><input name="wednesday-evening" disabled type="checkbox" /></td>
           <td><input name="thursday-evening" disabled type="checkbox" /></td>
@@ -65,6 +69,7 @@ const AvailabilityInput = ({ mini, availabilities }) => {
         <tr id="night">
           <td>Noche</td>
           <td><input name="monday-night" disabled type="checkbox" /></td>
+          {/* thusday => tuesday */}
           <td><input name="thusday-night" disabled type="checkbox" /></td>
           <td><input name="wednesday-night" disabled type="checkbox" /></td>
           <td><input name="thursday-night" disabled type="checkbox" /></td>

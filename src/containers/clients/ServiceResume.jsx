@@ -47,6 +47,13 @@ ServiceResume.propTypes = {
 };
 
 const mapStateToProps = (reducer) => {
+  // TODO:
+  /* This operator `...` is for clone an object in this case you are not cloning the obj, you could use this syntax:
+  return {
+    servicesReducer,
+    babysittersReducer,
+    usersReducer } = reducer;
+  */
   return {
     ...reducer.servicesReducer,
     ...reducer.babysittersReducer,

@@ -16,6 +16,8 @@ export const getBabysitters = () => async (dispatch, getState) => {
     try {
       const response = await axios({
         'method': 'get',
+        // TODO:
+        // The URL for API should be a const to avoid override in all functions
         'url': 'https://hisitter.xyz/users/',
         'headers': {
           'Authorization': `Token ${getCookie('token')}`
@@ -54,10 +56,12 @@ export const getBabysittersLocation = () => async (dispatch, getState) => {
           'address': babysitter.address
         }
       });
+      // TODO:
+      // You should check that results.length > 0
       const data = response.data.results[0].geometry.location
       return data;
     }));
-    
+
     dispatch({
       type: GET_BABYSITTERS_LOCATION,
       payload: locationsData
@@ -78,12 +82,16 @@ export const selectBabysitter = (username) => async (dispatch, getState) => {
     const babysitters = getState().babysittersReducer.babysitters;
     let babysitter;
     if (babysitters.length > 0) {
+      // TODO:
+      // You could use find instead filter and avoid [0]
       babysitter = babysitters.filter(babysitter => {
         return babysitter.username === username;
       })[0];
     } else {
       const response = await axios({
         'method': 'get',
+        // TODO:
+        // The URL for API should be a const to avoid override in all functions
         'url': `https://hisitter.xyz/users/${username}/babysitter_data/`,
         'headers': {
           'Authorization': `Token ${getCookie('token')}`

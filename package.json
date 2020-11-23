@@ -1,7 +1,7 @@
 {
   "name": "hisitter",
   "version": "1.0.0",
-  "description": "Proyecto de Plazti master, aplicativo que te ayuda con la busqueda de niñera para el cuidado de tu hijo.",
+  "description": "Babysitter finder is a project that offers you the babysitter service.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

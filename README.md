@@ -5,13 +5,13 @@
     src="https://res.cloudinary.com/abdiel8real/image/upload/v1596045225/neobit/logoBlack_2x_kwp4o7.png"> -->
 </div>
 
-Babysitter finder is a project that offers you the babysitter service, through science and astheroids study.
+Babysitter finder is a project that offers you the babysitter service.
 
 ## 📢 Requirements
 - Node JS 12.16.1 _(Recommended)_
 - NPM 6.13.4 _(Recommended)_
 
-## 🛠 Instalation
+## 🛠 Installation
 1. Clone this project.
 
 2. Change of directory to the root of the project.
@@ -36,7 +36,7 @@ Babysitter finder is a project that offers you the babysitter service, through s
 - [Webpack](https://webpack.js.org/) _(Development)_
 
 ## 🚀 Deploy
-1. Una vez instsaladas las dependencias, puedes hacer el build
+1. Once the dependencies are installed, you can do the build
 ```bash
   npm build
 ```
@@ -74,6 +74,6 @@ The design system and the rest of the documentation can be found in [Notion](htt
 - [Design System Course](https://platzi.com/clases/sistemas-diseno/)
 
 [angel_github]: https://github.com/ricardoares1989
-[abdiel_github]: https://github.com/abdieljortega
+[abdiel_github]: https://github.com/abdielDev
 [backend_project]: https://github.com/babysitter-finder/backend
 [frontend_project]: https://github.com/babysitter-finder/frontend

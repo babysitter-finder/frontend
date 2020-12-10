@@ -19,10 +19,14 @@ export const loginUser = ( form ) => async (dispatch) => {
   try {
     const response = await axios({
       'method': 'post',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': 'https://hisitter.xyz/users/login/',
       data: form
     });
     const { data } = response;
+    // TODO:
+    // Only the token should be saved in a cookie the missing data about the user could be saved in sessionStorage or LocalStorage.
     document.cookie = `picture=${data.user.picture ?? ''}`;
     document.cookie = `name=${data.user.first_name}`;
     document.cookie = `username=${data.user.username}`;
@@ -32,6 +36,9 @@ export const loginUser = ( form ) => async (dispatch) => {
       type: LOGIN_USER,
       payload: data.user
     });
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     window.location.href = '/';
 
   } catch (error) {
@@ -52,6 +59,9 @@ export const logoutUser = () => async (dispatch) => {
     type: LOGOUT_USER,
     payload: {}
   });
+  // TODO:
+  // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+  // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
   window.location.href = '/';
 }
 
@@ -66,6 +76,8 @@ export const registerUser = ( form ) => async (dispatch) => {
     });
     await axios({
       'method': 'post',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': 'https://hisitter.xyz/users/signup/',
       data: formData,
     });
@@ -87,6 +99,7 @@ export const getUserData = () => async (dispatch, getState) => {
   const { user } = getState().usersReducer;
   const token = getCookie('token');
   if (token) {
+    // Why do you want to check the obj have 4 attrs?
     if (Object.keys(user).length > 4) {
       dispatch({
         type: LOGIN_USER,
@@ -96,6 +109,8 @@ export const getUserData = () => async (dispatch, getState) => {
       try {
         const response = await axios({
           'method': 'get',
+          // TODO:
+          // The URL for API should be a const to avoid override in all functions
           'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
           'headers': {
             'Authorization': `Token ${getCookie('token')}`
@@ -134,6 +149,8 @@ export const updateUserData = (form) => async (dispatch) => {
     });
     const response = await axios({
       'method': 'patch',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/users/${getCookie('username')}/`,
       'data': formData,
       'headers': {
@@ -141,6 +158,9 @@ export const updateUserData = (form) => async (dispatch) => {
       },
     });
     const { data } = response;
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     document.location.href = '/';
     dispatch({
       type: UPDATE_USER_DATA,

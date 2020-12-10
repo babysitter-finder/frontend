@@ -19,9 +19,10 @@ const BabysitterDetail = ({ babysitter, selectBabysitter }) => {
   useEffect(() => {
     selectBabysitter(username);
   }, []);
-  
+
   const fullName = `${firstName} ${lastName}`;
   const aboutMeMock = 'hola mi nombre es maria he trabajado como niñera hace tres años me gusta interactuar mucho con ellos y ayudarlos a sentir cómodos ayudarles en lo que necesiten estoy disponible en la semana si quieres saber de mi por favor no dudes en contactarme';
+  // Ingenieria => Ingeniería, Tecnologico => Tecnológico
   const educationDegreeMock = 'Ingenieria Industrial en el Instituto Tecnologico Nacional de México Concluido';
   return (
     <div className="babysitterDetail">

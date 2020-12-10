@@ -1,6 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
 import { withGoogleMap, withScriptjs, GoogleMap, Marker } from 'react-google-maps';
+// TODO:
+// Why do you use recompose? this libs is deprecated in favor for using hooks.
+// https://github.com/acdlite/recompose
 import { compose, withProps, lifecycle } from 'recompose';
 import { SearchBox } from 'react-google-maps/lib/components/places/SearchBox';
 import { connect } from 'react-redux';

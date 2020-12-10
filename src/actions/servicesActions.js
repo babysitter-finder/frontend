@@ -26,12 +26,17 @@ export const registerService = () => async (dispatch, getState) => {
     const { username } = getState().babysittersReducer.babysitter;
     const response = await axios({
       'method': 'post',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/services/create/${username}/`,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
       },
       'data': serviceForm
     });
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     document.location.href = '/';
     dispatch({
       type: REGISTER_SERVICE,
@@ -52,12 +57,17 @@ export const updateService = (form, id) => async (dispatch) => {
   try {
     const response = await axios({
       'method': 'patch',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/services/${id}/`,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
       },
       'data': form
     });
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     document.location.href = '/';
     dispatch({
       type: REGISTER_SERVICE,
@@ -78,6 +88,8 @@ export const getService = (id) => async (dispatch) => {
   try {
     const response = await axios({
       'method': 'get',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/services/${id}/`,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
@@ -102,6 +114,8 @@ export const startService = (id) => async (dispatch) => {
   try {
     await axios({
       'method': 'patch',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/services/${id}/start`,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
@@ -110,6 +124,9 @@ export const startService = (id) => async (dispatch) => {
     dispatch({
       type: START_SERVICE,
     });
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     document.location.href = '/';
   } catch (error) {
     dispatch({
@@ -126,6 +143,8 @@ export const endService = (id) => async (dispatch) => {
   try {
     await axios({
       'method': 'patch',
+      // TODO:
+      // The URL for API should be a const to avoid override in all functions
       'url': `https://hisitter.xyz/services/${id}/end`,
       'headers': {
         'Authorization': `Token ${getCookie('token')}`
@@ -134,6 +153,9 @@ export const endService = (id) => async (dispatch) => {
     dispatch({
       type: START_SERVICE,
     });
+    // TODO:
+    // When using this way to redirect, the app is reloaded, is bad practice in SPA you could use the redirect with `history.push("/somePath")` from react-router.
+    // https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
     document.location.href = '/';
   } catch (error) {
     dispatch({

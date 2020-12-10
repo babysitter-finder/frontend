@@ -10,8 +10,8 @@ import './styles/main.scss';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  reducers, /* Todos los reducers */
-  {}, /* Estado inicial */
+  reducers, /* All the reducers */
+  {}, /* Initial state */
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 

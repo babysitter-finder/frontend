@@ -12,6 +12,7 @@ export default function RegisterPage() {
   const router = useRouter();
   const { register, loading, error, popUp, closePopUp } = useUserStore();
   const [form, setForm] = useState<{
+    username: string;
     first_name: string;
     last_name: string;
     email: string;
@@ -22,6 +23,7 @@ export default function RegisterPage() {
     address: string;
     user_bbs: boolean;
   }>({
+    username: '',
     first_name: '',
     last_name: '',
     email: '',
@@ -111,6 +113,15 @@ export default function RegisterPage() {
                 required
               />
             </div>
+
+            <Input
+              name="username"
+              label="Nombre de usuario"
+              placeholder="juanperez123"
+              value={form.username}
+              onChange={(e) => setForm({ ...form, username: e.target.value })}
+              required
+            />
 
             <Input
               type="email"

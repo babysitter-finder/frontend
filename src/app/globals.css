@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Overlock:wght@700;900&family=Roboto:wght@300;400&display=swap");
+@import "leaflet/dist/leaflet.css";
+@import "tailwindcss";
+
+@theme inline {
+  /* Colors - Branding */
+  --color-illustration-primary: #F582AE;
+  --color-illustration-secondary: #8BD3DD;
+  --color-secondary-yellow: #f0e26e;
+  --color-secondary-green: #98ee98;
+  --color-brown-main: #F3D2C1;
+
+  /* Colors - Status */
+  --color-positive: #75cf75;
+  --color-warning: #f5e98c;
+  --color-negative: #f58c8c;
+
+  /* Colors - Base */
+  --color-white: #effdff;
+  --color-black: #001858;
+  --color-background: #f9f9f9;
+
+  /* Colors - Pink Shades */
+  --color-pink-lightest: #fce8f1;
+  --color-pink-light: #f5b5d2;
+  --color-pink-darkest: #4d2637;
+
+  /* Colors - Blue Shades */
+  --color-blue-dark: #5599a6;
+  --color-blue-background: #b5ebf5;
+
+  /* Colors - Container Backgrounds */
+  --color-container: #FEF6E4;
+  --color-section: #FFFFFE;
+  --color-elements: #FEF6E4;
+  --color-form-button: #E8CDBC;
+
+  /* Typography */
+  --font-overlock: "Overlock", cursive;
+  --font-roboto: "Roboto", sans-serif;
+
+  /* Spacing */
+  --spacing-nano: 8px;
+  --spacing-micro: 16px;
+  --spacing-small: 24px;
+  --spacing-medium: 40px;
+  --spacing-large: 80px;
+  --spacing-extra-large: 160px;
+
+  /* Border Radius */
+  --radius-card: 20px;
+  --radius-button: 40px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-default: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Base Styles */
+body {
+  background: var(--color-background);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}
+
+/* Typography Base */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-overlock);
+  font-weight: 900;
+  color: var(--color-black);
+}
+
+h1 { font-size: 52px; }
+h2 { font-size: 38px; }
+h3 { font-size: 32px; }
+h4 { font-size: 28px; }
+h5 { font-size: 24px; }
+
+p, strong, small {
+  font-family: var(--font-roboto);
+  color: var(--color-black);
+}
+
+p, strong { font-size: 18px; }
+small { font-size: 16px; }
+
+hr {
+  border: 1px solid var(--color-black);
+}
+
+/* Custom Scrollbar */
+.scrollbar-styled {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-form-button) var(--color-container);
+}
+
+.scrollbar-styled::-webkit-scrollbar {
+  width: 11px;
+}
+
+.scrollbar-styled::-webkit-scrollbar-track {
+  background-color: var(--color-container);
+}
+
+.scrollbar-styled::-webkit-scrollbar-thumb {
+  background-color: var(--color-form-button);
+  border-radius: 6px;
+  border: 3px solid var(--color-container);
+}

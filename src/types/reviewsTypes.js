@@ -1,3 +1,0 @@
-export const REGISTER_REVIEW = 'REGISTER_REVIEW';
-export const LOADING = 'LOADING_REVIEWS';
-export const ERROR = 'ERROR_REVIEWS';

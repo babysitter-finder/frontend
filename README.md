@@ -1,79 +1,91 @@
 # Babysitter Finder ![Status badge](https://img.shields.io/badge/status-in%20progress-yellow)
 
-<div align="center">
-  <!-- <img 
-    src="https://res.cloudinary.com/abdiel8real/image/upload/v1596045225/neobit/logoBlack_2x_kwp4o7.png"> -->
-</div>
+Babysitter Finder (Hi Sitter) is a platform that connects families with trusted babysitters.
 
-Babysitter finder is a project that offers you the babysitter service.
+## Tech Stack
 
-## 📢 Requirements
-- Node JS 12.16.1 _(Recommended)_
-- NPM 6.13.4 _(Recommended)_
+- **Next.js 16.1.1** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS v4** - Styling
+- **Zustand** - State management
+- **Leaflet** - Maps
+- **Axios** - HTTP client
 
-## 🛠 Installation
-1. Clone this project.
+## Requirements
 
-2. Change of directory to the root of the project.
+- Node.js 18+ (recommended)
+- npm 9+
+
+## Installation
+
+1. Clone this project
 ```bash
-  cd frontend
-```
-3. Install the dependencies.
-```bash
-  npm install
-```
-4. Run it locally
-```bash
-  npm run start
+git clone https://github.com/babysitter-finder/frontend.git
+cd frontend
 ```
 
-## 🔧 Built with
-- [React](https://es.reactjs.org/) (react, react-dom, react-router-dom, react-icons, react-syntax-highlighter)
-- [Classnames](https://www.npmjs.com/package/classnames)
-- [Sass](https://sass-lang.com/) _(Development)_
-- [PostCSS](https://postcss.org/) _(Development)_
-- [Babel](https://babeljs.io/) _(Development)_
-- [Webpack](https://webpack.js.org/) _(Development)_
-
-## 🚀 Deploy
-1. Once the dependencies are installed, you can do the build
+2. Install dependencies
 ```bash
-  npm build
+npm install
 ```
 
-## 🗄️ Backend Implementations
+3. Set up environment variables
+```bash
+cp .env.local.example .env.local
+# Edit .env.local with your API URL
+```
 
-- **[API Babysitter Finder][backend_project]**
+4. Run development server
+```bash
+npm run dev
+```
 
-##  Contributors
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The staff:
+## Scripts
 
-- **[Abdiel Ortega][abdiel_github]** _(Frontend Developer and Interface designer)_
-- **[Angel Estrada][angel_github]** _(Interface designer)_
+```bash
+npm run dev      # Start development server (Turbopack)
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-This project exists thanks to  [Platzi](https://platzi.com/).
+## Project Structure
 
-<img src="https://www.morelosinnovador.org/images/logo_platzi.jpg" width="150" />
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── (auth)/             # Public pages (login, register)
+│   └── (protected)/        # Auth-required pages
+├── components/             # React components
+│   ├── ui/                 # Base components
+│   ├── forms/              # Form components
+│   └── organisms/          # Complex components
+├── stores/                 # Zustand state stores
+├── lib/                    # Utilities and API
+└── types/                  # TypeScript types
+```
 
-You're free to contribute to this project by submitting [issues](https://github.com/babysitter-finder/frontend/issues) and/or [pull requests](https://github.com/babysitter-finder/frontend/pulls).
+## Backend
 
-## 📜 License
-The MIT License (MIT)
+- **[API Babysitter Finder](https://github.com/babysitter-finder/backend)**
 
-## 🖌️ Design System
+## Contributors
 
-The design system and the rest of the documentation can be found in [Notion](https://www.notion.so/Kanban-f4ed2788eaf8473a912444755a0d1d02) and the design can be found at [Figma](https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder)
+- **[Abdiel Ortega](https://github.com/abdielDev)** - Frontend Developer
+- **[Angel Estrada](https://github.com/ricardoares1989)** - Interface Designer
 
-## 🙏 Acknowledgment
-* To Coach Ana Belisa Martinez.
-* To Platzi Staff.
+## License
 
-## 📚 References
-- [Prototypes Design Course](https://platzi.com/clases/diseno-prototipos/)
-- [Design System Course](https://platzi.com/clases/sistemas-diseno/)
+MIT License
 
-[angel_github]: https://github.com/ricardoares1989
-[abdiel_github]: https://github.com/abdielDev
-[backend_project]: https://github.com/babysitter-finder/backend
-[frontend_project]: https://github.com/babysitter-finder/frontend
+## Design
+
+- [Figma Design](https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder)
+- [Notion Documentation](https://www.notion.so/Kanban-f4ed2788eaf8473a912444755a0d1d02)
+
+## Acknowledgments
+
+- Coach Ana Belisa Martinez
+- [Platzi](https://platzi.com/) Staff

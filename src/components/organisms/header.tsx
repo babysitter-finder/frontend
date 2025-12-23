@@ -1,0 +1,80 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
+import { Logo } from '@/components/ui';
+import { useUserStore } from '@/stores';
+
+interface HeaderProps {
+  variant?: 'default' | 'pink';
+}
+
+export function Header({ variant = 'default' }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout } = useUserStore();
+
+  return (
+    <header
+      className={cn(
+        'flex justify-between items-center px-[var(--spacing-medium)] py-[var(--spacing-micro)]',
+        'shadow-[var(--shadow-default)]',
+        variant === 'pink' ? 'bg-illustration-primary' : 'bg-section'
+      )}
+    >
+      <Logo size="medium" />
+
+      {user && (
+        <div className="relative">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex items-center gap-2 cursor-pointer bg-transparent border-none"
+          >
+            <span className="font-roboto text-black">{user.first_name}</span>
+            <div className="w-10 h-10 rounded-full border border-black overflow-hidden">
+              <Image
+                src={user.picture || '/assets/default-avatar.png'}
+                alt="Profile"
+                width={40}
+                height={40}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </button>
+
+          {menuOpen && (
+            <div className="absolute right-0 top-12 bg-section rounded-[var(--radius-card)] shadow-[var(--shadow-default)] min-w-[200px] z-50">
+              <nav className="py-2">
+                <Link
+                  href="/profile"
+                  className="block px-4 py-2 text-black font-roboto hover:bg-container no-underline"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Mi Perfil
+                </Link>
+                <Link
+                  href="/schedule"
+                  className="block px-4 py-2 text-black font-roboto hover:bg-container no-underline"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Mis Citas
+                </Link>
+                <hr className="my-2 border-black/20" />
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    logout();
+                  }}
+                  className="w-full text-left px-4 py-2 text-negative font-roboto hover:bg-container bg-transparent border-none cursor-pointer"
+                >
+                  Cerrar Sesion
+                </button>
+              </nav>
+            </div>
+          )}
+        </div>
+      )}
+    </header>
+  );
+}

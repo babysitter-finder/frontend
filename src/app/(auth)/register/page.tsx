@@ -17,22 +17,22 @@ export default function RegisterPage() {
     last_name: string;
     email: string;
     password: string;
+    password_confirmation: string;
     birthdate: string;
     genre: 'male' | 'female';
     phone_number: string;
     address: string;
-    user_bbs: boolean;
   }>({
     username: '',
     first_name: '',
     last_name: '',
     email: '',
     password: '',
+    password_confirmation: '',
     birthdate: '',
     genre: 'male',
     phone_number: '',
     address: '',
-    user_bbs: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -143,6 +143,16 @@ export default function RegisterPage() {
               required
             />
 
+            <Input
+              type="password"
+              name="password_confirmation"
+              label="Confirmar contrasena"
+              placeholder="********"
+              value={form.password_confirmation}
+              onChange={(e) => setForm({ ...form, password_confirmation: e.target.value })}
+              required
+            />
+
             <div className="grid grid-cols-2 gap-4">
               <Input
                 type="date"
@@ -168,7 +178,7 @@ export default function RegisterPage() {
               type="tel"
               name="phone_number"
               label="Telefono"
-              placeholder="+52 123 456 7890"
+              placeholder="+521234567890"
               value={form.phone_number}
               onChange={(e) => setForm({ ...form, phone_number: e.target.value })}
               required
@@ -182,16 +192,6 @@ export default function RegisterPage() {
               onChange={(e) => setForm({ ...form, address: e.target.value })}
               required
             />
-
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={form.user_bbs}
-                onChange={(e) => setForm({ ...form, user_bbs: e.target.checked })}
-                className="w-5 h-5"
-              />
-              <span className="font-roboto text-black">Quiero registrarme como ninera</span>
-            </label>
 
             <Button type="submit" variant="blue" disabled={loading}>
               {loading ? 'Cargando...' : 'Crear Cuenta'}

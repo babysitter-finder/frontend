@@ -37,12 +37,12 @@ export interface RegisterForm {
   last_name: string;
   email: string;
   password: string;
+  password_confirmation: string;
   birthdate: string;
   genre: 'male' | 'female';
   phone_number: string;
   address: string;
   picture?: File;
-  user_bbs?: boolean;
 }
 
 export interface UpdateUserForm {

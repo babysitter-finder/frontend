@@ -2,6 +2,9 @@ import apiClient from './client';
 import type { Service, CreateServiceRequest } from '@/types';
 
 export const servicesApi = {
+  getAll: () =>
+    apiClient.get<Service[]>('/services/'),
+
   create: (babysitterUsername: string, data: CreateServiceRequest) =>
     apiClient.post<Service>(`/services/create/${babysitterUsername}/`, data),
 

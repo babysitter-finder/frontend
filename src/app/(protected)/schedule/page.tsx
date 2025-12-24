@@ -1,16 +1,25 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useServiceStore } from '@/stores';
 
 export default function SchedulePage() {
-  const { services } = useServiceStore();
+  const { services, loading, fetchServices } = useServiceStore();
+
+  useEffect(() => {
+    fetchServices();
+  }, [fetchServices]);
 
   return (
     <div className="p-[var(--spacing-medium)]">
       <h1 className="text-4xl mb-6">Mis Citas</h1>
 
-      {services.length === 0 ? (
+      {loading ? (
+        <div className="text-center py-8">
+          <p className="text-gray-600">Cargando servicios...</p>
+        </div>
+      ) : services.length === 0 ? (
         <div className="bg-section rounded-[var(--radius-card)] shadow-[var(--shadow-default)] p-6 text-center">
           <p className="text-gray-600 mb-4">No tienes citas programadas.</p>
           <Link
@@ -32,7 +41,7 @@ export default function SchedulePage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xl font-bold text-black">
-                      {service.babysitter.first_name} {service.babysitter.last_name}
+                      {service.babysitter?.first_name || 'Babysitter'} {service.babysitter?.last_name || ''}
                     </h3>
                     <p className="text-gray-600">{service.date}</p>
                     <p className="text-gray-600">{service.shift}</p>

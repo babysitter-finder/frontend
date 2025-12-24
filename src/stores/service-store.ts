@@ -12,6 +12,7 @@ interface ServiceState {
   // Actions
   setServiceForm: (form: Partial<ServiceForm>) => void;
   clearServiceForm: () => void;
+  fetchServices: () => Promise<void>;
   registerService: (babysitterUsername: string) => Promise<void>;
   updateService: (id: string, form: Partial<ServiceForm>) => Promise<void>;
   getService: (id: string) => Promise<void>;
@@ -33,6 +34,18 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
   },
 
   clearServiceForm: () => set({ serviceForm: {} }),
+
+  fetchServices: async () => {
+    set({ loading: true, error: null });
+    try {
+      const { data } = await servicesApi.getAll();
+      // Handle both array and paginated response formats
+      const services = Array.isArray(data) ? data : (data.results || []);
+      set({ services, loading: false });
+    } catch {
+      set({ error: 'Error al cargar servicios', loading: false });
+    }
+  },
 
   registerService: async (babysitterUsername) => {
     const { serviceForm } = get();

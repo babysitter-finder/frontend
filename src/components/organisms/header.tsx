@@ -45,7 +45,18 @@ export function Header({ variant = 'default' }: HeaderProps) {
 
           {menuOpen && (
             <div className="absolute right-0 top-12 bg-section rounded-[var(--radius-card)] shadow-[var(--shadow-default)] min-w-[200px] z-50">
-              <nav className="py-2">
+              <div className="flex justify-end px-2 pt-2">
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="p-1 hover:bg-container rounded-full bg-transparent border-none cursor-pointer"
+                  aria-label="Cerrar menu"
+                >
+                  <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <nav className="pb-2">
                 <Link
                   href="/profile"
                   className="block px-4 py-2 text-black font-roboto hover:bg-container no-underline"

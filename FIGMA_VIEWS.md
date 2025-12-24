@@ -10,7 +10,7 @@ Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
 | Popup Selector User | `68:14` | [ ] Pending |
 | Login | `275:1303` | [x] Complete |
 | Signup (Babysitter) | `68:28` | [x] Complete |
-| SingUp (cliente) | `80:4` | [ ] Pending |
+| SingUp (cliente) | `80:4` | [x] Complete |
 | Email Send it | `74:0` | [ ] Pending |
 
 ## Home Pages
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 2
-- **Pending:** 22
+- **Completed:** 3
+- **Pending:** 21
 
 ## Notes
 

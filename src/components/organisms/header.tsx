@@ -26,7 +26,23 @@ export function Header({ variant = 'default' }: HeaderProps) {
       <Logo size="medium" />
 
       {user && (
-        <div className="relative">
+        <div className="flex items-center gap-6">
+          {/* Client Navigation - always show for now to test */}
+          <Link
+            href="/"
+            className="text-black font-roboto hover:text-illustration-primary no-underline"
+          >
+            Encontrar niñera
+          </Link>
+          <Link
+            href="/schedule"
+            className="bg-[#1a365d] text-white px-4 py-2 rounded-full font-roboto no-underline hover:opacity-90 transition-opacity"
+          >
+            Agenda
+          </Link>
+
+          {/* Profile Dropdown */}
+          <div className="relative">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="flex items-center gap-2 cursor-pointer bg-transparent border-none"
@@ -84,6 +100,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
               </nav>
             </div>
           )}
+          </div>
         </div>
       )}
     </header>

@@ -106,7 +106,14 @@ export const useUserStore = create<UserState>((set, get) => ({
     set({ loading: true });
     try {
       const { data } = await usersApi.getUser(authData.username);
-      set({ user: data, loading: false });
+      // Preserve user_bbs from auth data if not in API response
+      set({
+        user: {
+          ...data,
+          user_bbs: data.user_bbs ?? authData.user_bbs
+        },
+        loading: false
+      });
     } catch {
       set({ error: 'Error al obtener datos del usuario', loading: false });
     }

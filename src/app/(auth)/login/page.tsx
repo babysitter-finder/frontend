@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui';
-import { Input } from '@/components/forms';
 import { useUserStore } from '@/stores';
 
 export default function LoginPage() {
@@ -30,8 +29,7 @@ export default function LoginPage() {
             />
           </div>
 
-          <h1 className="text-4xl mb-2">Bienvenido</h1>
-          <p className="text-gray-600 mb-8">Inicia sesion para continuar</p>
+          <h1 className="text-4xl mb-8">Bienvenidos a Hi Sitter</h1>
 
           {error && (
             <div className="bg-negative/10 border border-negative text-negative px-4 py-3 rounded-[var(--radius-card)] mb-4">
@@ -39,29 +37,43 @@ export default function LoginPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <Input
-              type="email"
-              name="email"
-              label="Correo electronico"
-              placeholder="tu@email.com"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              required
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+            {/* Inline label input - Correo */}
+            <div className="flex items-center gap-4">
+              <label htmlFor="email" className="text-lg font-roboto text-black w-[120px] shrink-0">
+                Correo
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="tu@email.com"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                required
+                className="flex-1 bg-blue-background/80 border border-black rounded-[15px] px-4 py-4 text-lg font-roboto shadow-[var(--shadow-default)] focus:outline-none focus:ring-2 focus:ring-illustration-primary"
+              />
+            </div>
 
-            <Input
-              type="password"
-              name="password"
-              label="Contrasena"
-              placeholder="********"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              required
-            />
+            {/* Inline label input - Contraseña */}
+            <div className="flex items-center gap-4">
+              <label htmlFor="password" className="text-lg font-roboto text-black w-[120px] shrink-0">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="********"
+                value={form.password}
+                onChange={(e) => setForm({ ...form, password: e.target.value })}
+                required
+                className="flex-1 bg-blue-background/80 border border-black rounded-[15px] px-4 py-4 text-lg font-roboto shadow-[var(--shadow-default)] focus:outline-none focus:ring-2 focus:ring-illustration-primary"
+              />
+            </div>
 
-            <Button type="submit" variant="pink" disabled={loading}>
-              {loading ? 'Cargando...' : 'Iniciar Sesion'}
+            <Button type="submit" variant="green" disabled={loading} className="self-center px-10">
+              {loading ? 'Cargando...' : 'Ingresar'}
             </Button>
           </form>
 

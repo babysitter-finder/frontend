@@ -8,7 +8,7 @@ Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
 |------|---------|--------|
 | Landing Pages | `68:0` | [ ] Pending |
 | Popup Selector User | `68:14` | [ ] Pending |
-| Login | `275:1303` | [ ] Pending |
+| Login | `275:1303` | [x] Complete |
 | Signup (Babysitter) | `68:28` | [x] Complete |
 | SingUp (cliente) | `80:4` | [ ] Pending |
 | Email Send it | `74:0` | [ ] Pending |
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 1
-- **Pending:** 23
+- **Completed:** 2
+- **Pending:** 22
 
 ## Notes
 

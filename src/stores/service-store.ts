@@ -39,9 +39,7 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
     set({ loading: true, error: null });
     try {
       const { data } = await servicesApi.getAll();
-      // Handle both array and paginated response formats
-      const services = Array.isArray(data) ? data : (data.results || []);
-      set({ services, loading: false });
+      set({ services: data, loading: false });
     } catch {
       set({ error: 'Error al cargar servicios', loading: false });
     }

@@ -1,24 +1,24 @@
 # Hi Sitter - Figma Views Implementation Status
 
-Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
+Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 
 ## Authentication & Onboarding
 
 | View | Node ID | Status |
 |------|---------|--------|
-| Landing Pages | `68:0` | [ ] Pending |
-| Popup Selector User | `68:14` | [ ] Pending |
+| Landing Pages | `3:24` | [ ] Pending |
+| Popup Selector User | `3:50` | [ ] Pending |
 | Login | `275:1303` | [x] Complete |
-| Signup (Babysitter) | `68:28` | [x] Complete |
-| SingUp (cliente) | `80:4` | [x] Complete |
-| Email Send it | `74:0` | [ ] Pending |
+| Signup (Babysitter) | `3:79` | [x] Complete |
+| SingUp (cliente) | `3:277` | [x] Complete |
+| Email Send it | `3:254` | [ ] Pending |
 
 ## Home Pages
 
 | View | Node ID | Status |
 |------|---------|--------|
-| Home (Babysitter) | `76:51` | [ ] Pending |
-| Home client | `80:85` | [ ] Pending |
+| Home (Babysitter) | `3:371` | [x] Complete |
+| Home client | `3:473` | [ ] Pending |
 
 ## Profile Pages
 
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/file/SJbT26D4huBkATw97d8heG/finder
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 3
-- **Pending:** 21
+- **Completed:** 4
+- **Pending:** 20
 
 ## Notes
 

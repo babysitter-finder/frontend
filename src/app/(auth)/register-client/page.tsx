@@ -24,7 +24,7 @@ export default function RegisterClientPage() {
     genre: 'male' | 'female';
     phone_number: string;
     address: string;
-    picture: File | null;
+    picture?: File;
   }>({
     username: '',
     first_name: '',
@@ -36,7 +36,7 @@ export default function RegisterClientPage() {
     genre: 'male',
     phone_number: '',
     address: '',
-    picture: null,
+    picture: undefined,
   });
 
   useEffect(() => {

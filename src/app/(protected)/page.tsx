@@ -37,7 +37,8 @@ function BabysitterDashboard() {
     fetchServices();
   }, [fetchServices]);
 
-  const services = realServices;
+  // Ensure services is always an array
+  const services = Array.isArray(realServices) ? realServices : [];
 
   // Filter services by status
   const upcomingServices = services.filter(

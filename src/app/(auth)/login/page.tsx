@@ -79,7 +79,7 @@ export default function LoginPage() {
 
           <p className="mt-6 text-center text-gray-600">
             No tienes cuenta?{' '}
-            <Link href="/register" className="text-illustration-primary font-medium">
+            <Link href="/signup" className="text-illustration-primary font-medium">
               Registrate
             </Link>
           </p>

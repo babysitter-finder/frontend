@@ -6,19 +6,19 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 
 | View | Node ID | Status |
 |------|---------|--------|
-| Landing Pages | `3:24` | [ ] Pending |
-| Popup Selector User | `3:50` | [ ] Pending |
+| Landing Pages | `3:24` | [x] Complete |
+| Popup Selector User | `3:50` | [x] Complete |
 | Login | `275:1303` | [x] Complete |
 | Signup (Babysitter) | `3:79` | [x] Complete |
 | SingUp (cliente) | `3:277` | [x] Complete |
-| Email Send it | `3:254` | [ ] Pending |
+| Email Send it | `3:254` | [x] Complete |
 
 ## Home Pages
 
 | View | Node ID | Status |
 |------|---------|--------|
 | Home (Babysitter) | `3:371` | [x] Complete |
-| Home client | `3:473` | [ ] Pending |
+| Home client | `3:473` | [x] Complete |
 
 ## Profile Pages
 
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 4
-- **Pending:** 20
+- **Completed:** 8
+- **Pending:** 16
 
 ## Notes
 

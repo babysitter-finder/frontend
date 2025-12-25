@@ -75,9 +75,10 @@ export default function BabysitterDetailPage() {
   // 404 state
   if (!selectedBabysitter) {
     return (
-      <div className="min-h-[calc(100vh-105px)] bg-[#d4c4b0] flex items-center justify-center">
+      <div className="flex-1 bg-[#d4c4b0] flex items-center justify-center">
         <div className="bg-[#f5e6d3] rounded-[var(--radius-card)] p-12 text-center max-w-md shadow-lg">
           <div className="text-6xl mb-4">😢</div>
+          <p className="text-display font-bold text-[#1a365d] mb-1 leading-none">404</p>
           <h1 className="text-2xl font-overlock text-[#1a365d] mb-2">
             Niñera no encontrada
           </h1>

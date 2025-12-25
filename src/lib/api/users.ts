@@ -31,4 +31,7 @@ export const usersApi = {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   },
+
+  deleteUser: (username: string) =>
+    apiClient.delete(`/users/${username}/`),
 };

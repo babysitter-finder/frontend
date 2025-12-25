@@ -176,7 +176,7 @@ export default function BabysitterDetailPage() {
           {/* CTA Button */}
           <div className="text-center mb-8">
             <Link href={`/service/new/${username}`}>
-              <Button variant="primary" className="px-12 py-3 text-lg bg-[#1a365d] hover:bg-[#2d4a7c]">
+              <Button variant="highlight" className="px-12 py-3 text-lg">
                 Contratar
               </Button>
             </Link>

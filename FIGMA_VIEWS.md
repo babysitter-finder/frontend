@@ -25,9 +25,9 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | View | Node ID | Status |
 |------|---------|--------|
 | Profile Client (Babysitter) | `84:0` | [ ] Pending |
-| profile cliente | `100:0` | [ ] Pending |
+| profile cliente | `100:0` | [x] Complete |
 | Details babysitter (client) | `151:0` | [x] Complete |
-| edit account | `100:33` | [ ] Pending |
+| edit account | `100:33` | [x] Complete |
 | Frame 16 (Edit Profile Babysitter) | `103:254` | [ ] Pending |
 
 ## Scheduling & Services
@@ -46,10 +46,10 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | View | Node ID | Status |
 |------|---------|--------|
 | Ranking the client | `103:154` | [ ] Pending |
-| Popup Delete account | `147:0` | [ ] Pending |
+| Popup Delete account | `147:0` | [x] Complete |
 | Popup arrival | `151:119` | [ ] Pending |
 | Popup Finish | `151:126` | [ ] Pending |
-| Frame 17 (Delete User Popup) | `103:354` | [ ] Pending |
+| Frame 17 (Delete User Popup) | `103:354` | [x] Complete |
 
 ## Hidden/Optional Views
 
@@ -63,15 +63,16 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 9
-- **Pending:** 15
+- **Completed:** 13
+- **Pending:** 11
 
 ## Bugs & Improvements
 
 | Issue | Status |
 |-------|--------|
-| 404 page when babysitter not found needs better design | [ ] Pending |
+| 404 page when babysitter not found needs better design | [x] Complete |
 | Navbar not matching Figma design | [ ] Pending |
+| Loading component - SVG with pulse animation or skeleton loading | [ ] Pending |
 
 ## Notes
 

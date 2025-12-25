@@ -15,6 +15,7 @@ interface UserState {
   register: (form: RegisterForm) => Promise<void>;
   getUserData: () => Promise<void>;
   updateUserData: (form: UpdateUserForm) => Promise<void>;
+  deleteAccount: () => Promise<void>;
   closePopUp: () => void;
   setError: (error: string | null) => void;
   hydrate: () => void;
@@ -130,6 +131,21 @@ export const useUserStore = create<UserState>((set, get) => ({
       window.location.href = '/';
     } catch {
       set({ error: 'Error al actualizar datos', loading: false });
+    }
+  },
+
+  deleteAccount: async () => {
+    const { user } = get();
+    if (!user) return;
+
+    set({ loading: true, error: null });
+    try {
+      await usersApi.deleteUser(user.username);
+      clearAuth();
+      set({ user: null, loading: false });
+      window.location.href = '/login';
+    } catch {
+      set({ error: 'Error al eliminar cuenta', loading: false });
     }
   },
 

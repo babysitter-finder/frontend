@@ -1,17 +1,16 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui';
+import { Button, Modal } from '@/components/ui';
 import { useUserStore } from '@/stores';
 
 export default function RegisterClientPage() {
   const router = useRouter();
   const { register, loading, error, popUp, closePopUp } = useUserStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
   const [form, setForm] = useState<{
     username: string;
@@ -39,11 +38,6 @@ export default function RegisterClientPage() {
     picture: undefined,
   });
 
-  useEffect(() => {
-    if (popUp && dialogRef.current) {
-      dialogRef.current.showModal();
-    }
-  }, [popUp]);
 
   const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -74,7 +68,6 @@ export default function RegisterClientPage() {
   };
 
   const handlePopUpClose = () => {
-    dialogRef.current?.close();
     closePopUp();
     router.push('/login');
   };
@@ -82,10 +75,7 @@ export default function RegisterClientPage() {
   return (
     <div className="min-h-screen flex">
       {/* Success Dialog */}
-      <dialog
-        ref={dialogRef}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-card)] shadow-[var(--shadow-default)] p-8 max-w-md text-center backdrop:bg-black/50 m-0"
-      >
+      <Modal open={popUp} onClose={handlePopUpClose} className="text-center">
         <h2 className="text-2xl mb-4">Registro Exitoso!</h2>
         <p className="text-gray-600 mb-6">
           Tu cuenta ha sido creada. Revisa tu correo para confirmar tu cuenta.
@@ -93,7 +83,7 @@ export default function RegisterClientPage() {
         <Button onClick={handlePopUpClose} variant="pink">
           Ir a Iniciar Sesion
         </Button>
-      </dialog>
+      </Modal>
 
       {/* Left side - Image */}
       <div className="hidden lg:block flex-1 bg-illustration-primary relative">

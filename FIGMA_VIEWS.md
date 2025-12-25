@@ -26,7 +26,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 |------|---------|--------|
 | Profile Client (Babysitter) | `84:0` | [ ] Pending |
 | profile cliente | `100:0` | [ ] Pending |
-| Details babysitter (client) | `151:0` | [ ] Pending |
+| Details babysitter (client) | `151:0` | [x] Complete |
 | edit account | `100:33` | [ ] Pending |
 | Frame 16 (Edit Profile Babysitter) | `103:254` | [ ] Pending |
 
@@ -63,8 +63,15 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 8
-- **Pending:** 16
+- **Completed:** 9
+- **Pending:** 15
+
+## Bugs & Improvements
+
+| Issue | Status |
+|-------|--------|
+| 404 page when babysitter not found needs better design | [ ] Pending |
+| Navbar not matching Figma design | [ ] Pending |
 
 ## Notes
 

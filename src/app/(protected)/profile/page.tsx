@@ -1,14 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useUserStore } from '@/stores';
 import { Button, Modal } from '@/components/ui';
+import { babysittersApi } from '@/lib/api';
+import type { Babysitter } from '@/types';
 
 export default function ProfilePage() {
   const { user, deleteAccount, loading } = useUserStore();
+  const [babysitterData, setBabysitterData] = useState<Babysitter | null>(null);
   const [showConfirm, setShowConfirm] = useState(false);
+
+  useEffect(() => {
+    if (user?.user_bbs && user.username) {
+      babysittersApi.getOne(user.username)
+        .then(({ data }) => setBabysitterData(data))
+        .catch(() => setBabysitterData(null));
+    }
+  }, [user?.user_bbs, user?.username]);
 
   if (!user) {
     return (
@@ -87,6 +98,20 @@ export default function ProfilePage() {
           <span className="font-bold text-black italic">Direccion: </span>
           <span className="text-black italic">{user.address}</span>
         </div>
+
+        {/* Babysitter-specific fields */}
+        {user.user_bbs && babysitterData && (
+          <div className="mt-6 space-y-4">
+            <div>
+              <span className="font-bold text-black">Estudios: </span>
+              <span className="text-black">{babysitterData.education_degree || 'No especificado'}</span>
+            </div>
+            <div>
+              <span className="font-bold text-black">Acerca de mi: </span>
+              <span className="text-black">{babysitterData.about_me || 'No especificado'}</span>
+            </div>
+          </div>
+        )}
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">

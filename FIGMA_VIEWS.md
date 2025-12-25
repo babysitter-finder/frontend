@@ -28,7 +28,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | profile cliente | `100:0` | [x] Complete |
 | Details babysitter (client) | `151:0` | [x] Complete |
 | edit account | `100:33` | [x] Complete |
-| Frame 16 (Edit Profile Babysitter) | `103:254` | [ ] Pending |
+| Frame 16 (Edit Profile Babysitter) | `103:254` | [x] Complete |
 
 ## Scheduling & Services
 
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 13
-- **Pending:** 11
+- **Completed:** 14
+- **Pending:** 10
 
 ## Bugs & Improvements
 

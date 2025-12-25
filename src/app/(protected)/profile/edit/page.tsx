@@ -5,12 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useUserStore } from '@/stores';
 import { Button } from '@/components/ui';
-import { Input, Select } from '@/components/forms';
+import { Input, Select, TextArea } from '@/components/forms';
+import { babysittersApi } from '@/lib/api';
 
 export default function EditProfilePage() {
   const { user, updateUserData, loading, error, getUserData } = useUserStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [form, setForm] = useState({
     first_name: '',
     last_name: '',
@@ -20,10 +22,28 @@ export default function EditProfilePage() {
     address: '',
     picture: undefined as File | undefined,
   });
+  const [babysitterForm, setBabysitterForm] = useState({
+    education_degree: '',
+    about_me: '',
+  });
 
   useEffect(() => {
     getUserData();
   }, [getUserData]);
+
+  // Fetch babysitter data if user is a babysitter
+  useEffect(() => {
+    if (user?.user_bbs && user.username) {
+      babysittersApi.getOne(user.username)
+        .then(({ data }) => {
+          setBabysitterForm({
+            education_degree: data.education_degree || '',
+            about_me: data.about_me || '',
+          });
+        })
+        .catch(() => {});
+    }
+  }, [user?.user_bbs, user?.username]);
 
   // Sync form when user data loads - using userKey to track meaningful changes
   const userKey = user ? `${user.username}-${user.email}` : '';
@@ -57,9 +77,19 @@ export default function EditProfilePage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    updateUserData(form);
+    setSaving(true);
+    try {
+      // Update user data
+      await updateUserData(form);
+      // If babysitter, also update babysitter data
+      if (user?.user_bbs && user.username) {
+        await babysittersApi.update(user.username, babysitterForm);
+      }
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (!user) {
@@ -172,6 +202,25 @@ export default function EditProfilePage() {
             required
           />
 
+          {/* Babysitter-specific fields */}
+          {user.user_bbs && (
+            <>
+              <Input
+                label="Estudios"
+                name="education_degree"
+                value={babysitterForm.education_degree}
+                onChange={(e) => setBabysitterForm({ ...babysitterForm, education_degree: e.target.value })}
+              />
+              <TextArea
+                label="Acerca de mi"
+                name="about_me"
+                value={babysitterForm.about_me}
+                onChange={(e) => setBabysitterForm({ ...babysitterForm, about_me: e.target.value })}
+                rows={4}
+              />
+            </>
+          )}
+
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <Link href="/profile">
@@ -179,8 +228,8 @@ export default function EditProfilePage() {
                 Cancelar
               </Button>
             </Link>
-            <Button type="submit" variant="blue" disabled={loading}>
-              {loading ? 'Guardando...' : 'Guardar cambios'}
+            <Button type="submit" variant="blue" disabled={saving || loading}>
+              {saving || loading ? 'Guardando...' : 'Guardar cambios'}
             </Button>
           </div>
         </form>

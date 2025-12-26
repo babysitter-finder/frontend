@@ -18,6 +18,7 @@ interface ServiceState {
   getService: (id: string) => Promise<void>;
   startService: (id: string) => Promise<void>;
   endService: (id: string) => Promise<void>;
+  onMyWay: (id: string) => Promise<void>;
   setServices: (services: Service[]) => void;
 }
 
@@ -116,6 +117,16 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
       window.location.href = '/';
     } catch {
       set({ error: 'Error al finalizar servicio', loading: false });
+    }
+  },
+
+  onMyWay: async (id) => {
+    set({ loading: true, error: null });
+    try {
+      const { data } = await servicesApi.onMyWay(id);
+      set({ editForm: data, loading: false });
+    } catch {
+      set({ error: 'Error al actualizar estado', loading: false });
     }
   },
 

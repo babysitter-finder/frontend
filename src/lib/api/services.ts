@@ -19,4 +19,7 @@ export const servicesApi = {
 
   end: (id: string) =>
     apiClient.patch<Service>(`/services/${id}/end`),
+
+  onMyWay: (id: string) =>
+    apiClient.patch<Service>(`/services/${id}/on_my_way/`),
 };

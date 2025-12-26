@@ -125,7 +125,7 @@ function BabysitterDashboard() {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full border border-black overflow-hidden flex-shrink-0">
                       <Image
-                        src={service.client?.picture || '/assets/default-avatar.png'}
+                        src={service.client?.picture || '/assets/girl.jpeg'}
                         alt={service.client?.first_name || 'Cliente'}
                         width={40}
                         height={40}
@@ -171,7 +171,7 @@ function BabysitterDashboard() {
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full border border-black overflow-hidden flex-shrink-0">
                       <Image
-                        src={service.client?.picture || '/assets/default-avatar.png'}
+                        src={service.client?.picture || '/assets/girl.jpeg'}
                         alt={service.client?.first_name || 'Cliente'}
                         width={40}
                         height={40}

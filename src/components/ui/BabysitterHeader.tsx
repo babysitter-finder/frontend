@@ -20,7 +20,7 @@ export function BabysitterHeader({ babysitter, className }: BabysitterHeaderProp
     >
       <div className="relative w-16 h-16 flex-shrink-0">
         <Image
-          src={babysitter.picture || '/default-avatar.png'}
+          src={babysitter.picture || '/assets/girl.jpeg'}
           alt={`${babysitter.first_name} ${babysitter.last_name}`}
           fill
           className="rounded-full object-cover border-2 border-illustration-primary"

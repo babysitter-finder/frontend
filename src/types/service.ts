@@ -1,7 +1,7 @@
 import { User } from './user';
 import { Babysitter } from './babysitter';
 
-export type ServiceStatus = 'pending' | 'accepted' | 'in_progress' | 'completed' | 'cancelled';
+export type ServiceStatus = 'pending' | 'accepted' | 'on_my_way' | 'in_progress' | 'completed' | 'cancelled';
 
 export type Shift = 'morning' | 'afternoon' | 'evening' | 'night';
 
@@ -14,11 +14,17 @@ export interface Service {
   special_cares: string;
   lat: string;
   long: string;
-  status: ServiceStatus;
-  babysitter: Babysitter;
-  client: User;
+  status?: ServiceStatus;
+  babysitter?: Babysitter;
+  client?: User;
+  user_client?: User;
   cost?: number;
   created_at?: string;
+  scheduled_start?: string;
+  on_my_way?: string | null;
+  service_start?: string | null;
+  service_end?: string | null;
+  is_active?: boolean;
 }
 
 export interface ServiceForm {

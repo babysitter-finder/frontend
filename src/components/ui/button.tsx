@@ -31,6 +31,7 @@ export function Button({
         'rounded-[var(--radius-button)] border-none',
         'text-black font-roboto text-lg cursor-pointer',
         'no-underline outline-none transition-opacity hover:opacity-90',
+        'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:opacity-50',
         variantStyles[variant],
         className
       )}

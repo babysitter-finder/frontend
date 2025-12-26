@@ -50,7 +50,7 @@ export function Header({ variant = 'default' }: HeaderProps) {
             <span className="font-roboto text-black">{user.first_name}</span>
             <div className="w-10 h-10 rounded-full border border-black overflow-hidden">
               <Image
-                src={user.picture || '/assets/default-avatar.png'}
+                src={user.picture || '/assets/girl.jpeg'}
                 alt="Profile"
                 width={40}
                 height={40}

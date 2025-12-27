@@ -22,4 +22,7 @@ export const servicesApi = {
 
   onMyWay: (id: string) =>
     apiClient.patch<Service>(`/services/${id}/on_my_way/`),
+
+  delete: (id: string) =>
+    apiClient.delete(`/services/${id}/`),
 };

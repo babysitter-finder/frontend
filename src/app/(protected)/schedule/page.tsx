@@ -1,68 +1,175 @@
 'use client';
 
-import { useEffect } from 'react';
-import Link from 'next/link';
+import { useEffect, useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { useServiceStore } from '@/stores';
+import { ServiceCard, EmptySchedule } from '@/components/appointments';
+import { Modal } from '@/components/ui/modal';
+import { Button } from '@/components/ui/button';
+import type { ServiceStatus } from '@/types';
+
+type FilterTab = 'upcoming' | 'past' | 'cancelled';
+
+const FILTER_TABS: { key: FilterTab; label: string }[] = [
+  { key: 'upcoming', label: 'Próximas' },
+  { key: 'past', label: 'Pasadas' },
+  { key: 'cancelled', label: 'Canceladas' },
+];
+
+const UPCOMING_STATUSES: ServiceStatus[] = ['pending', 'accepted', 'on_my_way', 'in_progress'];
+const PAST_STATUSES: ServiceStatus[] = ['completed'];
+const CANCELLED_STATUSES: ServiceStatus[] = ['cancelled'];
 
 export default function SchedulePage() {
-  const { services, loading, fetchServices } = useServiceStore();
+  const router = useRouter();
+  const { services, loading, error, fetchServices, deleteService } = useServiceStore();
+  const [activeTab, setActiveTab] = useState<FilterTab>('upcoming');
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [serviceToDelete, setServiceToDelete] = useState<string | null>(null);
 
   useEffect(() => {
     fetchServices();
   }, [fetchServices]);
 
-  return (
-    <div className="p-[var(--spacing-medium)]">
-      <h1 className="text-4xl mb-6">Mis Citas</h1>
+  const filteredServices = useMemo(() => {
+    if (!services) return [];
 
-      {loading ? (
-        <div className="text-center py-8">
-          <p className="text-gray-600">Cargando servicios...</p>
-        </div>
-      ) : services.length === 0 ? (
-        <div className="bg-section rounded-[var(--radius-card)] shadow-[var(--shadow-default)] p-6 text-center">
-          <p className="text-gray-600 mb-4">No tienes citas programadas.</p>
-          <Link
-            href="/"
-            className="text-illustration-primary font-medium"
-          >
-            Buscar nineras
-          </Link>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          {services.map((service) => (
-            <Link
-              key={service.id}
-              href={`/service/${service.id}`}
-              className="block no-underline"
-            >
-              <div className="bg-section rounded-[var(--radius-card)] shadow-[var(--shadow-default)] p-4 hover:shadow-lg transition-shadow">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-bold text-black">
-                      {service.babysitter?.first_name || 'Babysitter'} {service.babysitter?.last_name || ''}
-                    </h3>
-                    <p className="text-gray-600">{service.date}</p>
-                    <p className="text-gray-600">{service.shift}</p>
-                  </div>
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      service.status === 'completed'
-                        ? 'bg-positive text-white'
-                        : service.status === 'in_progress'
-                        ? 'bg-warning text-black'
-                        : 'bg-container text-black'
-                    }`}
-                  >
-                    {service.status}
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+    return services.filter((service) => {
+      const status = service.status || 'pending';
+
+      switch (activeTab) {
+        case 'upcoming':
+          return UPCOMING_STATUSES.includes(status);
+        case 'past':
+          return PAST_STATUSES.includes(status);
+        case 'cancelled':
+          return CANCELLED_STATUSES.includes(status);
+        default:
+          return true;
+      }
+    });
+  }, [services, activeTab]);
+
+  const handleDeleteClick = (id: string) => {
+    setServiceToDelete(id);
+    setDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (serviceToDelete) {
+      await deleteService(serviceToDelete);
+      setDeleteModalOpen(false);
+      setServiceToDelete(null);
+    }
+  };
+
+  const handleCancelDelete = () => {
+    setDeleteModalOpen(false);
+    setServiceToDelete(null);
+  };
+
+  const handleEdit = (id: string) => {
+    router.push(`/service/${id}/edit`);
+  };
+
+  const getEmptyVariant = () => {
+    if (services.length === 0) return 'no-appointments';
+    if (activeTab === 'upcoming') return 'no-upcoming';
+    return 'no-results';
+  };
+
+  return (
+    <main
+      aria-label="Mis Citas"
+      className="p-[var(--spacing-medium)] max-w-4xl mx-auto"
+    >
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-4xl font-bold text-black font-overlock">Mis Citas</h1>
+        {services.length > 0 && (
+          <p className="text-gray-600 mt-1">
+            {filteredServices.length} {filteredServices.length === 1 ? 'cita' : 'citas'}
+          </p>
+        )}
+      </div>
+
+      {/* Filter Tabs */}
+      {services.length > 0 && (
+        <nav aria-label="Filtros de citas" className="mb-6">
+          <div className="flex gap-2 bg-section rounded-[var(--radius-card)] p-2">
+            {FILTER_TABS.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                aria-pressed={activeTab === tab.key}
+                className={`
+                  flex-1 px-4 py-2 rounded-lg font-medium transition-all
+                  ${
+                    activeTab === tab.key
+                      ? 'bg-illustration-secondary text-black shadow-sm'
+                      : 'bg-transparent text-gray-600 hover:bg-gray-100'
+                  }
+                `}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </nav>
       )}
-    </div>
+
+      {/* Content */}
+      {loading ? (
+        <div className="text-center py-12">
+          <div className="inline-block w-8 h-8 border-4 border-illustration-secondary border-t-transparent rounded-full animate-spin mb-4" />
+          <p className="text-gray-600">Cargando citas...</p>
+        </div>
+      ) : error ? (
+        <div className="bg-negative/10 text-negative p-4 rounded-lg text-center">
+          <p>{error}</p>
+          <Button
+            variant="red"
+            onClick={() => fetchServices()}
+            className="mt-4"
+          >
+            Reintentar
+          </Button>
+        </div>
+      ) : filteredServices.length === 0 ? (
+        <EmptySchedule variant={getEmptyVariant()} />
+      ) : (
+        <section aria-label="Lista de citas" className="space-y-4">
+          {filteredServices.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              onDelete={handleDeleteClick}
+              onEdit={handleEdit}
+            />
+          ))}
+        </section>
+      )}
+
+      {/* Delete Confirmation Modal */}
+      <Modal open={deleteModalOpen} onClose={handleCancelDelete}>
+        <div className="text-center">
+          <div className="text-5xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold text-black mb-2 font-overlock">
+            ¿Cancelar esta cita?
+          </h2>
+          <p className="text-gray-600 mb-6">
+            Esta acción no se puede deshacer. La niñera será notificada de la cancelación.
+          </p>
+          <div className="flex gap-3 justify-center">
+            <Button variant="pink" onClick={handleCancelDelete}>
+              No, mantener
+            </Button>
+            <Button variant="red" onClick={handleConfirmDelete} disabled={loading}>
+              {loading ? 'Cancelando...' : 'Sí, cancelar cita'}
+            </Button>
+          </div>
+        </div>
+      </Modal>
+    </main>
   );
 }

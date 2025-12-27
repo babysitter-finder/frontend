@@ -140,8 +140,8 @@ function BabysitterDashboard() {
                         {service.date} • {getShiftLabel(service.shift)}
                       </p>
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(service.status)}`}>
-                      {getStatusLabel(service.status)}
+                    <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(service.status || 'pending')}`}>
+                      {getStatusLabel(service.status || 'pending')}
                     </span>
                   </div>
                 </button>
@@ -186,8 +186,8 @@ function BabysitterDashboard() {
                         {service.date} • {getShiftLabel(service.shift)}
                       </p>
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(service.status)}`}>
-                      {getStatusLabel(service.status)}
+                    <span className={`px-2 py-1 rounded-full text-xs ${getStatusColor(service.status || 'pending')}`}>
+                      {getStatusLabel(service.status || 'pending')}
                     </span>
                   </div>
                 </button>

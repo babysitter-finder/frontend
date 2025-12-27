@@ -19,6 +19,7 @@ interface ServiceState {
   startService: (id: string) => Promise<void>;
   endService: (id: string) => Promise<void>;
   onMyWay: (id: string) => Promise<void>;
+  deleteService: (id: string) => Promise<void>;
   setServices: (services: Service[]) => void;
 }
 
@@ -127,6 +128,20 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
       set({ editForm: data, loading: false });
     } catch {
       set({ error: 'Error al actualizar estado', loading: false });
+    }
+  },
+
+  deleteService: async (id) => {
+    const { services } = get();
+    set({ loading: true, error: null });
+    try {
+      await servicesApi.delete(id);
+      set({
+        services: services.filter((s) => s.id !== id),
+        loading: false,
+      });
+    } catch {
+      set({ error: 'Error al eliminar cita', loading: false });
     }
   },
 

@@ -79,7 +79,7 @@ export default function ServiceMap({
           <Marker
             key={service.id}
             position={[parseFloat(service.lat), parseFloat(service.long)]}
-            icon={icons[service.status] || icons.pending}
+            icon={icons[service.status || 'pending'] || icons.pending}
             eventHandlers={{
               click: () => onSelectService(service),
             }}

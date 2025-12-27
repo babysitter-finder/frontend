@@ -36,7 +36,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 |------|---------|--------|
 | Schedule (Client) | `158:0` | [x] Complete |
 | Schedule (Babysitter) | `427:1859` | [x] Complete |
-| Form job | `151:66` | [ ] Pending |
+| Form job | `151:66` | [x] Complete |
 | Resume Job | `151:86` | [ ] Pending |
 | EditJob | `158:29` | [x] Complete |
 | Direction of the appointment | `103:139` | [ ] Pending |
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 18
-- **Pending:** 6
+- **Completed:** 19
+- **Pending:** 5
 
 ## Bugs & Improvements
 
@@ -73,6 +73,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | 404 page when babysitter not found needs better design | [x] Complete |
 | Navbar not matching Figma design | [ ] Pending |
 | Loading component - SVG with pulse animation or skeleton loading | [ ] Pending |
+| Migrate emoji icons to Tabler Icons across all app | [ ] Pending |
 
 ## Notes
 

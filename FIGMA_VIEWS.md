@@ -24,7 +24,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 
 | View | Node ID | Status |
 |------|---------|--------|
-| Profile Client (Babysitter) | `84:0` | [ ] Pending |
+| Profile Client (Babysitter) | `84:0` | [x] Complete |
 | profile cliente | `100:0` | [x] Complete |
 | Details babysitter (client) | `151:0` | [x] Complete |
 | edit account | `100:33` | [x] Complete |
@@ -34,8 +34,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 
 | View | Node ID | Status |
 |------|---------|--------|
-| Schedule (Client) | `158:0` | [ ] Pending |
-| Schedule (Babysitter) | `427:1859` | [ ] Pending |
+| Schedule (Client) | `158:0` | [x] Complete |
+| Schedule (Babysitter) | `427:1859` | [x] Complete |
 | Form job | `151:66` | [ ] Pending |
 | Resume Job | `151:86` | [ ] Pending |
 | EditJob | `158:29` | [ ] Pending |
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 14
-- **Pending:** 10
+- **Completed:** 17
+- **Pending:** 7
 
 ## Bugs & Improvements
 

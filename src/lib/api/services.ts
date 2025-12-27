@@ -25,4 +25,10 @@ export const servicesApi = {
 
   delete: (id: string) =>
     apiClient.delete(`/services/${id}/`),
+
+  accept: (id: string) =>
+    apiClient.patch<Service>(`/services/${id}/accept/`),
+
+  reject: (id: string) =>
+    apiClient.patch<Service>(`/services/${id}/reject/`),
 };

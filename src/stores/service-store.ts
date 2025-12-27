@@ -20,6 +20,8 @@ interface ServiceState {
   endService: (id: string) => Promise<void>;
   onMyWay: (id: string) => Promise<void>;
   deleteService: (id: string) => Promise<void>;
+  acceptService: (id: string) => Promise<void>;
+  rejectService: (id: string) => Promise<void>;
   setServices: (services: Service[]) => void;
 }
 
@@ -142,6 +144,34 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
       });
     } catch {
       set({ error: 'Error al eliminar cita', loading: false });
+    }
+  },
+
+  acceptService: async (id) => {
+    const { services } = get();
+    set({ loading: true, error: null });
+    try {
+      const { data } = await servicesApi.accept(id);
+      set({
+        services: services.map((s) => (s.id === id ? data : s)),
+        loading: false,
+      });
+    } catch {
+      set({ error: 'Error al aceptar servicio', loading: false });
+    }
+  },
+
+  rejectService: async (id) => {
+    const { services } = get();
+    set({ loading: true, error: null });
+    try {
+      const { data } = await servicesApi.reject(id);
+      set({
+        services: services.map((s) => (s.id === id ? data : s)),
+        loading: false,
+      });
+    } catch {
+      set({ error: 'Error al rechazar servicio', loading: false });
     }
   },
 

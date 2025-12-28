@@ -56,7 +56,7 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
 
     set({ loading: true, error: null });
     try {
-      await servicesApi.create(babysitterUsername, {
+      const { data } = await servicesApi.create(babysitterUsername, {
         date: serviceForm.date || '',
         count_children: serviceForm.count_children || 1,
         shift: serviceForm.shift || 'morning',
@@ -65,8 +65,8 @@ export const useServiceStore = create<ServiceState>((set, get) => ({
         lat: serviceForm.lat || '',
         long: serviceForm.long || '',
       });
-      set({ loading: false, serviceForm: {} });
-      window.location.href = '/';
+      set({ loading: false, serviceForm: {}, editForm: data });
+      window.location.href = `/service/resume/${data.id}`;
     } catch {
       set({ error: 'Error al crear servicio', loading: false });
     }

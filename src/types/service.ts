@@ -10,6 +10,7 @@ export interface Service {
   date: string;
   count_children: number;
   shift: Shift;
+  start_time?: string;
   address: string;
   special_cares: string;
   lat: string;

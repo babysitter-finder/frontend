@@ -37,7 +37,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | Schedule (Client) | `158:0` | [x] Complete |
 | Schedule (Babysitter) | `427:1859` | [x] Complete |
 | Form job | `151:66` | [x] Complete |
-| Resume Job | `151:86` | [ ] Pending |
+| Resume Job | `151:86` | [x] Complete |
 | EditJob | `158:29` | [x] Complete |
 | Direction of the appointment | `103:139` | [ ] Pending |
 
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 19
-- **Pending:** 5
+- **Completed:** 20
+- **Pending:** 4
 
 ## Bugs & Improvements
 

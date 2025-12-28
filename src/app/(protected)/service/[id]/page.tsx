@@ -7,6 +7,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useServiceStore } from '@/stores';
 import { Button } from '@/components/ui';
+import { IconNavigation } from '@tabler/icons-react';
 
 // Dynamically import map to avoid SSR issues
 const LocationMap = dynamic(
@@ -169,8 +170,8 @@ export default function ServiceDetailPage() {
           <span className="text-[#1a365d] italic">{service.address}</span>
         </div>
 
-        {/* Estoy en camino Button */}
-        <div className="flex justify-center mt-6">
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-4 mt-6">
           <Button
             variant="pink"
             onClick={handleOnMyWay}
@@ -178,6 +179,12 @@ export default function ServiceDetailPage() {
           >
             {loading ? 'Actualizando...' : isOnMyWay || isInProgress ? 'En camino' : 'Estoy en camino'}
           </Button>
+          <Link href={`/service/${serviceId}/directions`}>
+            <Button variant="blue">
+              <IconNavigation size={18} className="mr-2" />
+              Ver direcciones
+            </Button>
+          </Link>
         </div>
       </div>
 

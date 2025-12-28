@@ -39,7 +39,7 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 | Form job | `151:66` | [x] Complete |
 | Resume Job | `151:86` | [x] Complete |
 | EditJob | `158:29` | [x] Complete |
-| Direction of the appointment | `103:139` | [ ] Pending |
+| Direction of the appointment | `103:139` | [x] Complete |
 
 ## Popups & Modals
 
@@ -63,8 +63,8 @@ Figma Design: https://www.figma.com/design/vBXMELFr9aRm6dQU8V8Ogw/Hi-Sitter
 ## Summary
 
 - **Total Views:** 24
-- **Completed:** 20
-- **Pending:** 4
+- **Completed:** 21
+- **Pending:** 3
 
 ## Bugs & Improvements
 
